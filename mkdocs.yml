@@ -6,10 +6,16 @@ nav:
   - OS/index.md
   - Storage stack:
     - 几种常见的IO方式: OS/Storagestack/IO.md
+# - Database:
+# - Distributed Systems:
+# - MLsys:
+# - Paper reading:
 
 theme:
   name: material
   logo: logo.png
+  icon:
+    repo: fontawesome/brands/git-alt
   # favicon: logo.ico
   features:
     - navigation.tabs # 一级导航在横着的导航栏
@@ -122,7 +128,8 @@ plugins:
   - git-revision-date-localized:
       enable_creation_date: true
       type: timeago
-      
+
+repo_name: https://github.com/ColdPorridge/notebook
 # plugins:
 #   - typeset
 #   - meta
