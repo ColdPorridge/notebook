@@ -1,0 +1,123 @@
+site_name: 凉粥的学习笔记
+nav:
+- 主页: 
+  - index.md
+- OS:
+  - OS/index.md
+  - Storage stack:
+    - 几种常见的IO方式: OS/Storagestack/IO.md
+
+theme:
+  name: material
+  logo: logo.png
+  # favicon: logo.ico
+  features:
+    - navigation.tabs # 一级导航在横着的导航栏
+    - navigation.tracking # 地址栏中的 URL 会随当前位置变化为对应小节的 URL
+    - navigation.indexes # 将 index 页面直接附到小节名上
+    - navigation.top # 回到顶部按钮
+
+    - content.code.select
+    - content.code.copy
+    - content.code.select
+    - content.code.annotate # 可以在代码块中增添点击展示的注释，参见 https://squidfunk.github.io/mkdocs-material/reference/code-blocks/#adding-annotations
+    # - navigation.sections # 二级导航是粗体
+    # - navigation.expand # 导航默认展开
+    - toc.follow # toc 跟随
+    # - toc.integrate # 文档 toc 集成到总目录中 
+  language: 'zh'
+  # palette:
+  #   primary: blue
+  #   scheme: default
+  palette: 
+    # Palette toggle for light mode
+    - scheme: default
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+  font:
+    text: Noto Serif SC # Roboto
+    code: Roboto Mono
+
+markdown_extensions:
+  
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+
+  - attr_list
+  - md_in_html
+  - pymdownx.superfences
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+
+
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.tabbed:
+      alternate_style: true 
+  - toc:
+      permalink: true # link for each title
+      slugify: !!python/name:pymdownx.slugs.uslugify # enable Unicode link
+  - admonition
+  - abbr
+  - attr_list
+  - def_list
+  - footnotes
+  - tables
+  - meta
+  - md_in_html
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      # smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets: # 允许将其他文件内容插入文件，语法是 --8<-- "filename.ext" 等，参见 https://facelessuser.github.io/pymdown-extensions/extensions/snippets/#snippets-notation
+      auto_append:
+        - includes/abbreviations.md
+      base_path: ["docs"]
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true 
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  
+# plugins:
+#   - typeset
+#   - meta
