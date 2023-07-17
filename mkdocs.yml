@@ -6,6 +6,12 @@ nav:
   - OS/index.md
   - Storage stack:
     - 几种常见的IO方式: OS/Storagestack/IO.md
+- Distributed Systems:
+  - Distributed System/index.md
+  - 剑桥分布式系统课程: 
+    - Distributed System/剑桥分布式/index.md
+    - Introduction: Distributed System/剑桥分布式/L1.md
+    - Models of distributed systems: Distributed System/剑桥分布式/L2.md
 # - Database:
 # - Distributed Systems:
 # - MLsys:
@@ -129,7 +135,9 @@ plugins:
       enable_creation_date: true
       type: timeago
 
-repo_name: https://github.com/ColdPorridge/notebook
+repo_name: ColdPorridge/notebook
+repo_url: https://github.com/ColdPorridge/notebook
+
 # plugins:
 #   - typeset
 #   - meta
