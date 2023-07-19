@@ -10,8 +10,10 @@ nav:
   - Distributed System/index.md
   - 剑桥分布式系统课程: 
     - Distributed System/剑桥分布式/index.md
-    - Introduction: Distributed System/剑桥分布式/L1.md
-    - Models of distributed systems: Distributed System/剑桥分布式/L2.md
+    - 1. Introduction: Distributed System/剑桥分布式/L1.md
+    - 2. Models of distributed systems: Distributed System/剑桥分布式/L2.md
+    - 3. Time, clocks, and ordering of events: Distributed System/剑桥分布式/L3.md
+    - 4. Broadcast protocols and logical time: Distributed System/剑桥分布式/L4.md
 # - Database:
 # - Distributed Systems:
 # - MLsys:
@@ -59,14 +61,13 @@ theme:
     code: Roboto Mono
 
 markdown_extensions:
-  
   - admonition
   - pymdownx.details
   - pymdownx.superfences
-
+  
   - attr_list
   - md_in_html
-  - pymdownx.superfences
+  # - pymdownx.superfences
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
@@ -77,7 +78,7 @@ markdown_extensions:
       pygments_lang_class: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
-  - pymdownx.superfences
+  # - pymdownx.superfences
 
 
   - pymdownx.arithmatex:
@@ -110,21 +111,21 @@ markdown_extensions:
       user: squidfunk
       repo: mkdocs-material
   - pymdownx.mark
-  - pymdownx.smartsymbols
-  - pymdownx.snippets: # 允许将其他文件内容插入文件，语法是 --8<-- "filename.ext" 等，参见 https://facelessuser.github.io/pymdown-extensions/extensions/snippets/#snippets-notation
-      auto_append:
-        - includes/abbreviations.md
-      base_path: ["docs"]
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
-  - pymdownx.tabbed:
-      alternate_style: true 
-  - pymdownx.tasklist:
-      custom_checkbox: true
-  - pymdownx.tilde
+  # - pymdownx.smartsymbols
+  # - pymdownx.snippets: # 允许将其他文件内容插入文件，语法是 --8<-- "filename.ext" 等，参见 https://facelessuser.github.io/pymdown-extensions/extensions/snippets/#snippets-notation
+  #     auto_append:
+  #       - includes/abbreviations.md
+  #     base_path: ["docs"]
+  # - pymdownx.superfences:
+  #     custom_fences:
+  #       - name: mermaid
+  #         class: mermaid
+  #         format: !!python/name:pymdownx.superfences.fence_code_format
+  # - pymdownx.tabbed:
+  #     alternate_style: true 
+  # - pymdownx.tasklist:
+  #     custom_checkbox: true
+  # - pymdownx.tilde
 extra_javascript:
   - javascripts/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
