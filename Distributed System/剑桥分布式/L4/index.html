@@ -12,8 +12,10 @@
         <link rel="prev" href="../L3/">
       
       
+        <link rel="next" href="../../../MLSys/">
+      
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.19">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.21">
     
     
       
@@ -200,6 +202,22 @@
         
   
   
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../DB/" class="md-tabs__link">
+        DB
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
     
   
 
@@ -210,6 +228,54 @@
     <li class="md-tabs__item">
       <a href="../../" class="md-tabs__link md-tabs__link--active">
         Distributed Systems
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../MLSys/" class="md-tabs__link">
+        MLSys
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../DL%26ML/" class="md-tabs__link">
+        DL&ML
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../Web/" class="md-tabs__link">
+        杂
       </a>
     </li>
   
@@ -412,6 +478,51 @@
 
   
   
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../DB/">DB</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          DB
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
     
   
   
@@ -421,7 +532,7 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
       
       
         
@@ -438,14 +549,14 @@
         <div class="md-nav__link md-nav__link--index ">
           <a href="../../">Distributed Systems</a>
           
-            <label for="__nav_3">
+            <label for="__nav_4">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
-        <label class="md-nav__title" for="__nav_3">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           Distributed Systems
         </label>
@@ -466,7 +577,7 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked>
       
       
         
@@ -489,14 +600,14 @@
         <div class="md-nav__link md-nav__link--index ">
           <a href="../">剑桥分布式系统课程</a>
           
-            <label for="__nav_3_2">
+            <label for="__nav_4_2">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
-        <label class="md-nav__title" for="__nav_3_2">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_4_2">
           <span class="md-nav__icon md-icon"></span>
           剑桥分布式系统课程
         </label>
@@ -561,10 +672,447 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          4. Broadcast protocols and logical time
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         4. Broadcast protocols and logical time
       </a>
       
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#41-logical-time" class="md-nav__link">
+    4.1 Logical time
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1 Logical time">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#411-lamport-clocks" class="md-nav__link">
+    4.1.1 Lamport clocks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#412-vector-clocks" class="md-nav__link">
+    4.1.2 Vector clocks
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#42-delivery-order-in-broadcast-protocols" class="md-nav__link">
+    4.2 Delivery order in broadcast protocols
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../MLSys/">MLSys</a>
+          
+            <label for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          MLSys
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../MLSys/CMU10414/">CMU 10-414/714</a>
+          
+            <label for="__nav_5_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          CMU 10-414/714
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MLSys/CMU10414/basics/" class="md-nav__link">
+        Deep learning basics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MLSys/CMU10414/AD/" class="md-nav__link">
+        Automatic Differentiation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MLSys/CMU10414/NN/" class="md-nav__link">
+        Neural Network Abstraction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MLSys/CMU10414/NN_impl/" class="md-nav__link">
+        Neural Network Implementation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MLSys/CMU10414/GPU_acc/" class="md-nav__link">
+        Hardware Acceleration
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../DL%26ML/">DL&ML</a>
+          
+            <label for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          DL&ML
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL%26ML/Transformer/" class="md-nav__link">
+        Transformer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL%26ML/GPT/" class="md-nav__link">
+        GPT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL%26ML/HELM/" class="md-nav__link">
+        HELM
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../Web/">杂</a>
+          
+            <label for="__nav_7">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          杂
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_2" >
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+          浏览器内核
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7_2">
+          <span class="md-nav__icon md-icon"></span>
+          浏览器内核
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Web/Browser%20Kernel/webview/" class="md-nav__link">
+        WebView
+      </a>
     </li>
   
 
@@ -603,6 +1151,48 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#41-logical-time" class="md-nav__link">
+    4.1 Logical time
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1 Logical time">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#411-lamport-clocks" class="md-nav__link">
+    4.1.1 Lamport clocks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#412-vector-clocks" class="md-nav__link">
+    4.1.2 Vector clocks
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#42-delivery-order-in-broadcast-protocols" class="md-nav__link">
+    4.2 Delivery order in broadcast protocols
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -620,13 +1210,118 @@
 
 
 <h1 id="4-broadcast-protocols-and-logical-time">4. Broadcast protocols and logical time<a class="headerlink" href="#4-broadcast-protocols-and-logical-time" title="Permanent link">&para;</a></h1>
+<p>在本讲座中，我们将研究广播协议（broadcast protocols）（也称为 multicast protocols），即向多个接收者发送一条信息的算法。它们是更层次分布式算法的有用构件，在之后会会被用到。在实际应用中，有几种不同的广播协议，它们的主要区别在于传递信息（deliver messages.）的顺序。正如我们在上一讲中看到的，顺序的概念与时钟和时间密切相关，而物理时钟又可能导致一系列问题。因此，在研究广播前，我们先看一看逻辑时钟。</p>
+<h2 id="41-logical-time">4.1 Logical time<a class="headerlink" href="#41-logical-time" title="Permanent link">&para;</a></h2>
+<p>在上一讲中，即使使用类似 NTP 的方式同步过，我们看到来自物理时钟的时间戳可能与因果关系不一致。在这里我们讨论两种能解决此问题的逻辑时钟，当然也有一些物理和逻辑结合的混合时钟，但是我们不会在这里讨论。</p>
+<h3 id="411-lamport-clocks">4.1.1 Lamport clocks<a class="headerlink" href="#411-lamport-clocks" title="Permanent link">&para;</a></h3>
+<p>我们要研究的第一种逻辑时钟是 Lamport 时钟，由 Lamport 在分布式计算的开创性论文之一中提出，简单的说明如下：</p>
+<ul>
+<li>
+<p>Lamport 时间戳本质上是一个整数，用来计算已发生事件的数量。</p>
+</li>
+<li>
+<p>每个节点维护一个本地时钟，每次有本地事件发生时，本地时钟就会 <mark>+1</mark> </p>
+</li>
+<li>
+<p>我们使用 <span class="arithmatex">\(L(e)\)</span> 表示事件 <span class="arithmatex">\(e\)</span> 的时间戳，<span class="arithmatex">\(L(e)\)</span> 是一个非负整数</p>
+</li>
+<li>
+<p>在节点发送消息时，在消息里带上“发送消息”这一事件的本地时间戳，即 <span class="arithmatex">\(L(send(m))\)</span> </p>
+</li>
+<li>
+<p>在节点接收消息时，比较自己的本地时间戳和消息里的时间戳，取两者中较大的一个，然后将本地时间戳设置为这个较大值加一，即  <span class="arithmatex">\(L(receive(m)) = max(L(receive(m)), L(send(m))) + 1\)</span> </p>
+</li>
+</ul>
+<p>回忆起在上一节中，我们使用 <code>a-&gt;b</code>，<code>a||b</code>或<code>b-&gt;a</code>表示事件a，b之间的happens-before关系，表示Lamport 时钟有如下性质：</p>
+<ul>
+<li>
+<p>如果 <code>a-&gt;b</code>，则 <span class="arithmatex">\(L(a) &lt; L(b)\)</span></p>
+</li>
+<li>
+<p>但是，如果 <span class="arithmatex">\(L(a) &lt; L(b)\)</span>，则不一定有 <code>a-&gt;b</code>，也有可能是 <code>a||b</code></p>
+</li>
+</ul>
+<p><strong>即 Lamport 时钟顺序是有happens-before关系充分非必要条件</strong>，可以基于 Lamport 时间戳和节点的编号构造一个全序，但是这个全序不一定是happens-before关系，却是符合 causal order 的。（因为“因”的时间戳必然小于“果”）。</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p><figure markdown>
+<img alt="Alt text" src="../assets/image-20.png" width="400" />
+</figure></p>
+</div>
+<p>可以将<span class="arithmatex">\(\prec\)</span>（全序）看做是对<span class="arithmatex">\(\to\)</span>（happens-before）（偏序）的一种线性扩展（linear extension），即<span class="arithmatex">\(\to\)</span>是<span class="arithmatex">\(\prec\)</span>的子集。</p>
+<h3 id="412-vector-clocks">4.1.2 Vector clocks<a class="headerlink" href="#412-vector-clocks" title="Permanent link">&para;</a></h3>
+<p>因为给出 <span class="arithmatex">\(L(a) &lt; L(b)\)</span>，不能确定是 <code>a-&gt;b</code> 还是 <code>a||b</code>，因此我们需要更强大的逻辑时钟。我们将研究的第二种逻辑时钟是向量时钟（vector clocks），由 Fidge 在 1988 年提出，简单的说明如下：</p>
+<ul>
+<li>
+<p>Lamport 时间戳只是一个整数（可能还附有节点名称），而向量时间戳则是一个整数向量，系统中的每个节点都对应向量中的一个元素。</p>
+</li>
+<li>
+<p>对于一个事件，其向量钟时间戳可表示为 <span class="arithmatex">\(V(e) = \left\langle t_1, t_2, \ldots, t_n\right\rangle\)</span></p>
+</li>
+<li>
+<p>节点<span class="arithmatex">\(N_i\)</span>上发生了事件e，则节点将自身向量钟的第<span class="arithmatex">\(i\)</span>个元素==+1==，作为事件<span class="arithmatex">\(e\)</span>的时间戳</p>
+</li>
+<li>
+<p>在节点发送消息时，在消息里带上“发送消息”这一事件的本地时间戳，即 <span class="arithmatex">\(V(send(m))\)</span></p>
+</li>
+<li>
+<p>在节点接收消息时，比较自己的本地时间戳和消息里的时间戳，对于每个元素，取两者中较大的一个，然后将本地对应的元素==+1==</p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><figure markdown>
+<img alt="Alt text" src="../assets/image-21.png" width="400" />
+</figure></p>
+</div>
+<div class="admonition summry">
+<p class="admonition-title">Summry</p>
+<p>对于<span class="arithmatex">\(V(e)\)</span>中的<span class="arithmatex">\(t_i\)</span>，可以理解为当事件e发生，节点<span class="arithmatex">\(N_i\)</span>上已经发生了<span class="arithmatex">\(t_i\)</span>个事件了（如果e在i上，则包括e在内）。</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p><figure markdown>
+<img alt="Alt text" src="../assets/image-22.png" />
+</figure></p>
+</div>
+<p>根据向量钟我们可以定义如下的顺序：</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(T=T^{\prime}\)</span> iff <span class="arithmatex">\(T[i]=T^{\prime}[i]\)</span> for all <span class="arithmatex">\(i \in\{1, \ldots, n\}\)</span></p>
+</li>
+<li>
+<p><span class="arithmatex">\(T \leq T^{\prime}\)</span> iff <span class="arithmatex">\(T[i] \leq T^{\prime}[i]\)</span> for all <span class="arithmatex">\(i \in\{1, \ldots, n\}\)</span></p>
+</li>
+<li>
+<p><span class="arithmatex">\(T&lt;T^{\prime}\)</span> iff <span class="arithmatex">\(T \leq T^{\prime}\)</span> and <span class="arithmatex">\(T \neq T^{\prime}\)</span></p>
+</li>
+<li>
+<p><span class="arithmatex">\(T \| T^{\prime}\)</span> iff <span class="arithmatex">\(T \not \leq T^{\prime}\)</span> and <span class="arithmatex">\(T^{\prime} \not \leq T\)</span>于是则有</p>
+</li>
+</ul>
+<p>于是则有：</p>
+<p><span class="arithmatex">\(V(a) \leq V(b)\)</span> iff <span class="arithmatex">\((\{a\} \cup\{e \mid e \rightarrow a\}) \subseteq(\{b\} \cup\{e \mid e \rightarrow b\})\)</span></p>
+<p>更详细地说明的话:</p>
+<ul>
+<li>
+<p><span class="arithmatex">\((V(a)&lt;V(b)) \Longleftrightarrow(a \rightarrow b)\)</span></p>
+</li>
+<li>
+<p><span class="arithmatex">\((V(a)=V(b)) \Longleftrightarrow(a=b)\)</span></p>
+</li>
+<li>
+<p><span class="arithmatex">\((V(a) \| V(b)) \Longleftrightarrow(a \| b)\)</span></p>
+</li>
+</ul>
+<p><strong>向量时间戳的偏序与 happens-before 关系所定义的偏序完全一致</strong>。因此，向量时钟算法为我们提供了在实践中计算 happens-before 关系的机制。</p>
+<h2 id="42-delivery-order-in-broadcast-protocols">4.2 Delivery order in broadcast protocols<a class="headerlink" href="#42-delivery-order-in-broadcast-protocols" title="Permanent link">&para;</a></h2>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-07-19T05:13:39+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-07-19</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-08-10T15:52:56+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-08-10</span>
       
         <br>
         创建日期:
