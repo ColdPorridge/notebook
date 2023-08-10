@@ -6,6 +6,9 @@ nav:
   - OS/index.md
   - Storage stack:
     - 几种常见的IO方式: OS/Storagestack/IO.md
+
+- DB:
+  - DB/index.md
 - Distributed Systems:
   - Distributed System/index.md
   - 剑桥分布式系统课程: 
@@ -14,6 +17,25 @@ nav:
     - 2. Models of distributed systems: Distributed System/剑桥分布式/L2.md
     - 3. Time, clocks, and ordering of events: Distributed System/剑桥分布式/L3.md
     - 4. Broadcast protocols and logical time: Distributed System/剑桥分布式/L4.md
+- MLSys:
+  - MLSys/index.md
+  - CMU 10-414/714: 
+    - MLSys/CMU10414/index.md
+    - Deep learning basics: MLSys/CMU10414/basics.md
+    - Automatic Differentiation: MLSys/CMU10414/AD.md
+    - Neural Network Abstraction: MLSys/CMU10414/NN.md
+    - Neural Network Implementation: MLSys/CMU10414/NN_impl.md
+    - Hardware Acceleration: MLSys/CMU10414/GPU_acc.md
+
+- DL&ML:
+  - DL&ML/index.md
+  - Transformer: DL&ML/Transformer.md
+  - GPT: DL&ML/GPT.md
+  - HELM: DL&ML/HELM.md
+- 杂:
+  - Web/index.md
+  - 浏览器内核:
+    - WebView: Web/Browser Kernel/webview.md
 # - Database:
 # - Distributed Systems:
 # - MLsys:
