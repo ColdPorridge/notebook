@@ -19,6 +19,11 @@ nav:
     - 4. Broadcast protocols and logical time: Distributed System/剑桥分布式/L4.md
 - MLSys:
   - MLSys/index.md
+  - Papers:
+    - MLSys/Papers/index.md
+    - LoRA: MLSys/Papers/LoRA.md
+    - FlashAttention: MLSys/Papers/FlashAttention.md
+    - LLaMA-Adapter: MLSys/Papers/LLaMA-Adapter.md
   - CMU 10-414/714: 
     - MLSys/CMU10414/index.md
     - Deep learning basics: MLSys/CMU10414/basics.md
@@ -26,6 +31,7 @@ nav:
     - Neural Network Abstraction: MLSys/CMU10414/NN.md
     - Neural Network Implementation: MLSys/CMU10414/NN_impl.md
     - Hardware Acceleration: MLSys/CMU10414/GPU_acc.md
+  - FSDP: MLSys/FSDP.md
 
 - DL&ML:
   - DL&ML/index.md
