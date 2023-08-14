@@ -38,6 +38,7 @@ nav:
   - Transformer: DL&ML/Transformer.md
   - GPT: DL&ML/GPT.md
   - HELM: DL&ML/HELM.md
+  - FLAN: DL&ML/FLAN.md
 - 杂:
   - Web/index.md
   - 浏览器内核:
@@ -158,7 +159,13 @@ extra_javascript:
   - javascripts/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - javascripts/katex.js 
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js  
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js
 
+extra_css:
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css
+  
 plugins:
   - git-revision-date-localized:
       enable_creation_date: true
