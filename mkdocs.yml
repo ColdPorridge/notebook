@@ -39,6 +39,7 @@ nav:
   - GPT: DL&ML/GPT.md
   - HELM: DL&ML/HELM.md
   - FLAN: DL&ML/FLAN.md
+  - Self-Instruct: DL&ML/Self-Instruct.md
 - 杂:
   - Web/index.md
   - 浏览器内核:
