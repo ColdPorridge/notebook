@@ -860,6 +860,47 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#2-method" class="md-nav__link">
+    2. Method
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Method">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-learnable-adaption-prompts" class="md-nav__link">
+    2.1 Learnable Adaption Prompts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-zero-initiallized-attention" class="md-nav__link">
+    2.2 Zero-initiallized Attention
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-multi-modal-reasoning" class="md-nav__link">
+    2.3 Multi-modal Reasoning
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-zero-initialized-attention-for-other-large-models" class="md-nav__link">
+    2.4 Zero-initialized Attention for other Large Models
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1135,7 +1176,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../DL&ML/FLAN.md" class="md-nav__link">
+      <a href="../../../DL%26ML/FLAN/" class="md-nav__link">
         FLAN
       </a>
     </li>
@@ -1291,6 +1332,47 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#2-method" class="md-nav__link">
+    2. Method
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Method">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-learnable-adaption-prompts" class="md-nav__link">
+    2.1 Learnable Adaption Prompts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-zero-initiallized-attention" class="md-nav__link">
+    2.2 Zero-initiallized Attention
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-multi-modal-reasoning" class="md-nav__link">
+    2.3 Multi-modal Reasoning
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-zero-initialized-attention-for-other-large-models" class="md-nav__link">
+    2.4 Zero-initialized Attention for other Large Models
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1324,21 +1406,105 @@
   <h1>LLaMA-Adapter</h1>
 
 <h2 id="llama-adatper">LLaMA-Adatper<a class="headerlink" href="#llama-adatper" title="Permanent link">&para;</a></h2>
-<p>(LLaMA-Adapter: Efficient Fine-tuning of Language Models with Zero-init Attention)[<a href="https://arxiv.org/pdf/2303.16199.pdf">https://arxiv.org/pdf/2303.16199.pdf</a>]</p>
+<p><a href="https://arxiv.org/pdf/2303.16199.pdf">LLaMA-Adapter: Efficient Fine-tuning of Language Models with Zero-init Attention</a></p>
 <h3 id="1-introduction">1. Introduction<a class="headerlink" href="#1-introduction" title="Permanent link">&para;</a></h3>
 <p>之前的Stanford提出的Alpaca，虽然可以微调 7B 个参数的 LLaMA（微调整个模型），需要的存储空间大，微调的速度不够快。也有将Alpaca与LoRA结合的工作。与它们相比，可以看到LLaMA-Adapter的效果：</p>
 <figure>
 <p><img alt="Alt text" src="../assets/image-50.png" width="400" /></p>
 </figure>
+<p>笼统地讲，LLAMA-Adapter有以下几个显著的优势：</p>
+<figure>
+<p><img alt="Alt text" src="../assets/image-51.png" /></p>
+</figure>
+<ul>
+<li>
+<p>1.2M Parameters：Adapter 的训练参数少</p>
+</li>
+<li>
+<p>One-hour Fine-tuning：微调时间短，8个 A100上只需要1小时</p>
+</li>
+<li>
+<p>Plug with Expertise：针对不同场景，可灵活地插入该场景下的Adapter。</p>
+</li>
+<li>
+<p>Multi-modal Instruction：</p>
+</li>
+</ul>
+<h3 id="2-method">2. Method<a class="headerlink" href="#2-method" title="Permanent link">&para;</a></h3>
+<p>learnable adaption prompts 是啥</p>
+<p>instruction tokens 是啥</p>
+<h4 id="21-learnable-adaption-prompts">2.1 Learnable Adaption Prompts<a class="headerlink" href="#21-learnable-adaption-prompts" title="Permanent link">&para;</a></h4>
+<p>现在手上有 Self-Instruct开源的 52K 的 instruction data，和预训练好的有 N-layer transformer 的 LLaMA</p>
+<p>将 <strong>learnable adaption prompts</strong> 插入到 transformer 顶部的 L 层中（<span class="arithmatex">\(L \le N\)</span>），目的是在较高层次的语义上对模型进行微调。</p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>这里似乎可以将 learnable adaption prompts 看作是 instruction + instances input + instances output?</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>为什么可以在较高的层直接插入prompts?</p>
+</div>
+<p>形式化的将要插入到 transformer 顶部的 L 层的 learnable adaption prompts 记为<span class="arithmatex">\(\{P_l\}_{l=1}^L\)</span>，其中<span class="arithmatex">\(P_l \in \mathbb{R}^{K \times C}\)</span>, <span class="arithmatex">\(K\)</span>是prompt的长度，<span class="arithmatex">\(C\)</span>是transformer的 feature dimension。</p>
+<p>以第 l 个要被插入 learnable adaption prompt 的层为例（<span class="arithmatex">\(l \le L\)</span>），将该层的输入记为 <span class="arithmatex">\(T_l \in \mathbb{R}^{M \times C}\)</span>，其中 <span class="arithmatex">\(M\)</span> 是输入序列的长度。 <span class="arithmatex">\(T_l\)</span> <strong>代表instruction和input和已经生成的部分output</strong>。</p>
+<p>The learnable adaption prompt is concatenated with Tl along the token dimension as prefix, formulated as:
+$$
+\left[P_l ; T_l\right] \in \mathbb{R}^{(K+M) \times C}
+$$</p>
+<p>以这种方式，可以从 <span class="arithmatex">\(P_l\)</span> 中学习到的信息用于有效引导 <span class="arithmatex">\(T_l\)</span> 生成。</p>
+<h4 id="22-zero-initiallized-attention">2.2 Zero-initiallized Attention<a class="headerlink" href="#22-zero-initiallized-attention" title="Permanent link">&para;</a></h4>
+<p>假设模型在<span class="arithmatex">\([P_l; T_l]\)</span>的基础上正在生成第(M + 1)个单词，且目前处于第 l 个被插入的层。我们将相应的第 (M + 1) 个单词标记表示为 <span class="arithmatex">\(t_l \in \mathbb{R}^{1 \times C}\)</span></p>
+<div class="arithmatex">\[
+\begin{aligned}
+Q_l &amp; =\operatorname{Linear}_{\mathrm{q}}\left(t_l\right) ; \\
+K_l &amp; =\operatorname{Linear}_{\mathrm{k}}\left(\left[P_l ; T_l ; t_l\right]\right) ; \\
+V_l &amp; =\operatorname{Linear}_{\mathrm{v}}\left(\left[P_l ; T_l ; t_l\right]\right) .
+\end{aligned}
+\]</div>
+<p>Then, the attention scores of <span class="arithmatex">\(Q_l\)</span> and <span class="arithmatex">\(K_l\)</span> before the softmax function are calculated as</p>
+<div class="arithmatex">\[
+S_l=Q_l K_l^T / \sqrt{C} \in \mathbb{R}^{1 \times(K+M+1)}
+\]</div>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>这里为什么不是 self-attention? <span class="arithmatex">\(Q_l\)</span> 和 <span class="arithmatex">\(K_l\)</span> 和 <span class="arithmatex">\(V_l\)</span> 为啥不一样？</p>
+</div>
+<p><span class="arithmatex">\(S_l\)</span>记录了新词<span class="arithmatex">\(t_l\)</span>与所有K+M+1个token之间的特征相似度。同时，<span class="arithmatex">\(S_l\)</span> 可以由两个分量重新表示为：
+$$
+S_l = \left[S_l^K ; S_l^{M+1} \right]^T
+$$</p>
+<p>其中<span class="arithmatex">\(S_l^K \in \mathbb{R}^{K \times 1}\)</span>表示的是前K个prompt token与第 M + 1个 token之间的 attention score，<span class="arithmatex">\(S_l^{M+1} \in \mathbb{R}^{M+1 \times 1}\)</span>。</p>
+<p>前面的<span class="arithmatex">\(S_l^K\)</span>表示 learnable adaption prompt 对生成<span class="arithmatex">\(t_l\)</span> 贡献了多少信息，这可能会在早期训练阶段造成干扰。</p>
+<p>为此，我们采用可学习的<strong>gating factor</strong>（门控因子），表示为<span class="arithmatex">\(g_l\)</span>，来自适应控制<span class="arithmatex">\(S_l^K\)</span>在注意力中的重要性。 <span class="arithmatex">\(g_l\)</span> 初始化为0，首先可以消除欠拟合提示的影响，然后增加其幅度，为 LLaMA 提供更多的指令语义。因此，我们独立地将softmax函数应用于<span class="arithmatex">\(S_l\)</span>中两个分量，并将第一项乘以gl，公式为：</p>
+<div class="arithmatex">\[
+S_l^g=\left[\operatorname{softmax}\left(S_l^K\right) \cdot g_l ; \quad \operatorname{softmax}\left(S_l^{M+1}\right)\right]^T
+\]</div>
+<p>单独的 softmax 函数确保第二项与learnable adaption prompt。当<span class="arithmatex">\(g_l\)</span>接近于0时，它基本上可以将LLaMA最初预先训练的知识传递给token <span class="arithmatex">\(t_l\)</span>，以进行可信生成。在实践中，我们采用多个<span class="arithmatex">\(g_l\)</span>对attention内的不同头进行独立学习，有利于多头机制的学习多样性。</p>
+<p>最后，使用线性投影层计算第 l 个注意力层的输出：</p>
+<div class="arithmatex">\[
+t_l^o=\operatorname{Linear}_{\mathrm{o}}\left(S_l^g V_l\right) \in \mathbb{R}^{1 \times C}
+\]</div>
+<h4 id="23-multi-modal-reasoning">2.3 Multi-modal Reasoning<a class="headerlink" href="#23-multi-modal-reasoning" title="Permanent link">&para;</a></h4>
+<p>现阶段无关略</p>
+<h4 id="24-zero-initialized-attention-for-other-large-models">2.4 Zero-initialized Attention for other Large Models<a class="headerlink" href="#24-zero-initialized-attention-for-other-large-models" title="Permanent link">&para;</a></h4>
+<p>现阶段无关略</p>
 <h2 id="llama-adapter-v2">LLaMA-Adapter V2<a class="headerlink" href="#llama-adapter-v2" title="Permanent link">&para;</a></h2>
-<p>(LLaMA-Adapter V2: Parameter-Efficient Visual Instruction Model)[<a href="https://arxiv.org/pdf/2304.15010.pdf">https://arxiv.org/pdf/2304.15010.pdf</a>]</p>
+<p><a href="https://arxiv.org/pdf/2304.15010.pdf">LLaMA-Adapter V2: Parameter-Efficient Visual Instruction Model</a>
+<img alt="Alt text" src="../assets/image-52.png" /></p>
+<p>目前有用信息：</p>
+<p>We first <strong>unfreeze all the normalization layers</strong> in LLaMA. <strong>For each linear layer in the Transformer, we add a bias and a scale factor as two learnable parameters.</strong> We denote the input and pre-trained weights of a certain linear layer as x and W, respectively. In LLaMA-Adapter V2, we modify the linear layer using the bias b and scale s as：</p>
+<div class="arithmatex">\[
+\begin{array}{r}
+\mathbf{y}=\mathbf{W} \cdot \mathbf{x} \rightarrow \mathbf{y}=s \cdot(\mathbf{W} \cdot \mathbf{x}+b) \\
+\text { where } b=\operatorname{Init}(0), \quad s=\operatorname{Init}(1)
+\end{array}
+\]</div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-08-13T07:49:22+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-08-13</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-08-15T06:27:05+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-08-15</span>
       
         <br>
         创建日期:

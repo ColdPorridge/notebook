@@ -9,17 +9,13 @@
       
       
       
-        <link rel="prev" href="../Transformer/">
-      
-      
-        <link rel="next" href="../HELM/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.21">
     
     
       
-        <title>GPT - 凉粥的学习笔记</title>
+        <title>Self-Instruct - 凉粥的学习笔记</title>
       
     
     
@@ -75,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gpt" class="md-skip">
+        <a href="#self-instruct" class="md-skip">
           跳转至
         </a>
       
@@ -107,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              GPT
+              Self-Instruct
             
           </span>
         </div>
@@ -252,15 +248,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../" class="md-tabs__link md-tabs__link--active">
+      <a href="../" class="md-tabs__link">
         DL&ML
       </a>
     </li>
@@ -981,16 +975,14 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
       
       
         
@@ -1019,7 +1011,7 @@
           
         </div>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
           DL&ML
@@ -1046,215 +1038,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          GPT
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../GPT/" class="md-nav__link">
         GPT
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-gpt-1" class="md-nav__link">
-    1. GPT-1
-  </a>
-  
-    <nav class="md-nav" aria-label="1. GPT-1">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#11-摘要" class="md-nav__link">
-    1.1 摘要
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#12-具体方法" class="md-nav__link">
-    1.2 具体方法
-  </a>
-  
-    <nav class="md-nav" aria-label="1.2 具体方法">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#121-unsupervised-pre-training" class="md-nav__link">
-    1.2.1 Unsupervised pre-training
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#122-supervised-fine-tuning" class="md-nav__link">
-    1.2.2 Supervised fine-tuning
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#123-task-specific-input-transformations" class="md-nav__link">
-    1.2.3 Task-specific input transformations
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#13-实验" class="md-nav__link">
-    1.3 实验
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-bert" class="md-nav__link">
-    2. BERT
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-gpt-2" class="md-nav__link">
-    3. GPT-2
-  </a>
-  
-    <nav class="md-nav" aria-label="3. GPT-2">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#31-摘要" class="md-nav__link">
-    3.1 摘要
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#32-具体方法" class="md-nav__link">
-    3.2 具体方法
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#33-实验" class="md-nav__link">
-    3.3 实验
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-gpt-3" class="md-nav__link">
-    4. GPT-3
-  </a>
-  
-    <nav class="md-nav" aria-label="4. GPT-3">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#41-摘要" class="md-nav__link">
-    4.1 摘要
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#42-具体方法" class="md-nav__link">
-    4.2 具体方法
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#43-实验" class="md-nav__link">
-    4.3 实验
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#44-局限性" class="md-nav__link">
-    4.4 局限性
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-instruct-gpt" class="md-nav__link">
-    5. Instruct-GPT
-  </a>
-  
-    <nav class="md-nav" aria-label="5. Instruct-GPT">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#51-摘要" class="md-nav__link">
-    5.1 摘要
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#52-具体方法" class="md-nav__link">
-    5.2 具体方法
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1424,45 +1212,59 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-gpt-1" class="md-nav__link">
-    1. GPT-1
+  <a href="#1-introduction" class="md-nav__link">
+    1. Introduction
   </a>
   
-    <nav class="md-nav" aria-label="1. GPT-1">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-method" class="md-nav__link">
+    2. Method
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Method">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#11-摘要" class="md-nav__link">
-    1.1 摘要
+  <a href="#21-defining-instruction-data" class="md-nav__link">
+    2.1 Defining Instruction Data
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#12-具体方法" class="md-nav__link">
-    1.2 具体方法
+  <a href="#22-automatic-instruction-data-generation" class="md-nav__link">
+    2.2 Automatic Instruction Data Generation
   </a>
   
-    <nav class="md-nav" aria-label="1.2 具体方法">
+    <nav class="md-nav" aria-label="2.2 Automatic Instruction Data Generation">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#121-unsupervised-pre-training" class="md-nav__link">
-    1.2.1 Unsupervised pre-training
+  <a href="#instruction-generation" class="md-nav__link">
+    Instruction Generation
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#122-supervised-fine-tuning" class="md-nav__link">
-    1.2.2 Supervised fine-tuning
+  <a href="#classification-task-identification" class="md-nav__link">
+    Classification Task Identification
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#123-task-specific-input-transformations" class="md-nav__link">
-    1.2.3 Task-specific input transformations
+  <a href="#instance-generation" class="md-nav__link">
+    Instance Generation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filtering-and-postprocessing" class="md-nav__link">
+    Filtering and Postprocessing
   </a>
   
 </li>
@@ -1473,117 +1275,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#13-实验" class="md-nav__link">
-    1.3 实验
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-bert" class="md-nav__link">
-    2. BERT
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-gpt-2" class="md-nav__link">
-    3. GPT-2
-  </a>
-  
-    <nav class="md-nav" aria-label="3. GPT-2">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#31-摘要" class="md-nav__link">
-    3.1 摘要
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#32-具体方法" class="md-nav__link">
-    3.2 具体方法
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#33-实验" class="md-nav__link">
-    3.3 实验
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-gpt-3" class="md-nav__link">
-    4. GPT-3
-  </a>
-  
-    <nav class="md-nav" aria-label="4. GPT-3">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#41-摘要" class="md-nav__link">
-    4.1 摘要
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#42-具体方法" class="md-nav__link">
-    4.2 具体方法
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#43-实验" class="md-nav__link">
-    4.3 实验
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#44-局限性" class="md-nav__link">
-    4.4 局限性
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-instruct-gpt" class="md-nav__link">
-    5. Instruct-GPT
-  </a>
-  
-    <nav class="md-nav" aria-label="5. Instruct-GPT">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#51-摘要" class="md-nav__link">
-    5.1 摘要
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#52-具体方法" class="md-nav__link">
-    5.2 具体方法
+  <a href="#23-finetuning-the-lm-to-follow-instructions" class="md-nav__link">
+    2.3 Finetuning the LM to Follow Instructions
   </a>
   
 </li>
@@ -1611,205 +1304,95 @@
   
 
 
-<h1 id="gpt">GPT<a class="headerlink" href="#gpt" title="Permanent link">&para;</a></h1>
-<p>总览一下发展历史
-<img alt="Alt text" src="../assets/image.png" /></p>
-<p><img alt="Alt text" src="../assets/image-14.png" /></p>
-<h2 id="1-gpt-1">1. GPT-1<a class="headerlink" href="#1-gpt-1" title="Permanent link">&para;</a></h2>
-<h3 id="11-摘要">1.1 摘要<a class="headerlink" href="#11-摘要" title="Permanent link">&para;</a></h3>
-<p>解决什么问题：</p>
+<h1 id="self-instruct">Self-Instruct<a class="headerlink" href="#self-instruct" title="Permanent link">&para;</a></h1>
+<p><a href="https://arxiv.org/pdf/2212.10560.pdf">SELF-INSTRUCT: Aligning Language Models with Self-Generated Instructions</a>[ACL 2023]</p>
+<h2 id="1-introduction">1. Introduction<a class="headerlink" href="#1-introduction" title="Permanent link">&para;</a></h2>
+<p>目前的instruction tune 需要 human-written instruction data。然而，收集此类 instruction data：</p>
 <ul>
 <li>
-<p>自然语言处理中,labeled text很少，unlabeled text很多</p>
+<p>成本高昂</p>
 </li>
 <li>
-<p>希望能在 unlabeled text上预训练一个语言模型，然后再在 labeled text上fine-tune</p>
+<p>多样性往往有限，大多数人都追逐热点 NLP 任务，因此目前的 dataset 无法涵盖所有的 NLP 任务。</p>
 </li>
 </ul>
-<p>挑战：以前为啥没人做NLP的预训练？</p>
+<p>在这项工作中，我们引入了 SELF-INSTRUCT，这是一种半自动化过程，用于使用模型本身的 instructional signals 对预训练的 LM 进行instruction-tuning。整个过程是一个 iterative bootstrapping 算法（见 Figure 2）。</p>
+<p><img alt="Alt text" src="../assets/image-31.png" /></p>
 <ul>
 <li>
-<p>上面提到的 labeled text很少，unlabeled text很多</p>
+<p>从有限的（例如，在本文中为 175 个）手动编写的任务seed set开始，用于指导整个生成</p>
 </li>
 <li>
-<p>NLP中的模型，通常是用于特定任务的，比如机器翻译，问答系统等等。这些任务的输入都是有结构的，比如机器翻译的输入是一句话，问答系统的输入是一个问题。不容易以一种统一的方式进行预训练</p>
+<p>在第一阶段，提示模型生成新任务的指令。此步骤利用现有的指令集合来创建覆盖范围更广的指令来定义（通常是新的）任务。给定新生成的指令集，框架还为它们创建输入输出实例，这些实例稍后可用于监督指令调整。最后，在将剩余的有效任务添加到任务池之前，使用各种启发式方法自动过滤低质量或重复的指令。这个过程可以重复多次迭代，直到达到大量任务。</p>
 </li>
 </ul>
-<p>创新：</p>
+<p><strong>主要贡献:</strong></p>
 <ul>
 <li>
-<p>使用Transformer而不是RNN（当时Transformer出来才几个月）</p>
+<p>我们提出了 SELF-INSTRUCT，一种用少量的人类标记数据生成 instruction data 的方法，用于指导预训练的 LM 进行 instruction-tuning。</p>
 </li>
 <li>
-<p><strong>用 unlabeled text 来预训练一个通用的语言模型</strong></p>
+<p>在实验上证明了方法的有效性</p>
 </li>
 <li>
-<p>然后再用这个模型来做特定任务的fine-tune，<strong>不需要大幅度改变模型的结构以适应不同的任务</strong> </p>
+<p>我们发布了一个包含 52K instruction data 的大型综合数据集和一组手动编写的novel task，用于构建和评估未来的instruction-following models。</p>
 </li>
 </ul>
-<h3 id="12-具体方法">1.2 具体方法<a class="headerlink" href="#12-具体方法" title="Permanent link">&para;</a></h3>
-<h4 id="121-unsupervised-pre-training">1.2.1 Unsupervised pre-training<a class="headerlink" href="#121-unsupervised-pre-training" title="Permanent link">&para;</a></h4>
-<p>第一个目标函数：最大化训练文本出现的概率
-<img alt="Alt text" src="../assets/image-3.png" /></p>
-<p>使用的是Transformer的decoder，因为训练方式是用标准的语言模型（用前面的词预测之后的词），所以要使用decoder的掩码机制。具体流程：</p>
-<p><img alt="Alt text" src="../assets/image-4.png" /></p>
-<div class="admonition note">
-<p class="admonition-title">与BERT的区别</p>
-<p>本质区别不是说一个选了Transformer encoder，一个选了Transformer decoder，而是说GPT预训练目标是做标准语言模型，而BERT预训练目标是做“完形填空”，所以GPT用的是decoder，BERT用的是encoder。标准语言模型是比“完形填空”更加困难的，所以GPT的技术路线更难，但是模型堆大了后天花板会更高。</p>
-</div>
-<h4 id="122-supervised-fine-tuning">1.2.2 Supervised fine-tuning<a class="headerlink" href="#122-supervised-fine-tuning" title="Permanent link">&para;</a></h4>
-<p>在微调任务中，用的是labeled text。
-以一种类似于文本分类的形式：
-<img alt="Alt text" src="../assets/image-5.png" /></p>
-<p>作者还发现把预训练时的目标也拿来，加到微调的目标里，效果会更好：
-<img alt="Alt text" src="../assets/image-6.png" /></p>
-<p><strong>那么，怎么办NLP中多种多样的子任务都转换为一个“文本分类”的形式呢？</strong>下一小节就介绍了这个问题。</p>
-<h4 id="123-task-specific-input-transformations">1.2.3 Task-specific input transformations<a class="headerlink" href="#123-task-specific-input-transformations" title="Permanent link">&para;</a></h4>
-<p>NLP中四大类型的子任务：</p>
-<ul>
-<li>
-<p>分类（classification）：给一段文本，判断对应的标号（e.g. 将用户的评价分类为积极或消极）</p>
-</li>
-<li>
-<p>蕴含（Entailment）：看Premise和Hypothesis两段文本，判断Premise是否蕴含（支持）Hypothesis（e.g. Premise: “A 送给 B 一束玫瑰” Hypothesis: “A 喜欢 B.”）</p>
-</li>
-<li>
-<p>相似度（Similarity）：看两段文本，判断它们的相似度（e.g. 判断两个文本是否显相似以去重；判断搜索词与文本是否相似以进行文本检索）</p>
-</li>
-<li>
-<p>多选题（Multiple choice）：给一段文本和几个选项，判断哪个选项最符合文本的意思（e.g. 给一段新闻，判断哪个选项是标题）</p>
-</li>
-</ul>
-<p>如何把这些都转换为1.2.2里的“文本分类”的形式呢？看一张图即可：
-<img alt="Alt text" src="../assets/image-7.png" /></p>
+<h2 id="2-method">2. Method<a class="headerlink" href="#2-method" title="Permanent link">&para;</a></h2>
+<p>SELF-INSTRUCT 的大致流程是，它是指使用普通的预训练语言模型生成任务、过滤生成的数据，然后使用生成的数据进行instruction-tuning。</p>
+<h3 id="21-defining-instruction-data">2.1 Defining Instruction Data<a class="headerlink" href="#21-defining-instruction-data" title="Permanent link">&para;</a></h3>
+<p>我们其实是想获得一个 set of instructions <span class="arithmatex">\(\{I_t\}\)</span>，其中的每个 instruction 都对应地定义了一个任务（Task） t，这个任务 t 可以有 <span class="arithmatex">\(n_t \ge 1\)</span> 个 input-outout instances <span class="arithmatex">\(D_t = \{ (X_i, Y_i) \}_{i=1}^{n_t}\)</span>，其中 <span class="arithmatex">\(x_i\)</span> 是输入，<span class="arithmatex">\(y_i\)</span> 是输出。</p>
+<p>希望最后微调得到 model M， 可以做到给定一个 task 的 instruction 和 input，就可以输出对应的 output，即 <span class="arithmatex">\(M(I_t, X_{t,i}) = Y_{t,i}\)</span>。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>要注意上图中的<code>start</code>，<code>Delim</code>，<code>Extract</code>都是特殊的记号，与词典中的其他token不同。</p>
+<p>instruction和instances input 在许多情况下没有严格的边界。</p>
+<p>例如，“写一篇关于学校安全的文章”可以是我们期望模型直接响应的有效instruction，同时它也可以表述为“写一篇关于以下主题的文章”作为instruction，而“学校安全”作为instances input</p>
+<p>为了鼓励数据格式的多样性，我们允许不需要额外输入的指令（即 X 为空）。</p>
 </div>
-<h3 id="13-实验">1.3 实验<a class="headerlink" href="#13-实验" title="Permanent link">&para;</a></h3>
-<p>数据集：BooksCorpus（有七千个未发表的书籍）</p>
-<p>模型大小（1亿个参数左右）：12 层 Transformer decoder，768 维的隐藏层，12 个注意力头</p>
-<h2 id="2-bert">2. BERT<a class="headerlink" href="#2-bert" title="Permanent link">&para;</a></h2>
-<p>在GPT-1之后发表的，BERT-base的模型大小和GPT-1基本一致，BERT-large的模型大小是BERT-base的三倍左右，因为BERT使用的训练数据集更大一些，不只有BooksCorpus，还有Wikipedia。(大概是GPT-1使用的数据集的三倍左右)</p>
-<p>BERT-large：3亿个参数</p>
-<h2 id="3-gpt-2">3. GPT-2<a class="headerlink" href="#3-gpt-2" title="Permanent link">&para;</a></h2>
-<h3 id="31-摘要">3.1 摘要<a class="headerlink" href="#31-摘要" title="Permanent link">&para;</a></h3>
-<p>做了一个WebText数据集（百万级别的文本），比BERT用的数据集更大；同时模型大小达到了15亿参数（十亿级别的参数），但发现相比BERT的优势也没有很大，所以把Zero-shot 作为这篇论文的主要卖点。</p>
-<p><strong>解决什么问题：</strong></p>
-<p>现在的模型泛化性不是很好，一个数据集上训练好的任务很难直接用到别的数据集和任务上，所以需要fine-tune，但是：</p>
-<ul>
+<h3 id="22-automatic-instruction-data-generation">2.2 Automatic Instruction Data Generation<a class="headerlink" href="#22-automatic-instruction-data-generation" title="Permanent link">&para;</a></h3>
+<p>Instruction Data Generation 的流程有四步：</p>
+<ol>
 <li>
-<p>微调时还得重新训练模型</p>
+<p>generating task instructions</p>
 </li>
 <li>
-<p>微调时还得有标注数据</p>
-</li>
-</ul>
-<p><strong>创新：</strong></p>
-<p>预训练模型拓展到一个新的任务上还是有一定的成本的，所以作者提出了Zero-shot的概念，即在一个任务上预训练好的模型，可以直接用到另一个任务上，而不需要重新训练模型，也不需要标注数据。</p>
-<h3 id="32-具体方法">3.2 具体方法<a class="headerlink" href="#32-具体方法" title="Permanent link">&para;</a></h3>
-<p>训练方法和GPT-1的预训练方法一样，只是数据集更大，模型更大。</p>
-<p>模型上有一些改变。</p>
-<p>之前GPT-1在下游任务做微调的时候，引入了一些模型在预训练期间没有见过的符号，如<code>Start</code>, <code>Delim</code>, <code>Extract</code>，在fine-tune的时候模型才会逐步认识这些符号。由于GPT-2并不做fine-tune，所以在做下游任务的时候，不能通过这些符号来将下游任务进行转化了，而是要通过模型已经认识的，更加“自然语言”的方式对模型进行提示。</p>
-<p>作者举了些例子：机器翻译
-<img alt="Alt text" src="../assets/image-8.png" /></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>后来，这样的方法被称为prompt</p>
-</div>
-<p>为什么这样是可行的？作者给出的解释是
-- 模型足够强大，模型能够理解这些prompt
-- 可能数据集里面本身就有这些prompt，比如数据集里面可能就有“Translate English to French”这样的prompt：
-    <img alt="Alt text" src="../assets/image-9.png" /></p>
-<h3 id="33-实验">3.3 实验<a class="headerlink" href="#33-实验" title="Permanent link">&para;</a></h3>
-<p>模型规模：
-<img alt="Alt text" src="../assets/image-10.png" />
-最大可以达到15亿个参数</p>
-<p>实验主要是和别的做Zero-shot的模型进行对比，而不是和BERT，GPT-1直接比。当然，比别的做Zero-shot的模型用的数据集大，模型大，效果自然更好，但与专门做下游任务的有监督训练的模型相比，效果只是略微好一点，或者还是差很多：
-<img alt="Alt text" src="../assets/image-11.png" /></p>
-<h2 id="4-gpt-3">4. GPT-3<a class="headerlink" href="#4-gpt-3" title="Permanent link">&para;</a></h2>
-<h3 id="41-摘要">4.1 摘要<a class="headerlink" href="#41-摘要" title="Permanent link">&para;</a></h3>
-<p>文章题目：Language Models are Few-Shot Learners</p>
-<p>是技术报告，而不是一个论文。</p>
-<p>GPT-2的效果一般，GPT-3不再追求完全的Zero-shot，而是追求Few-shot，即只用很少的下游任务样本就能做到很好的下游任务效果。</p>
-<p>1750亿个参数，比GPT-2大了10倍。搞到这么大，还要在子任务上训练是很难的，所以作者提出了一种新的训练方法，叫做Few-shot learning。在针对子目录做微调的时候不对预训练的模型进行任何梯度计算和更新。</p>
-<p><strong>想解决的问题：</strong>
-- 对子任务微调，需要子任务的标注数据
-- 训练模型的泛华性：当你微调出来效果很好的时候，未必就是你微调地好，有可能是预训练的数据和你的子任务数据集很相似，所以你的模型在预训练的时候就已经学到了子任务的知识，所以当你把预训练模型换到一个和预训练数据集不相似的，专业性更高的子任务上时，效果可能就不好了。</p>
-<p><strong>创新：</strong>
-- 就算是Few-shot，也不对预训练的模型进行任何梯度计算和更新。提出两个新名词：Meta-learning和in-context learning 
-- Meta-learning：就是在大数据集上预训练一个模型</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>few-shot learning：给10-100个样本</p>
-<p>ont-shot learning：给1个样本</p>
-<p>zero-shot learning：不给样本</p>
-<p>如何区分Few-shot, One-shot, Few-shot, Fine-tune</p>
-<p><img alt="Alt text" src="../assets/image-12.png" /></p>
-<p><strong>one-shot, few-shot 都是希望模型在做前向推理的时候，通过attention抓取输入的例子中的一些上下文信息，然后结合这些上下文信息来做推理。</strong></p>
-</div>
-<h3 id="42-具体方法">4.2 具体方法<a class="headerlink" href="#42-具体方法" title="Permanent link">&para;</a></h3>
-<p>模型和GPT-2的模型比较相似，也借鉴了Sparse Transformer的一些改动</p>
-<h3 id="43-实验">4.3 实验<a class="headerlink" href="#43-实验" title="Permanent link">&para;</a></h3>
-<p><img alt="Alt text" src="../assets/image-13.png" /></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>为什么Batch size设置的这么大——因为批量大小一大，每台机器的计算量会变高，通信量也变小一些。小模型一般不用较大的batch size， 因为小模型容易过拟合，batch size一大。</p>
-</div>
-<p>数据是基于Common Craw的，GPT-2的时候觉得Common Craw太脏了。现在不得不用了，做了一些数据清洗（训练了一个分类器），去重（lsh算法）</p>
-<p>分布式训练的时候做了张量并行，模型并行（流水线并行），用的是一个DGX-1的集群</p>
-<h3 id="44-局限性">4.4 局限性<a class="headerlink" href="#44-局限性" title="Permanent link">&para;</a></h3>
-<ul>
-<li>
-<p>Few-shot是假如真的需要很多样本怎么办，难道要把子任务的数据集都放进去作为Few-shot的example吗？</p>
+<p>determining if the instruction represents a classification task</p>
 </li>
 <li>
-<p>我每一次都要在Few-shot里加上example，我上次加了这次能不能不加？</p>
+<p>instance generation with either an input-first or output-first approach</p>
 </li>
-</ul>
-<h2 id="5-instruct-gpt">5. Instruct-GPT<a class="headerlink" href="#5-instruct-gpt" title="Permanent link">&para;</a></h2>
-<h3 id="51-摘要">5.1 摘要<a class="headerlink" href="#51-摘要" title="Permanent link">&para;</a></h3>
-<p><strong>解决的问题：</strong>GPT-3有的时候会输出一些“有毒”的内容，或者一本正经的胡说八道。</p>
-<p><strong>Key-insight：</strong>原本的语言模型的预训练目标函数是最大化训练文本出现的概率，但是这样的目标函数并不完全是我们想要的，我们想要的是让模型生成的文本更加符合我们的意图（alligned）。</p>
-<p><strong>创新：</strong>
-- 还是要做fune-tuning
-- 使用reinforcement learning from human feedback(RLHF)来做fine-tuning</p>
-<p><strong>主要方法：</strong></p>
-<div class="admonition note">
-<p class="admonition-title">Three steps of method</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Step 1</label><label for="__tabbed_1_2">Step 2</label><label for="__tabbed_1_3">Step 3</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p><img alt="Alt text" src="../assets/image-24.png" />
-找了一些人来写问题，找一些人来写答案，然后把问题和答案拼接起来，来进行fine-tuning，得到的一个叫SFT（Supervised Fine-Tuning）的模型。</p>
-</div>
-<div class="tabbed-block">
-<p>对一个问题，用SFT生成一些答案，然后招人来对这些答案进行排序。得到一个排序形式的标注，训练一个RM（Reward Model）。RM接受prompt和一个答案，输出一个分数，分数的相对高低符合人给出的排序。
-<img alt="Alt text" src="../assets/image-23.png" /></p>
-</div>
-<div class="tabbed-block">
-<p><img alt="Alt text" src="../assets/image-25.png" />
-用RM来对SFT生成的答案进行打分，利用这个打分来训练SFT</p>
-</div>
-</div>
-</div>
-</div>
-<p>这么看来，通过训练一个RM模型，可以减少对人工标注数据的需求量，不然其实如果人工标注的答案够多，直接只做step1即可。</p>
-<p><strong>效果：</strong>
-真实性比GPT-3好；有毒性比GPT-3低；但bias和GPT-3差不多；在某些问题下做微调，可能在另一些问题下效果会变差。但还是会犯简单的错误。</p>
-<h3 id="52-具体方法">5.2 具体方法<a class="headerlink" href="#52-具体方法" title="Permanent link">&para;</a></h3>
-<p>使用的对齐方法其实是已有的方法，只是都用在别的领域。</p>
+<li>
+<p>filtering low-quality data</p>
+</li>
+</ol>
+<h4 id="instruction-generation">Instruction Generation<a class="headerlink" href="#instruction-generation" title="Permanent link">&para;</a></h4>
+<p>我们初始化包含 175 个task的task pool（每个task 有 1 个 instruction 和 1 个 instance）</p>
+<p>对于每一轮 generation，我们都会从该task pool 中抽取 8 个 task 作为上下文示例。其中 6 个是 human-written 的，2 个是 model-generated 的（之前的轮产生的）。</p>
+<p>然后用这 8 个 task 的 instruction 作为 prompt 来让 LLM 生成新的 instruction：
+<img alt="Alt text" src="../assets/image-33.png" /></p>
+<h4 id="classification-task-identification">Classification Task Identification<a class="headerlink" href="#classification-task-identification" title="Permanent link">&para;</a></h4>
+<p>因为我们需要两种不同的方法来处理分类和非分类任务，所以接下来我们要确定上一步抽取的instruction 是否代表分类任务。</p>
+<p>我们使用 12 个分类指令和 19 个非分类指令，以few-shot prompt 的方式让 LM 来确定这一点。</p>
+<h4 id="instance-generation">Instance Generation<a class="headerlink" href="#instance-generation" title="Permanent link">&para;</a></h4>
+<p>给定instruction 及其 task type(是否为分类任务)，我们独立地为每条指令生成实例。这我们发现，当使用来自其他任务的instruction-input-output 作为上下文示例进行 prompt 时，预训练的 LM 可以在很大程度上实现这一目标。</p>
+<p>一种自然的方法是输入优先方法（<strong>Input-first Approach</strong>），我们可以要求 LM 首先根据 instruction 给出 input，然后生成相应的output。这种生成顺序类似于模型用于响应instruction 和 input 的方式，但这里有来自其他任务的上下文示例。</p>
+<p>然而，我们发现这种方法可以生成偏向于一个标签的输入，特别是对于分类任务（例如，对于语法错误检测，它通常生成语法正确的输入）。因此，我们还提出了一种用于分类任务的输出优先方法（<strong>Output-first Approach</strong>），其中我们首先生成可能的类标签，然后根据每个类标签调节输入生成。</p>
+<p>我们将输出优先方法应用于上一步中确定的分类任务，并将输入优先方法应用于其余的非分类任务。</p>
+<h4 id="filtering-and-postprocessing">Filtering and Postprocessing<a class="headerlink" href="#filtering-and-postprocessing" title="Permanent link">&para;</a></h4>
+<p>为了鼓励多样性，只有当新指令与任何现有指令的 ROUGE-L 相似度小于 0.7 时，才会将新指令添加到任务池中。我们还排除了包含一些通常无法被 LM 处理的特定关键字（例如图像、图片、图形）的指令。当为每条指令生成新实例时，我们过滤掉完全相同的实例或具有相同输入但不同输出的实例。根据启发法识别并过滤掉无效的生成（例如，指令太长或太短，实例输出是输入的重复）。</p>
+<h3 id="23-finetuning-the-lm-to-follow-instructions">2.3 Finetuning the LM to Follow Instructions<a class="headerlink" href="#23-finetuning-the-lm-to-follow-instructions" title="Permanent link">&para;</a></h3>
+<p>创建大规模的instruction data后，我们用它来微调原始LM（即SELF-INSTRUCT）。为此，我们将instruction和instance input concat起来作为prompt，并训练模型以标准监督方式生成 instance output。为了使模型对不同格式具有鲁棒性，我们使用多个模板将instruction和instance input 一起编码。例如，Instruction 可以带或不带“Task:”前缀，输入可以带或不带“Input:”前缀，提示末尾可以带或不带“Output:”，以及不同数量的break线可以放在中间等。</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-08-10T15:52:56+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-08-10</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-08-15T06:26:35+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-08-15</span>
       
         <br>
         创建日期:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-08-10T15:52:56+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-08-10</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-08-15T06:26:35+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-08-15</span>
       
     
   </small>
