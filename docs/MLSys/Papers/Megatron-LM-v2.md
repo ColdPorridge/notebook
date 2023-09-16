@@ -64,7 +64,7 @@ Notation:
 
                 ![Alt text](assets/image-68.png)
 
-        - bubble ratio(bubble/not-bubble): $\frac{1}{v} \dot \frac{p-1}{m}$
+        - bubble ratio(bubble/not-bubble): $\frac{1}{v} \frac{p-1}{m}$
 
         - the amount of communication also increases by $v$.
 
@@ -137,7 +137,7 @@ with a pipelineparallel size of 1, we use a model with 3 transformer layers and 
 
 ### 3.4 Impact of interleaved schedule and Scatter/gather communication optimization
 
-!!! example ""
+!!! example "Impact of Methods"
     === "impact of interleaved schedule"
         <figure markdown>
           ![Alt text](assets/image-60.png){ width="500" }
