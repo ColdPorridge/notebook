@@ -1,0 +1,2245 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.3.1">
+    
+    
+      
+        <title>Basic summary - 凉粥的学习笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.046329b4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.85d0ee34.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Serif SC";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/timeago.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-process-of-forward-and-backward" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="凉粥的学习笔记" class="md-header__button md-logo" aria-label="凉粥的学习笔记" data-md-component="logo">
+      
+  <img src="../../logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            凉粥的学习笔记
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Basic summary
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ColdPorridge/notebook" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ColdPorridge/notebook
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../.." class="md-tabs__link">
+          
+  
+    
+  
+  主页
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../OS/" class="md-tabs__link">
+          
+  
+    
+  
+  OS
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../DB/" class="md-tabs__link">
+          
+  
+    
+  
+  DB
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Distributed%20System/" class="md-tabs__link">
+          
+  
+    
+  
+  Distributed Systems
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../" class="md-tabs__link">
+          
+  
+    
+  
+  MLSys
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../DL%26ML/" class="md-tabs__link">
+          
+  
+    
+  
+  DL&ML
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Web/" class="md-tabs__link">
+          
+  
+    
+  
+  杂
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="凉粥的学习笔记" class="md-nav__button md-logo" aria-label="凉粥的学习笔记" data-md-component="logo">
+      
+  <img src="../../logo.png" alt="logo">
+
+    </a>
+    凉粥的学习笔记
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ColdPorridge/notebook" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ColdPorridge/notebook
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../.." class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    主页
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            主页
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../OS/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    OS
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_2">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            OS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Storage stack
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Storage stack
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../OS/Storagestack/IO/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    几种常见的IO方式
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../DB/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    DB
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            DB
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Distributed%20System/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Distributed Systems
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_4">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Distributed Systems
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Distributed%20System/%E5%89%91%E6%A1%A5%E5%88%86%E5%B8%83%E5%BC%8F/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    剑桥分布式系统课程
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_4_2">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            剑桥分布式系统课程
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Distributed%20System/%E5%89%91%E6%A1%A5%E5%88%86%E5%B8%83%E5%BC%8F/L1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Distributed%20System/%E5%89%91%E6%A1%A5%E5%88%86%E5%B8%83%E5%BC%8F/L2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Models of distributed systems
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Distributed%20System/%E5%89%91%E6%A1%A5%E5%88%86%E5%B8%83%E5%BC%8F/L3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Time, clocks, and ordering of events
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Distributed%20System/%E5%89%91%E6%A1%A5%E5%88%86%E5%B8%83%E5%BC%8F/L4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Broadcast protocols and logical time
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    MLSys
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_5">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            MLSys
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../Papers/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Papers
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_5_2">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Papers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Papers/LoRA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LoRA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Papers/FlashAttention/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FlashAttention
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Papers/LLaMA-Adapter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LLaMA-Adapter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../CMU10414/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    CMU 10-414/714
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_5_3">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            CMU 10-414/714
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CMU10414/basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deep learning basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CMU10414/AD/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Automatic Differentiation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CMU10414/NN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Neural Network Abstraction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CMU10414/NN_impl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Neural Network Implementation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CMU10414/GPU_acc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hardware Acceleration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../FSDP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FSDP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../DL%26ML/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    DL&ML
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_6">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            DL&ML
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DL%26ML/Transformer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transformer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DL%26ML/GPT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GPT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DL%26ML/HELM/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HELM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DL%26ML/FLAN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FLAN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DL%26ML/Self-Instruct/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Self-Instruct
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Web/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    杂
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_7">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            杂
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_2" >
+        
+          <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    浏览器内核
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            浏览器内核
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web/Browser%20Kernel/webview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    WebView
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-process-of-forward-and-backward" class="md-nav__link">
+    1. Process of forward and backward
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-memory-consumption" class="md-nav__link">
+    2. Memory consumption
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-parallelism" class="md-nav__link">
+    3. Parallelism
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Parallelism">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-overview" class="md-nav__link">
+    3.1 overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-pure-data-parallelism" class="md-nav__link">
+    3.2 Pure Data Parallelism
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-pure-pipeline-parallelism" class="md-nav__link">
+    3.3 Pure Pipeline Parallelism
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-pure-tensor-parallelismmegatron-lm" class="md-nav__link">
+    3.4 Pure Tensor Parallelism(Megatron-LM)
+  </a>
+  
+    <nav class="md-nav" aria-label="3.4 Pure Tensor Parallelism(Megatron-LM)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#341-basics-of-transformer" class="md-nav__link">
+    3.4.1 Basics of Transformer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#342-attention-partition" class="md-nav__link">
+    3.4.2 Attention Partition
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#343-mlp-partition" class="md-nav__link">
+    3.4.3 MLP Partition
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#345-put-them-together" class="md-nav__link">
+    3.4.5 Put them together
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-hybrid-parallelism" class="md-nav__link">
+    3.5 hybrid parallelism
+  </a>
+  
+    <nav class="md-nav" aria-label="3.5 hybrid parallelism">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#351-dp--pp" class="md-nav__link">
+    3.5.1 DP + PP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#352-pp--dp" class="md-nav__link">
+    3.5.2 PP + DP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#353-dp--tp" class="md-nav__link">
+    3.5.3 DP + TP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#354-pp--tp" class="md-nav__link">
+    3.5.4 PP + TP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#355-dp--pp--tp" class="md-nav__link">
+    3.5.5 DP + PP + TP
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-takeaway" class="md-nav__link">
+    3.6 Takeaway
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+  <h1>Basic summary</h1>
+
+<h2 id="1-process-of-forward-and-backward">1. Process of forward and backward<a class="headerlink" href="#1-process-of-forward-and-backward" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title"><span class="arithmatex">\(O = relu(XW_1) W_2\)</span></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:7"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">forward</label><label for="__tabbed_1_2">backward 1</label><label for="__tabbed_1_3">backward 2</label><label for="__tabbed_1_4">backward 3</label><label for="__tabbed_1_5">backward 4</label><label for="__tabbed_1_6">backward 5</label><label for="__tabbed_1_7">Simplied</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><figure markdown>
+<img alt="Alt text" src="../assets/image-4.png" width="300" />
+</figure></p>
+</div>
+<div class="tabbed-block">
+<p>for example: 
+$$
+f_{loss} = (O - Y)^2, \frac{\partial l}{\partial O} = 2(O - Y)
+$$</p>
+<p><figure markdown>
+<img alt="Alt text" src="../assets/image-5.png" width="300" />
+</figure></p>
+</div>
+<div class="tabbed-block">
+<div class="arithmatex">\[
+O = AW_2, \frac{\partial l}{\partial W_2} = \frac{\partial l}{\partial O} \frac{\partial O}{\partial W_2} = A^T \frac{\partial l}{\partial O} 
+\]</div>
+<p><figure markdown>
+<img alt="Alt text" src="../assets/image-6.png" width="300" />
+</figure></p>
+</div>
+<div class="tabbed-block">
+<div class="arithmatex">\[
+O = AW_2, \frac{\partial l}{\partial A} = \frac{\partial l}{\partial O} \frac{\partial O}{\partial A} = \frac{\partial l}{\partial O} W_2^T
+\]</div>
+<p><figure markdown>
+<img alt="Alt text" src="../assets/image-9.png" width="300" />
+</figure></p>
+</div>
+<div class="tabbed-block">
+<div class="arithmatex">\[
+A_i = relu(I_i) = \begin{cases}
+0 &amp; \text{if } I_i &lt; 0, \\
+x &amp; \text{if } I_i \geq 0.
+\end{cases} \\
+\]</div>
+<div class="arithmatex">\[
+\frac{\partial l}{\partial I_i} = \frac{\partial l}{\partial A_i} \frac{\partial A_i}{\partial I_i} = \frac{\partial l}{\partial A_i} \times \begin{cases} 0 &amp; \text{if } A_i &lt; 0, \\ 1 &amp; \text{if } A_i \geq 0. \end{cases}
+\]</div>
+<p><figure markdown>
+<img alt="Alt text" src="../assets/image-11.png" width="300" />
+</figure></p>
+</div>
+<div class="tabbed-block">
+<p><figure markdown>
+<img alt="Alt text" src="../assets/image-15.png" width="300" />
+</figure></p>
+</div>
+<div class="tabbed-block">
+<p><figure markdown>
+<img alt="Alt text" src="../assets/image-16.png" width="300" />
+</figure></p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Takeway</p>
+<ul>
+<li>Backward pass in a neural network take about twice as long as the forward pass. Beacuse almost every <span class="arithmatex">\(matmul\)</span> in forward pass corresponds to two <span class="arithmatex">\(matmul\)</span> in backward pass. <strong>One for get gradient of parameter. One for get gradient of input.</strong> </li>
+</ul>
+<details class="tip">
+<summary>Related Reading</summary>
+<p><a href="https://ai.stackexchange.com/questions/38085/why-should-one-expect-the-backward-pass-to-take-twice-as-long-as-the-forward-pas">(Stack Exchange)Why should one expect the backward pass to take twice as long as the forward pass?</a></p>
+</details>
+<ul>
+<li>Not all intermediate results of the forward pass will be used in the backward pass, so <strong>only the "activations" from the forward pass need to be stored</strong></li>
+</ul>
+</div>
+<h2 id="2-memory-consumption">2. Memory consumption<a class="headerlink" href="#2-memory-consumption" title="Permanent link">&para;</a></h2>
+<p><strong>Adam —— The most commonly used optimization algorithm in LLM:</strong></p>
+<div class="arithmatex">\[
+\begin{align*}
+m &amp;= \beta_1 m + (1 - \beta_1) g, \\
+v &amp;= \beta_2 v + (1 - \beta_2) g^2, \\
+w &amp;= w - \frac{\alpha}{\sqrt{v} + \epsilon} m,
+\end{align*}
+\]</div>
+<p><strong>Mix Precision Training: FP16 + FP32</strong></p>
+<figure>
+<p><img alt="Alt text" src="../assets/image-17.png" width="width" /></p>
+</figure>
+<details class="tip">
+<summary>Why Update Use FP32?</summary>
+<ul>
+<li>
+<p>Magnitude is smaller than <span class="arithmatex">\(2^{-24}\)</span> becomes zero in FP16, <span class="arithmatex">\(learning rate \times gradient\)</span> will be zero.</p>
+</li>
+<li>
+<p>The ratio of the weight value to the weight update is very large</p>
+</li>
+</ul>
+</details>
+<div class="admonition success">
+<p class="admonition-title">Takeway</p>
+<p>Memory consumption:</p>
+<ul>
+<li>
+<p>Model:</p>
+<ul>
+<li>
+<p>parameters(fp16) : 2 bytes</p>
+</li>
+<li>
+<p>gradients(fp16) : 2 bytes</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Optimizer status:</p>
+<ul>
+<li>
+<p>momentum(fp32) : 4 bytes</p>
+</li>
+<li>
+<p>variance(fp32) : 4 bytes</p>
+</li>
+<li>
+<p>parameters(fp32) : 4 bytes</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Activations(fp16) : 2 bytes</p>
+<ul>
+<li>for GPT architecture, the size of activations is about <span class="arithmatex">\(12 \times hidden dim \times batch \times seq length \times transf ormer layers\)</span></li>
+</ul>
+</li>
+<li>
+<p>Buffer &amp; Fragmentation</p>
+</li>
+</ul>
+<details class="example">
+<summary>GPT-2 1.5B example</summary>
+<p>sequence length of 1K and batch size of 32</p>
+<ul>
+<li>
+<p>Model: 4 bytes <span class="arithmatex">\(\times\)</span> 1.5B <span class="arithmatex">\(\approx\)</span> <strong>6GB</strong></p>
+</li>
+<li>
+<p>Optimizer status: 12 bytes <span class="arithmatex">\(\times\)</span> 1.5B <span class="arithmatex">\(\approx\)</span> <strong>18GB</strong></p>
+</li>
+<li>
+<p>Activations: 2 bytes <span class="arithmatex">\(\times\)</span> 12 <span class="arithmatex">\(\times\)</span> 1600 <span class="arithmatex">\(\times\)</span> 32 <span class="arithmatex">\(\times\)</span> 1024 <span class="arithmatex">\(\times\)</span> 48 <span class="arithmatex">\(\approx\)</span> <strong>60.3GB</strong>, use Activation Checkpointing can reduce to <strong>8GB</strong></p>
+</li>
+<li>
+<p>Total: <strong>32GB</strong></p>
+</li>
+</ul>
+</details>
+</div>
+<details class="note">
+<summary>Activation Checkpointing</summary>
+<p>Key idea: During the forward computation, only store activations for some layers, and then recompute the other required activations during the backward pass, <strong>trading storage for computation</strong>.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:5"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">frame 1</label><label for="__tabbed_2_2">frame 2</label><label for="__tabbed_2_3">frame 3</label><label for="__tabbed_2_4">frame 4</label><label for="__tabbed_2_5">frame 5</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><img alt="Alt text" src="../CMU10414/assets/image-59.png" /></p>
+</div>
+<div class="tabbed-block">
+<p>recompute：
+<img alt="Alt text" src="../CMU10414/assets/image-60.png" /></p>
+</div>
+<div class="tabbed-block">
+<p>backward pass：
+<img alt="Alt text" src="../CMU10414/assets/image-61.png" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="Alt text" src="../CMU10414/assets/image-62.png" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="Alt text" src="../CMU10414/assets/image-63.png" /></p>
+</div>
+</div>
+</div>
+<p>Memory consumption：
+<img alt="Alt text" src="../CMU10414/assets/image-64.png" /></p>
+<ul>
+<li>
+<p>Take <span class="arithmatex">\(K = \sqrt{N}\)</span>, get <span class="arithmatex">\(O(\sqrt{N})\)</span> Space Complexity。</p>
+</li>
+<li>
+<p>33% re-computation time overhead</p>
+</li>
+</ul>
+</details>
+<h2 id="3-parallelism">3. Parallelism<a class="headerlink" href="#3-parallelism" title="Permanent link">&para;</a></h2>
+<h3 id="31-overview">3.1 overview<a class="headerlink" href="#31-overview" title="Permanent link">&para;</a></h3>
+<figure>
+<p><img alt="Alt text" src="../assets/image-18.png" /></p>
+</figure>
+<p><strong>Most general classifcation:</strong></p>
+<ul>
+<li>
+<p>Data parallelism(Too much data): Different device, Different data from same batch, Same model parameter, execute simultaneously</p>
+</li>
+<li>
+<p>Model parallelism(Too large model): Others</p>
+</li>
+</ul>
+<p><strong>Most Common classifcation:</strong></p>
+<figure>
+<p><img alt="Alt text" src="../assets/image-20.png" /></p>
+</figure>
+<ul>
+<li>
+<p>Pipeline Parallelism: Execution flow partitioning + batch partitioning + microbatch pipeline excution</p>
+</li>
+<li>
+<p>Tensor Parallelism: Partitioning layer/operator into multiple sections without data dependencies, execute simultaneously</p>
+</li>
+</ul>
+<h3 id="32-pure-data-parallelism">3.2 Pure Data Parallelism<a class="headerlink" href="#32-pure-data-parallelism" title="Permanent link">&para;</a></h3>
+<div class="admonition example">
+<p class="admonition-title">DP</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Parameter server</label><label for="__tabbed_3_2">Allreduce</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><figure markdown>
+<img alt="Alt text" src="../assets/image-21.png" />
+</figure></p>
+</div>
+<div class="tabbed-block">
+<p><figure markdown>
+<img alt="Alt text" src="../assets/image-22.png" />
+</figure></p>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li>Communication Volume(all-reduce): <span class="arithmatex">\(O(Parameter\_num \times 2 \times \frac{d - 1}{d})\)</span> for each batch, each GPU, here <span class="arithmatex">\(d\)</span> is the number of devices</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>for transformer-architechture model, <span class="arithmatex">\(O(Parameter \_num) = O(hidden\_dim^2 \times layer\_num)\)</span></p>
+</div>
+<ul>
+<li><strong>Can achieve Communication-Computation Overlap</strong></li>
+</ul>
+<h3 id="33-pure-pipeline-parallelism">3.3 Pure Pipeline Parallelism<a class="headerlink" href="#33-pure-pipeline-parallelism" title="Permanent link">&para;</a></h3>
+<figure>
+<p><img alt="Alt text" src="../assets/image-41.png" /></p>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Pipeline Schedule Strategy</p>
+<p>Assume 1 batch partitioned to <span class="arithmatex">\(m\)</span> mirco-batch, there are <span class="arithmatex">\(p\)</span> devices</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">all-forward, all-backward</label><label for="__tabbed_4_2">1F1B</label><label for="__tabbed_4_3">1F1B with Interleaved Stages</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><figure markdown>
+<img alt="Alt text" src="../assets/image-43.png" />
+</figure></p>
+<ul>
+<li>bubble ratio(bubble/not-bubble): <span class="arithmatex">\(\frac{p-1}{m}\)</span>, where p is the number of devices, m is the number of micro-batch</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p><figure markdown>
+<img alt="Alt text" src="../assets/image-46.png" />
+</figure></p>
+</div>
+<div class="tabbed-block">
+<p><figure markdown>
+<img alt="Alt text" src="../assets/image-45.png" />
+</figure></p>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li>
+<p>Communication Volume: <span class="arithmatex">\(O(stage\_output)\)</span> per GPU for each batch for point to point communication</p>
+</li>
+<li>
+<p><strong>Can achieve Communication-Computation Overlap</strong></p>
+</li>
+<li>
+<p>For less idle time caused by bubble, need to increase the number of micro-batch <span class="arithmatex">\(m\)</span> or decrease the number of devices <span class="arithmatex">\(p\)</span></p>
+</li>
+</ul>
+<h3 id="34-pure-tensor-parallelismmegatron-lm">3.4 Pure Tensor Parallelism(Megatron-LM)<a class="headerlink" href="#34-pure-tensor-parallelismmegatron-lm" title="Permanent link">&para;</a></h3>
+<h4 id="341-basics-of-transformer">3.4.1 Basics of Transformer<a class="headerlink" href="#341-basics-of-transformer" title="Permanent link">&para;</a></h4>
+<div class="admonition note">
+<p class="admonition-title">Transformer-Architechture</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Overall Architechture</label><label for="__tabbed_5_2">Attention</label><label for="__tabbed_5_3">MLP</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><figure markdown>
+  <img alt="Alt text" height="height" src="../assets/image-25.png" />
+</figure></p>
+</div>
+<div class="tabbed-block">
+<p><figure markdown>
+  <img alt="Alt text" src="../assets/image-24.png" width="250" />
+</figure></p>
+<div class="arithmatex">\[
+\operatorname{Attention}(X) = \operatorname{Dropout}(\operatorname{MultiHead}(X, X, X))
+\]</div>
+<div class="arithmatex">\[
+\begin{aligned}
+\operatorname{MultiHead}(Q, K, V) &amp; = \left[\operatorname{head}_1, \ldots, \text { head }_{\mathrm{h}}\right] W^O \\
+\text { where head } &amp; =\operatorname{Attention}\left(Q W_i^Q, K W_i^K, V W_i^V\right)
+\end{aligned}
+\]</div>
+</div>
+<div class="tabbed-block">
+<div class="arithmatex">\[
+    \operatorname{MLP}(X)=\operatorname{Dropout} \left(\operatorname{GeLU} \left(X A\right) B \right)
+\]</div>
+<details class="tip">
+<summary>GeLU</summary>
+<p><figure markdown>
+  <img alt="Alt text" src="../assets/image-2.png" width="300" />
+</figure></p>
+</details>
+</div>
+</div>
+</div>
+</div>
+<h4 id="342-attention-partition">3.4.2 Attention Partition<a class="headerlink" href="#342-attention-partition" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>Every GPU has same input <span class="arithmatex">\(X\)</span> </p>
+</li>
+<li>
+<p>Distribute computations of different heads to different GPUs</p>
+</li>
+<li>
+<p>Splitting <span class="arithmatex">\(W^O\)</span> by rows and placing them on different GPUs</p>
+</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>4 heads, 2 GPUs:</p>
+<div class="arithmatex">\[
+\left[H_1, H_2\right]\left[\begin{array}{l}
+W_1^0 \\
+W_2^0
+\end{array}\right]=\left[H_1 W_1^0+H_2 W_2^0\right]
+\]</div>
+<p><figure markdown>
+  <img alt="Alt text" src="../assets/image-28.png" />
+</figure></p>
+</div>
+<h4 id="343-mlp-partition">3.4.3 MLP Partition<a class="headerlink" href="#343-mlp-partition" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>Every GPU has same input <span class="arithmatex">\(X\)</span> </p>
+</li>
+<li>
+<p>Splitting <span class="arithmatex">\(W_1\)</span> by column and placing them on different GPUs</p>
+</li>
+<li>
+<p>Splitting <span class="arithmatex">\(W_2\)</span> by row and placing them on different GPUs</p>
+</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>2 GPUs:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+G e L U(X A) B &amp; =G e L U\left(\left[X A_1, x A_2\right]\right) B=\left[G e L U\left(X A_1\right), G e L U\left(X A_2\right)\right]\left[\begin{array}{l}
+B_1 \\
+B_2
+\end{array}\right] \\
+&amp; =\left[\operatorname{GeLU}\left(X A_1\right) B_1+G e L U\left(X A_2\right) B_2\right]
+\end{aligned}
+\]</div>
+<p><img alt="Alt text" src="../assets/image-33.png" /></p>
+</div>
+<h4 id="345-put-them-together">3.4.5 Put them together<a class="headerlink" href="#345-put-them-together" title="Permanent link">&para;</a></h4>
+<div class="admonition note">
+<p class="admonition-title">number of Allreduce</p>
+<p><span class="arithmatex">\(f\)</span> is an identity operator in the forward pass and all reduce in the backward pass while <span class="arithmatex">\(g\)</span> is an all reduce in the forward pass and identity in the backward pass</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:3"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Attention</label><label for="__tabbed_6_2">MLP</label><label for="__tabbed_6_3">transformer layer</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><figure markdown>
+  <img alt="Alt text" src="../assets/image-31.png" width="400" />
+</figure></p>
+</div>
+<div class="tabbed-block">
+<p><figure markdown>
+  <img alt="Alt text" src="../assets/image-29.png" width="400" />
+</figure></p>
+</div>
+<div class="tabbed-block">
+<p><figure markdown>
+  <img alt="Alt text" src="../assets/image-32.png" width="400" />
+</figure></p>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li>
+<p><strong>Communication Volumn</strong>: <span class="arithmatex">\(8 \times batch\_size \times 𝑠eq\_len \times ℎidden\_size \times \frac{t - 1}{t}\)</span> per layer per GPU for each batch, where <span class="arithmatex">\(t\)</span> is the number of GPUs. </p>
+</li>
+<li>
+<p>Communication and computation can't overlap</p>
+</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:1"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Device</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block"></div>
+</div>
+</div>
+<ul>
+<li>
+<p>32 DGX-2H servers (a total of 512 Tesla V100 SXM3 32GB GPUs)</p>
+</li>
+<li>
+<p>300 GB/sec bandwidth between GPUs inside a server via NVSwitch</p>
+</li>
+<li>
+<p>100 GB/sec of interconnect bandwidth between servers using 8 InfiniBand adapters per server.</p>
+</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">Scalability result1</label><label for="__tabbed_8_2">Scalability result2</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><figure markdown>
+  <img alt="Alt text" src="../assets/image-40.png" />  <br />
+</figure></p>
+</div>
+<div class="tabbed-block">
+<blockquote>
+<p>We sustain 15.1 PetaFLOPs across the entire application with 76% scaling efficiency when compared to a strong single GPU baseline that sustains 39 TeraFLOPs, which is 30% of peak FLOPs.</p>
+</blockquote>
+<p><figure markdown>
+  <img alt="Alt text" src="../assets/image-39.png" />
+</figure></p>
+</div>
+</div>
+</div>
+</div>
+<h3 id="35-hybrid-parallelism">3.5 hybrid parallelism<a class="headerlink" href="#35-hybrid-parallelism" title="Permanent link">&para;</a></h3>
+<h4 id="351-dp--pp">3.5.1 DP + PP<a class="headerlink" href="#351-dp--pp" title="Permanent link">&para;</a></h4>
+<p><a href="https://www.usenix.org/conference/atc20/presentation/park">HetPipe(ATC'20)</a></p>
+<figure>
+<p><img alt="Alt text" src="../assets/image-26.png" /> </p>
+</figure>
+<h4 id="352-pp--dp">3.5.2 PP + DP<a class="headerlink" href="#352-pp--dp" title="Permanent link">&para;</a></h4>
+<p><a href="https://dl.acm.org/doi/10.1145/3341301.3359646">PipeDream(SOSP'19)</a></p>
+<figure>
+<p><img alt="Alt text" src="../assets/image-34.png" width="200" /></p>
+</figure>
+<h4 id="353-dp--tp">3.5.3 DP + TP<a class="headerlink" href="#353-dp--tp" title="Permanent link">&para;</a></h4>
+<p><a href="https://arxiv.org/pdf/1909.08053.pdf">Megatron-LM(arxiv'19)</a></p>
+<figure>
+<p><img alt="Alt text" src="../assets/image-37.png" width="400" /></p>
+</figure>
+<h4 id="354-pp--tp">3.5.4 PP + TP<a class="headerlink" href="#354-pp--tp" title="Permanent link">&para;</a></h4>
+<figure>
+<p><a href="https://dl.acm.org/doi/10.1145/3458817.3476209">Megatron-LM-v2(SC'21)</a>
+  <img alt="Alt text" src="../assets/image-35.png" /></p>
+</figure>
+<h4 id="355-dp--pp--tp">3.5.5 DP + PP + TP<a class="headerlink" href="#355-dp--pp--tp" title="Permanent link">&para;</a></h4>
+<p><a href="https://dl.acm.org/doi/10.1145/3458817.3476209">Megatron-LM-v2(SC'21)</a></p>
+<figure>
+<p><img alt="Alt text" src="../assets/image-36.png" /></p>
+</figure>
+<h3 id="36-takeaway">3.6 Takeaway<a class="headerlink" href="#36-takeaway" title="Permanent link">&para;</a></h3>
+<figure>
+<p><img alt="Alt text" src="../assets/image-18.png" /></p>
+</figure>
+<figure>
+<p><img alt="Alt text" src="../assets/image-20.png" /></p>
+</figure>
+<ul>
+<li>
+<p><strong>Data parallelism</strong>: Different device, Different data from same batch, Same model parameter, execute simultaneously</p>
+<ul>
+<li>
+<p>Communication Volume(all-reduce): <span class="arithmatex">\(O(Parameter\_num \times 2 \times \frac{d - 1}{d})\)</span> for each batch, each GPU, where <span class="arithmatex">\(d\)</span> is the number of GPU</p>
+</li>
+<li>
+<p>Can achieve Communication-Computation Overlap</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Pipeline Parallelism</strong>: Execution flow partitioning + batch partitioning + microbatch pipeline excution</p>
+<ul>
+<li>
+<p>Communication Volume(point to point): <span class="arithmatex">\(O(stage\_output)\)</span> per GPU for each batch for  communication</p>
+</li>
+<li>
+<p>Can achieve Communication-Computation Overlap</p>
+</li>
+<li>
+<p>For less idle time caused by bubble, need to increase the number of micro-batch <span class="arithmatex">\(m\)</span> or decrease the number of devices <span class="arithmatex">\(p\)</span></p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Tensor Parallelism</strong>: Partitioning same layer/operator into multiple Parts without data dependencies, execute simultaneously</p>
+<ul>
+<li>
+<p>Communication Volumn(all-reduce): <span class="arithmatex">\(8 \times batch\_size \times 𝑠eq\_len \times hidden\_size \times \frac{t - 1}{t}\)</span> per layer per GPU for each batch, where <span class="arithmatex">\(t\)</span> is the number of GPUs. </p>
+</li>
+<li>
+<p>Communication and computation can't overlap</p>
+</li>
+</ul>
+</li>
+</ul>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      最后更新:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-09-16T03:23:46+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-09-16</span>
+      
+        <br>
+        创建日期:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-09-16T03:23:46+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-09-16</span>
+      
+    
+  </small>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            回到页面顶部
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tracking", "navigation.indexes", "navigation.top", "content.code.select", "content.code.copy", "content.code.select", "content.code.annotate", "toc.follow"], "search": "../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
+      
+        <script src="../../js/timeago.min.js"></script>
+      
+        <script src="../../js/timeago_mkdocs_material.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../javascripts/katex.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>

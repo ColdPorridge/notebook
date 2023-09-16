@@ -1,0 +1,1949 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.3.1">
+    
+    
+      
+        <title>Megatron LM v2 - 凉粥的学习笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.046329b4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.85d0ee34.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Serif SC";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/timeago.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-introduction" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="凉粥的学习笔记" class="md-header__button md-logo" aria-label="凉粥的学习笔记" data-md-component="logo">
+      
+  <img src="../../../logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            凉粥的学习笔记
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Megatron LM v2
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ColdPorridge/notebook" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ColdPorridge/notebook
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../.." class="md-tabs__link">
+          
+  
+    
+  
+  主页
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../OS/" class="md-tabs__link">
+          
+  
+    
+  
+  OS
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../DB/" class="md-tabs__link">
+          
+  
+    
+  
+  DB
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Distributed%20System/" class="md-tabs__link">
+          
+  
+    
+  
+  Distributed Systems
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../" class="md-tabs__link">
+          
+  
+    
+  
+  MLSys
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../DL%26ML/" class="md-tabs__link">
+          
+  
+    
+  
+  DL&ML
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Web/" class="md-tabs__link">
+          
+  
+    
+  
+  杂
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="凉粥的学习笔记" class="md-nav__button md-logo" aria-label="凉粥的学习笔记" data-md-component="logo">
+      
+  <img src="../../../logo.png" alt="logo">
+
+    </a>
+    凉粥的学习笔记
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ColdPorridge/notebook" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ColdPorridge/notebook
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../.." class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    主页
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            主页
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../OS/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    OS
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_2">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            OS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Storage stack
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Storage stack
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OS/Storagestack/IO/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    几种常见的IO方式
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../DB/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    DB
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            DB
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Distributed%20System/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Distributed Systems
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_4">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Distributed Systems
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Distributed%20System/%E5%89%91%E6%A1%A5%E5%88%86%E5%B8%83%E5%BC%8F/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    剑桥分布式系统课程
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_4_2">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            剑桥分布式系统课程
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Distributed%20System/%E5%89%91%E6%A1%A5%E5%88%86%E5%B8%83%E5%BC%8F/L1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Distributed%20System/%E5%89%91%E6%A1%A5%E5%88%86%E5%B8%83%E5%BC%8F/L2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Models of distributed systems
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Distributed%20System/%E5%89%91%E6%A1%A5%E5%88%86%E5%B8%83%E5%BC%8F/L3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Time, clocks, and ordering of events
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Distributed%20System/%E5%89%91%E6%A1%A5%E5%88%86%E5%B8%83%E5%BC%8F/L4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Broadcast protocols and logical time
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    MLSys
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_5">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            MLSys
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Papers
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_5_2">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Papers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LoRA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LoRA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../FlashAttention/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FlashAttention
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLaMA-Adapter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LLaMA-Adapter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../CMU10414/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    CMU 10-414/714
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_5_3">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            CMU 10-414/714
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CMU10414/basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deep learning basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CMU10414/AD/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Automatic Differentiation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CMU10414/NN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Neural Network Abstraction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CMU10414/NN_impl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Neural Network Implementation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CMU10414/GPU_acc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hardware Acceleration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FSDP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FSDP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../DL%26ML/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    DL&ML
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_6">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            DL&ML
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL%26ML/Transformer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transformer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL%26ML/GPT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GPT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL%26ML/HELM/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HELM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL%26ML/FLAN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FLAN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL%26ML/Self-Instruct/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Self-Instruct
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Web/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    杂
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_7">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            杂
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_2" >
+        
+          <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    浏览器内核
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            浏览器内核
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Web/Browser%20Kernel/webview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    WebView
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction" class="md-nav__link">
+    1. Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-method" class="md-nav__link">
+    2. Method
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Method">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-ptd-p" class="md-nav__link">
+    2.1 PTD-P
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-interleaved-pipelining-schedule" class="md-nav__link">
+    2.2 interleaved pipelining schedule
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-scattergather-communication-optimization" class="md-nav__link">
+    2.3 Scatter/gather communication optimization
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-experiments-and-analysis" class="md-nav__link">
+    3. Experiments and Analysis
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Experiments and Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-ptd-p-performance" class="md-nav__link">
+    3.1 PTD-P Performance
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-estimating-end-to-end-training-time" class="md-nav__link">
+    3.2 Estimating end-to-end training time
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-pipeline-parallelism-scalability" class="md-nav__link">
+    3.3 Pipeline parallelism scalability
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-impact-of-interleaved-schedule-and-scattergather-communication-optimization" class="md-nav__link">
+    3.4 Impact of interleaved schedule and Scatter/gather communication optimization
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-how-to-set-parallelization-dimensions" class="md-nav__link">
+    3.5 How to Set parallelization dimensions?
+  </a>
+  
+    <nav class="md-nav" aria-label="3.5 How to Set parallelization dimensions?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#341-tensor-versus-pipeline-parallelism" class="md-nav__link">
+    3.4.1 Tensor versus Pipeline Parallelism
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#342-pipeline-versus-data-parallelism" class="md-nav__link">
+    3.4.2 Pipeline versus Data Parallelism
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-how-to-set-microbatch-size" class="md-nav__link">
+    3.6 How to set microbatch size?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+  <h1>Megatron LM v2</h1>
+
+<p><a href="https://dl.acm.org/doi/10.1145/3458817.3476209">Efficient Large-Scale Language Model Training on GPU Clusters Using Megatron-LM(SC'21)</a></p>
+<p><img alt="Alt text" src="../assets/image-69.png" /></p>
+<h2 id="1-introduction">1. Introduction<a class="headerlink" href="#1-introduction" title="Permanent link">&para;</a></h2>
+<figure>
+<p><img alt="Alt text" src="../assets/image-57.png" width="300" /></p>
+</figure>
+<p>Our approach allows us to perform training iterations on a model with 1 trillion parameters at 502 petaFLOP/s on 3072 GPUs (per-GPU throughput of 52% of theoretical peak).</p>
+<p><img alt="Alt text" src="../assets/image-58.png" /></p>
+<h2 id="2-method">2. Method<a class="headerlink" href="#2-method" title="Permanent link">&para;</a></h2>
+<p>Notation:</p>
+<ul>
+<li>
+<p><span class="arithmatex">\((p, t, d)\)</span> : Parallelization dimensions. <span class="arithmatex">\(p\)</span> for the pipeline-modelparallel size, <span class="arithmatex">\(t\)</span> for the tensor-model-parallel size, and <span class="arithmatex">\(d\)</span> for the data-parallel size.</p>
+</li>
+<li>
+<p><span class="arithmatex">\(n\)</span> : Number of GPUs. We require <span class="arithmatex">\(p \cdot t \cdot d=n\)</span>.</p>
+</li>
+<li>
+<p>B: Global batch size (provided as input).</p>
+</li>
+<li>
+<p><span class="arithmatex">\(b\)</span> : Microbatch size.</p>
+</li>
+<li>
+<p><span class="arithmatex">\(m=\frac{1}{b} \cdot \frac{B}{d}:\)</span> Number of microbatches in a batch per pipeline.</p>
+</li>
+</ul>
+<h3 id="21-ptd-p">2.1 PTD-P<a class="headerlink" href="#21-ptd-p" title="Permanent link">&para;</a></h3>
+<p><img alt="Alt text" src="../../assets/image-36.png" /></p>
+<h3 id="22-interleaved-pipelining-schedule">2.2 interleaved pipelining schedule<a class="headerlink" href="#22-interleaved-pipelining-schedule" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Pipeline Schedule Strategy</p>
+<p>Assume 1 batch partitioned to <span class="arithmatex">\(m\)</span> mirco-batch, there are <span class="arithmatex">\(p\)</span> devices</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">all-forward, all-backward</label><label for="__tabbed_1_2">1F1B</label><label for="__tabbed_1_3">1F1B with Interleaved Stages</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><figure markdown>
+<img alt="Alt text" src="../../assets/image-43.png" />
+</figure></p>
+<ul>
+<li>bubble ratio(bubble/not-bubble): <span class="arithmatex">\(\frac{p-1}{m}\)</span></li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p><figure markdown>
+<img alt="Alt text" src="../../assets/image-46.png" />
+</figure></p>
+<ul>
+<li>
+<p>bubble ratio(bubble/not-bubble): <span class="arithmatex">\(\frac{p-1}{m}\)</span></p>
+</li>
+<li>
+<p>This schedule requires activations to be stashed for <span class="arithmatex">\(p\)</span> or fewer microbatches, rather than <span class="arithmatex">\(m\)</span> microbatches in all-forward, all-backward.</p>
+</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p><figure markdown>
+<img alt="Alt text" src="../assets/image-66.png" />
+</figure></p>
+<details class="example">
+<summary>Example</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">1F1B</label><label for="__tabbed_2_2">1F1B with Interleaved Stages</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><img alt="Alt text" src="../assets/image-67.png" /></p>
+</div>
+<div class="tabbed-block">
+<p>v = 2</p>
+<p><img alt="Alt text" src="../assets/image-68.png" /></p>
+</div>
+</div>
+</div>
+</details>
+<ul>
+<li>
+<p>bubble ratio(bubble/not-bubble): <span class="arithmatex">\(\frac{1}{v} \dot \frac{p-1}{m}\)</span></p>
+</li>
+<li>
+<p>the amount of communication also increases by <span class="arithmatex">\(v\)</span>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<h3 id="23-scattergather-communication-optimization">2.3 Scatter/gather communication optimization<a class="headerlink" href="#23-scattergather-communication-optimization" title="Permanent link">&para;</a></h3>
+<p><img alt="Alt text" src="../assets/image-63.png" /></p>
+<h2 id="3-experiments-and-analysis">3. Experiments and Analysis<a class="headerlink" href="#3-experiments-and-analysis" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>Run on <a href="https://blogs.nvidia.com/blog/2020/12/18/nvidia-selene-busy/">NVIDIA Selene Supercomputer</a>, Selene is composed of four SuperPODs, each with a total of 140 nodes, each a NVIDIA DGX A100, giving Selene a total of 560 nodes.</p>
+</li>
+<li>
+<p>In this work, use 384 nodes of Selene, each with 8 NVIDIA DGX A100 GPUs, for a total of 3072 GPUs.</p>
+</li>
+</ul>
+<details class="question">
+<summary>intra-server communication</summary>
+<p>600GB/s of GPU-to-GPU bidirectional bandwidth?</p>
+</details>
+<ul>
+<li>
+<p>Each cluster node has 8 NVIDIA 80-GB A100 GPUs, connected to each other by NVLink and NVSwitch.</p>
+</li>
+<li>
+<p>Each node has eight NVIDIA Mellanox 200Gbps HDR Infiniband HCAs for application communication, with an additional two HCAs per node for dedicated storage.</p>
+</li>
+<li>
+<p>The nodes are connected in a threelevel (leaf, spine, core) fat-tree topology with 850 switches.</p>
+</li>
+<li>
+<p>The cluster uses an all-NVME shared parallel filesystem for high-performance data access and storage.</p>
+</li>
+<li>
+<p>When training a trillion-parameter model on 3072 GPUs, our implementation used an effective bisection bandwidth of 892 GB/s for pipeline-parallel communication, and 13 TB/s for data-parallel communication.</p>
+</li>
+</ul>
+<h3 id="31-ptd-p-performance">3.1 PTD-P Performance<a class="headerlink" href="#31-ptd-p-performance" title="Permanent link">&para;</a></h3>
+<p><img alt="Alt text" src="../assets/image-58.png" /></p>
+<h3 id="32-estimating-end-to-end-training-time">3.2 Estimating end-to-end training time<a class="headerlink" href="#32-estimating-end-to-end-training-time" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><span class="arithmatex">\(P\)</span>: the number of parameters in the model</p>
+</li>
+<li>
+<p><span class="arithmatex">\(T\)</span>: the number of training tokens</p>
+</li>
+<li>
+<p><span class="arithmatex">\(X\)</span>: the number of FLOPs per GPU</p>
+</li>
+<li>
+<p><span class="arithmatex">\(n\)</span>: the number of GPUs</p>
+</li>
+</ul>
+<div class="arithmatex">\[
+\text { End-to-end training time } \approx \frac{8 T P}{n X}
+\]</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">GPT-3</label><label for="__tabbed_3_2">1 trillion parameter model</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><span class="arithmatex">\(P\)</span> = 175 billion, <span class="arithmatex">\(T\)</span> = 300 billion, <span class="arithmatex">\(n\)</span> = 1024 A100 GPUs, achieve <span class="arithmatex">\(X\)</span> = 140 teraFLOP/s per GPU</p>
+<p>-&gt; 34 days</p>
+</div>
+<div class="tabbed-block">
+<p><span class="arithmatex">\(P\)</span> = 1 trillion, <span class="arithmatex">\(T\)</span> = 450 billion, <span class="arithmatex">\(n\)</span> = 3072 A100 GPUs, achieve <span class="arithmatex">\(X\)</span> = 163 teraFLOP/s per GPU</p>
+<p>-&gt; 84 days</p>
+</div>
+</div>
+</div>
+<blockquote>
+<p>We believe these training times (using a reasonable number of GPUs) are practical.</p>
+</blockquote>
+</div>
+<h3 id="33-pipeline-parallelism-scalability">3.3 Pipeline parallelism scalability<a class="headerlink" href="#33-pipeline-parallelism-scalability" title="Permanent link">&para;</a></h3>
+<p>How well does pipeline parallelism scale for a <strong>given batch size</strong>?</p>
+<figure>
+<p><img alt="Alt text" src="../assets/image-59.png" width="500" /></p>
+</figure>
+<p>We evaluate the scaling of the default noninterleaved pipeline-parallel schedule using a weak scaling setup, a GPT model with 128 attention heads and a hidden size of 20480, and a <strong>microbatch size of 1</strong>.</p>
+<p>We use a <strong>tensor-parallel size of 8</strong> for all configurations, and vary the total number of A100 GPUs used from 8 to 64.</p>
+<p>with a pipelineparallel size of 1, we use a model with 3 transformer layers and 15 billion parameters, and with a pipeline-parallel size of 8, we use a model with 24 transformer layers and 121 billion parameters.</p>
+<h3 id="34-impact-of-interleaved-schedule-and-scattergather-communication-optimization">3.4 Impact of interleaved schedule and Scatter/gather communication optimization<a class="headerlink" href="#34-impact-of-interleaved-schedule-and-scattergather-communication-optimization" title="Permanent link">&para;</a></h3>
+<div class="admonition example">
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">impact of interleaved schedule</label><label for="__tabbed_4_2">Scatter/gather communication optimization</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><figure markdown>
+  <img alt="Alt text" src="../assets/image-60.png" width="500" />
+</figure></p>
+<p>This gap closes as the batch size increases due to two reasons: </p>
+<ul>
+<li>
+<p>as the batch size increases, the bubble size in the default schedule decreases</p>
+</li>
+<li>
+<p>the amount of point-to-point communication within the pipeline is proportional to the batch size, and consequently the non-interleaved schedule catches up as the amount of communication increases</p>
+</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p><figure markdown>
+  <img alt="Alt text" src="../assets/image-64.png" width="500" />
+</figure></p>
+</div>
+</div>
+</div>
+</div>
+<h3 id="35-how-to-set-parallelization-dimensions">3.5 How to Set parallelization dimensions?<a class="headerlink" href="#35-how-to-set-parallelization-dimensions" title="Permanent link">&para;</a></h3>
+<h4 id="341-tensor-versus-pipeline-parallelism">3.4.1 Tensor versus Pipeline Parallelism<a class="headerlink" href="#341-tensor-versus-pipeline-parallelism" title="Permanent link">&para;</a></h4>
+<p>Evaluate the impact of pipeline and tensor model parallelism on performance for <strong>a given model and batch size</strong>.</p>
+<figure>
+<p><img alt="Alt text" src="../assets/image-61.png" width="500" /></p>
+</figure>
+<ul>
+<li>
+<p>We observe that tensor model parallelism is best within a node (DGX A100 server) due to its expensive all-reduce communication.</p>
+</li>
+<li>
+<p>Pipeline model parallelism, on the other hand, uses much cheaper point-to-point communication that can be performed across nodes without bottlenecking the entire computation.</p>
+</li>
+</ul>
+<div class="admonition success">
+<p class="admonition-title">Takeaway <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/1" title="GitHub Issue: squidfunk/mkdocs-material #1">#1</a></p>
+<p>When considering different forms of model parallelism, tensor model parallelism should generally be used up to degree <span class="arithmatex">\(g\)</span> when using <span class="arithmatex">\(g\)</span>-GPU servers, and then pipeline model parallelism can be used to scale up to larger models across servers.</p>
+</div>
+<h4 id="342-pipeline-versus-data-parallelism">3.4.2 Pipeline versus Data Parallelism<a class="headerlink" href="#342-pipeline-versus-data-parallelism" title="Permanent link">&para;</a></h4>
+<p>For simplicity, we keep the microbatch size equal to 1 in these experiments.</p>
+<figure>
+<p><img alt="Alt text" src="../assets/image-62.png" width="500" /></p>
+</figure>
+<p>Pipeline bubble ratio: </p>
+<div class="arithmatex">\[
+\frac{p-1}{m}=\frac{n / d-1}{b^{\prime} / d}=\frac{n-d}{b^{\prime}} .
+\]</div>
+<p>Overall throughput will thus increase if the all-reduce communication needed for data parallelism does not drastically increase with higher <span class="arithmatex">\(d\)</span>, which should hold since the communication time for a ring-based implementation scales with <span class="arithmatex">\(\frac{d-1}{d}\)</span>.</p>
+<div class="admonition success">
+<p class="admonition-title">Takeaway <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/2" title="GitHub Issue: squidfunk/mkdocs-material #2">#2</a></p>
+<p>When using data and model parallelism, a total model-parallel size of <span class="arithmatex">\(M = t \dot p\)</span> should be used so that the model’s parameters and intermediate metadata fit in GPU memory; data parallelism can be used to scale up training to more GPUs.</p>
+</div>
+<h3 id="36-how-to-set-microbatch-size">3.6 How to set microbatch size?<a class="headerlink" href="#36-how-to-set-microbatch-size" title="Permanent link">&para;</a></h3>
+<figure>
+<p><img alt="Alt text" src="../assets/image-65.png" width="500" /></p>
+</figure>
+<p>Increasing the microbatch size decreases the number of microbatches in the pipeline (<span class="arithmatex">\(m\)</span>):</p>
+<ul>
+<li>
+<p>leading to a larger pipeline bubble;</p>
+</li>
+<li>
+<p>improve GPU utilization by increasing the arithmetic intensity of executed kernels.</p>
+</li>
+</ul>
+<p>Two factors are at odds with each other, which makes the choice of optimal microbatch size challenging.</p>
+<details class="note">
+<summary>Theoretical analysis</summary>
+<p>The total time spent computing a batch, ignoring communication cost, is
+$$
+\left(B /(d \dot b) +p-1\right) \cdot\left(t_f(b)+t_b(b)\right)
+$$</p>
+<p>Need choose a proper <span class="arithmatex">\(b\)</span> to minimize the above equation.</p>
+</details>
+<div class="admonition success">
+<p class="admonition-title">Takeaway <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/3" title="GitHub Issue: squidfunk/mkdocs-material #3">#3</a></p>
+<p>The optimal microbatch size <span class="arithmatex">\(b\)</span> depends on the throughput and memory footprint characteristics of the model, as well as the pipeline depth <span class="arithmatex">\(p\)</span>, data-parallel size <span class="arithmatex">\(d\)</span>, and batch size 𝐵.</p>
+</div>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      最后更新:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-09-16T03:23:46+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-09-16</span>
+      
+        <br>
+        创建日期:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-09-16T03:23:46+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-09-16</span>
+      
+    
+  </small>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            回到页面顶部
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tracking", "navigation.indexes", "navigation.top", "content.code.select", "content.code.copy", "content.code.select", "content.code.annotate", "toc.follow"], "search": "../../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
+      
+        <script src="../../../js/timeago.min.js"></script>
+      
+        <script src="../../../js/timeago_mkdocs_material.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../../javascripts/katex.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>
