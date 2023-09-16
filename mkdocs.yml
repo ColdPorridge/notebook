@@ -7,6 +7,9 @@ nav:
   - Storage stack:
     - 几种常见的IO方式: OS/Storagestack/IO.md
 
+- Networking:
+  - Networking/index.md
+  - RDMA: Networking/RDMA.md
 - DB:
   - DB/index.md
 - Distributed Systems:
@@ -19,11 +22,17 @@ nav:
     - 4. Broadcast protocols and logical time: Distributed System/剑桥分布式/L4.md
 - MLSys:
   - MLSys/index.md
+  - Networking:
+    - MLSys/Networking/index.md
+    - ARK: MLSys/Networking/ARK.md
   - Papers:
     - MLSys/Papers/index.md
     - LoRA: MLSys/Papers/LoRA.md
     - FlashAttention: MLSys/Papers/FlashAttention.md
     - LLaMA-Adapter: MLSys/Papers/LLaMA-Adapter.md
+    - Mixed Precision Training: MLSys/Papers/MixedPrecisionTraining.md
+    - PipeDream: MLSys/Papers/PipeDream.md
+    - Megatron-LM-v2: MLSys/Papers/Megatron-LM-v2.md
   - CMU 10-414/714: 
     - MLSys/CMU10414/index.md
     - Deep learning basics: MLSys/CMU10414/basics.md
@@ -31,8 +40,11 @@ nav:
     - Neural Network Abstraction: MLSys/CMU10414/NN.md
     - Neural Network Implementation: MLSys/CMU10414/NN_impl.md
     - Hardware Acceleration: MLSys/CMU10414/GPU_acc.md
+    - Hardware Acceleration Implementation: MLSys/CMU10414/Hardware_impl.md
+    - Training Large Models: MLSys/CMU10414/train_large_model.md
   - FSDP: MLSys/FSDP.md
-
+  - Basic Summary: MLSys/Basic_summary.md
+   
 - DL&ML:
   - DL&ML/index.md
   - Transformer: DL&ML/Transformer.md
