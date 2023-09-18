@@ -120,7 +120,7 @@ $$
         
         - Total: **32GB**
 
-??? note "Activation Checkpointing"
+??? note annotate "Activation Checkpointing (1)"
     Key idea: During the forward computation, only store activations for some layers, and then recompute the other required activations during the backward pass, **trading storage for computation**.
     === "frame 1"
         ![Alt text](../CMU10414/assets/image-59.png)
@@ -141,6 +141,8 @@ $$
     - Take $K = \sqrt{N}$, get $O(\sqrt{N})$ Space Complexity。
 
     - 33% re-computation time overhead
+  
+1.  also known as "Activation Recomputation", "re-materialization"... First proposal in [Training deep nets with sublinear memory cost(arxiv'16)](https://arxiv.org/pdf/1604.06174.pdf).
 
 ## 3. Parallelism
 
@@ -164,7 +166,7 @@ $$
 
 - Pipeline Parallelism: Execution flow partitioning + batch partitioning + microbatch pipeline excution
 
-- Tensor Parallelism: Partitioning layer/operator into multiple sections without data dependencies, execute simultaneously
+- Tensor Parallelism: Partitioning layer/operator into multiple sections, execute simultaneously
 
 ### 3.2 Pure Data Parallelism
 !!! example "DP"
@@ -196,11 +198,15 @@ $$
 
     === "all-forward, all-backward"
         <figure markdown>
-        ![Alt text](assets/image-43.png)
+          ![Alt text](assets/image-43.png)
+        </figure>
+        
+        <figure markdown>
+          ![Alt text](assets/image-47.png){ witdh="250" }
         </figure>
         
         - bubble ratio(bubble/not-bubble): $\frac{p-1}{m}$, where p is the number of devices, m is the number of micro-batch
-  
+
     === "1F1B"
         <figure markdown>
         ![Alt text](assets/image-46.png)
@@ -401,7 +407,7 @@ $$
 
     * For less idle time caused by bubble, need to increase the number of micro-batch $m$ or decrease the number of devices $p$
 
-- **Tensor Parallelism**: Partitioning same layer/operator into multiple Parts without data dependencies, execute simultaneously
+- **Tensor Parallelism**: Partitioning same layer/operator into multiple Parts, execute simultaneously
 
     * Communication Volumn(all-reduce): $8 \times batch\_size \times 𝑠eq\_len \times hidden\_size \times \frac{t - 1}{t}$ per layer per GPU for each batch, where $t$ is the number of GPUs. 
 
