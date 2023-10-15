@@ -150,7 +150,7 @@ we observe that the collective communication overhead across GPUs is often the k
 
         4. CPU creates a memory map (mmap) of the destination GPU’s address space **prior to runtime execution**
   
-        5. the data is ready at runtime,
+        5. the data is ready at runtime
         
         6. GPU threads copy the data into the mmap, which implicitly conducts DMA copy.
 
@@ -431,7 +431,7 @@ CTA is conceptually and functionally the same as a **thread block** in CUDA or a
         All results use only InfiniBand for communication (no NVLink) and use the ring reduction algorithm
 
         <figure markdown>
-          ![Alt text](assets/image-45.png){ width="400" }
+          ![Alt text](assets/image-48.png){ width="400" }
         </figure>
 
         GPT-2 XL(1.5B): **1.7x** faster than SuperBench (PyTorch+NCCL) using 32x A100
