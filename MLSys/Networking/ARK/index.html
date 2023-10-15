@@ -1,0 +1,2992 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../">
+      
+      
+        <link rel="next" href="../../Papers/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.6">
+    
+    
+      
+        <title>ARK - 凉粥的学习笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.35e1ed30.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+  
+  
+  
+  
+  <style>:root{--md-annotation-icon:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 13h-4v4h-2v-4H7v-2h4V7h2v4h4m-5-9A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2Z"/></svg>');}</style>
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Serif SC";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/timeago.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ark-gpu-driven-code-execution-for-distributed-deep-learning" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="凉粥的学习笔记" class="md-header__button md-logo" aria-label="凉粥的学习笔记" data-md-component="logo">
+      
+  <img src="../../../logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            凉粥的学习笔记
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ARK
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ColdPorridge/notebook" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ColdPorridge/notebook
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../.." class="md-tabs__link">
+          
+  
+    
+  
+  主页
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../OS/" class="md-tabs__link">
+          
+  
+    
+  
+  OS
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Networking/RDMA/" class="md-tabs__link">
+          
+  
+    
+  
+  Networking
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../DB/" class="md-tabs__link">
+          
+  
+    
+  
+  DB
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Distributed%20System/" class="md-tabs__link">
+          
+  
+    
+  
+  Distributed Systems
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+    
+  
+  MLSys
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../DL%26ML/" class="md-tabs__link">
+          
+  
+    
+  
+  DL&ML
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Web/" class="md-tabs__link">
+          
+  
+    
+  
+  杂
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="凉粥的学习笔记" class="md-nav__button md-logo" aria-label="凉粥的学习笔记" data-md-component="logo">
+      
+  <img src="../../../logo.png" alt="logo">
+
+    </a>
+    凉粥的学习笔记
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ColdPorridge/notebook" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ColdPorridge/notebook
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../.." class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    主页
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            主页
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../OS/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    OS
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            OS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Storage stack
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Storage stack
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OS/Storagestack/IO/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    几种常见的IO方式
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Networking
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Networking
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Networking/RDMA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RDMA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../DB/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    DB
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            DB
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Distributed%20System/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Distributed Systems
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Distributed Systems
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Distributed%20System/%E5%89%91%E6%A1%A5%E5%88%86%E5%B8%83%E5%BC%8F/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    剑桥分布式系统课程
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            剑桥分布式系统课程
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Distributed%20System/%E5%89%91%E6%A1%A5%E5%88%86%E5%B8%83%E5%BC%8F/L1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Distributed%20System/%E5%89%91%E6%A1%A5%E5%88%86%E5%B8%83%E5%BC%8F/L2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Models of distributed systems
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Distributed%20System/%E5%89%91%E6%A1%A5%E5%88%86%E5%B8%83%E5%BC%8F/L3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Time, clocks, and ordering of events
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Distributed%20System/%E5%89%91%E6%A1%A5%E5%88%86%E5%B8%83%E5%BC%8F/L4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Broadcast protocols and logical time
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    MLSys
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            MLSys
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Networking
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            Networking
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    None
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    ARK
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    ARK
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1background" class="md-nav__link">
+    1.Background
+  </a>
+  
+    <nav class="md-nav" aria-label="1.Background">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-cuda-and-gpu-architecture" class="md-nav__link">
+    1.1 CUDA and GPU architecture
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-gpudirect" class="md-nav__link">
+    1.2 GPUDirect
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-cpu-control-communication-vs-gpu-control-communication" class="md-nav__link">
+    1.3 CPU-control Communication vs. GPU-control Communication
+  </a>
+  
+    <nav class="md-nav" aria-label="1.3 CPU-control Communication vs. GPU-control Communication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#131-intra-node-communication" class="md-nav__link">
+    1.3.1 intra-node communication
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#132-inter-node-communication" class="md-nav__link">
+    1.3.2 inter-node communication
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-motivation" class="md-nav__link">
+    2. Motivation
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Motivation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-small-data-transfer" class="md-nav__link">
+    2.1 Small data transfer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-overlapping-computation-and-communication" class="md-nav__link">
+    2.2 Overlapping computation and communication
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-takeaway" class="md-nav__link">
+    2.3 Takeaway
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-design" class="md-nav__link">
+    3. Design
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-gpu-controlled-dma-engine" class="md-nav__link">
+    3.1 GPU-controlled DMA engine
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 GPU-controlled DMA engine">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#311-software-dma-engine" class="md-nav__link">
+    3.1.1 Software DMA Engine
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#312-hardware-dma-engine" class="md-nav__link">
+    3.1.2 Hardware DMA Engine
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-autonomous-gpu-execution-control" class="md-nav__link">
+    3.2 Autonomous GPU Execution Control
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 Autonomous GPU Execution Control">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#321-ctacooperative-thread-array" class="md-nav__link">
+    3.2.1 CTA(Cooperative Thread Array)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322-offline-scheduling-vctas-to-sms" class="md-nav__link">
+    3.2.2 Offline Scheduling vCTAs to SMs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-evaluation" class="md-nav__link">
+    4. Evaluation
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Evaluation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-eval-of-design-1" class="md-nav__link">
+    4.1 Eval of Design 1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-eval-of-design-2" class="md-nav__link">
+    4.2 Eval of Design 2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-eval-of-distributed-traininginference" class="md-nav__link">
+    4.3 Eval of Distributed Training/Inference
+  </a>
+  
+    <nav class="md-nav" aria-label="4.3 Eval of Distributed Training/Inference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#431-data-parallelism-training" class="md-nav__link">
+    4.3.1 Data Parallelism Training
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#432-tensor-parallel-inference" class="md-nav__link">
+    4.3.2 Tensor-parallel Inference
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#433-pipeline-parallel-training" class="md-nav__link">
+    4.3.3 Pipeline-parallel Training
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-conclusion" class="md-nav__link">
+    5. Conclusion
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Papers/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Papers
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            Papers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Papers/LoRA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LoRA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Papers/FlashAttention/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FlashAttention
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Papers/LLaMA-Adapter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LLaMA-Adapter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Papers/MixedPrecisionTraining/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mixed Precision Training
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Papers/PipeDream.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PipeDream
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Papers/Megatron-LM-v2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Megatron-LM-v2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../CMU10414/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    CMU 10-414/714
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_4" id="__nav_6_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_4">
+            <span class="md-nav__icon md-icon"></span>
+            CMU 10-414/714
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CMU10414/basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deep learning basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CMU10414/AD/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Automatic Differentiation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CMU10414/NN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Neural Network Abstraction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CMU10414/NN_impl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Neural Network Implementation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CMU10414/GPU_acc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hardware Acceleration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CMU10414/Hardware_impl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hardware Acceleration Implementation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CMU10414/train_large_model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Training Large Models
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basic_summary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic Summary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../DL%26ML/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    DL&ML
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            DL&ML
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL%26ML/Transformer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transformer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL%26ML/GPT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GPT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL%26ML/HELM/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HELM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL%26ML/FLAN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FLAN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL%26ML/Self-Instruct/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Self-Instruct
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Web/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    杂
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            杂
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_2" id="__nav_8_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    浏览器内核
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_2">
+            <span class="md-nav__icon md-icon"></span>
+            浏览器内核
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Web/Browser%20Kernel/webview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    WebView
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1background" class="md-nav__link">
+    1.Background
+  </a>
+  
+    <nav class="md-nav" aria-label="1.Background">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-cuda-and-gpu-architecture" class="md-nav__link">
+    1.1 CUDA and GPU architecture
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-gpudirect" class="md-nav__link">
+    1.2 GPUDirect
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-cpu-control-communication-vs-gpu-control-communication" class="md-nav__link">
+    1.3 CPU-control Communication vs. GPU-control Communication
+  </a>
+  
+    <nav class="md-nav" aria-label="1.3 CPU-control Communication vs. GPU-control Communication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#131-intra-node-communication" class="md-nav__link">
+    1.3.1 intra-node communication
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#132-inter-node-communication" class="md-nav__link">
+    1.3.2 inter-node communication
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-motivation" class="md-nav__link">
+    2. Motivation
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Motivation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-small-data-transfer" class="md-nav__link">
+    2.1 Small data transfer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-overlapping-computation-and-communication" class="md-nav__link">
+    2.2 Overlapping computation and communication
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-takeaway" class="md-nav__link">
+    2.3 Takeaway
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-design" class="md-nav__link">
+    3. Design
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-gpu-controlled-dma-engine" class="md-nav__link">
+    3.1 GPU-controlled DMA engine
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 GPU-controlled DMA engine">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#311-software-dma-engine" class="md-nav__link">
+    3.1.1 Software DMA Engine
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#312-hardware-dma-engine" class="md-nav__link">
+    3.1.2 Hardware DMA Engine
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-autonomous-gpu-execution-control" class="md-nav__link">
+    3.2 Autonomous GPU Execution Control
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 Autonomous GPU Execution Control">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#321-ctacooperative-thread-array" class="md-nav__link">
+    3.2.1 CTA(Cooperative Thread Array)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322-offline-scheduling-vctas-to-sms" class="md-nav__link">
+    3.2.2 Offline Scheduling vCTAs to SMs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-evaluation" class="md-nav__link">
+    4. Evaluation
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Evaluation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-eval-of-design-1" class="md-nav__link">
+    4.1 Eval of Design 1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-eval-of-design-2" class="md-nav__link">
+    4.2 Eval of Design 2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-eval-of-distributed-traininginference" class="md-nav__link">
+    4.3 Eval of Distributed Training/Inference
+  </a>
+  
+    <nav class="md-nav" aria-label="4.3 Eval of Distributed Training/Inference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#431-data-parallelism-training" class="md-nav__link">
+    4.3.1 Data Parallelism Training
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#432-tensor-parallel-inference" class="md-nav__link">
+    4.3.2 Tensor-parallel Inference
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#433-pipeline-parallel-training" class="md-nav__link">
+    4.3.3 Pipeline-parallel Training
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-conclusion" class="md-nav__link">
+    5. Conclusion
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="ark-gpu-driven-code-execution-for-distributed-deep-learning">ARK: GPU-driven Code Execution for Distributed Deep Learning<a class="headerlink" href="#ark-gpu-driven-code-execution-for-distributed-deep-learning" title="Permanent link">&para;</a></h1>
+<p><a href="https://www.usenix.org/conference/nsdi23/presentation/hwang">NSDI'23</a></p>
+<figure>
+<p><img alt="Alt text" src="../assets/image-2.png" /></p>
+</figure>
+<p><strong>Abstract:</strong>
+we observe that the collective communication overhead across GPUs is often the key limiting factor of performance for distributed DL. It under-utilizes the networking bandwidth:</p>
+<p><img alt="Alt text" src="../assets/image-4.png" /></p>
+<ul>
+<li>GPU-controlled DMA and GPU-driven Execution system design</li>
+</ul>
+<h2 id="1background">1.Background<a class="headerlink" href="#1background" title="Permanent link">&para;</a></h2>
+<h3 id="11-cuda-and-gpu-architecture">1.1 CUDA and GPU architecture<a class="headerlink" href="#11-cuda-and-gpu-architecture" title="Permanent link">&para;</a></h3>
+<p><strong>Programming model: SIMT</strong></p>
+<figure>
+<p><img alt="Alt text" src="../assets/3.png" width="400" /></p>
+</figure>
+<details class="example">
+<summary>CUDA code example</summary>
+<div class="language-CUDA highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kr">__global__</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">vecAddKernel</span><span class="p">(</span><span class="kt">float</span><span class="o">*</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="o">*</span><span class="w"> </span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="o">*</span><span class="w"> </span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">blockDim</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">blockIdx</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">threadIdx</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">      </span><span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="p">}</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="kt">void</span><span class="w"> </span><span class="n">VecAddCUDA</span><span class="p">(</span><span class="kt">float</span><span class="o">*</span><span class="w"> </span><span class="n">Acpu</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="n">Bcpu</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="o">*</span><span class="w"> </span><span class="n">Ccpu</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="n">dA</span><span class="err">，</span><span class="o">*</span><span class="n">dB</span><span class="err">，</span><span class="o">*</span><span class="n">dC</span><span class="p">;</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="n">cudaMalloc</span><span class="p">(</span><span class="o">&amp;</span><span class="n">dA</span><span class="err">，</span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">float</span><span class="p">));</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="n">cudaMalloc</span><span class="p">(</span><span class="o">&amp;</span><span class="n">dB</span><span class="err">，</span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">float</span><span class="p">));</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">  </span><span class="n">cudaMalloc</span><span class="p">(</span><span class="o">&amp;</span><span class="n">dC</span><span class="err">，</span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">float</span><span class="p">));</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">  </span><span class="n">cudaMemcpy</span><span class="p">(</span><span class="n">dA</span><span class="err">，</span><span class="n">Acpu</span><span class="err">，</span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="err">，</span><span class="n">cudaMemcpyHostToDevice</span><span class="p">)</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">  </span><span class="n">cudaMemcpy</span><span class="p">(</span><span class="n">dB</span><span class="err">，</span><span class="n">Bcpu</span><span class="err">，</span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="err">，</span><span class="n">cudaMemcpyHostToDevice</span><span class="p">);</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">threads</span><span class="w"> </span><span class="n">per</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">512</span><span class="p">;</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">nblocks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">threads</span><span class="w"> </span><span class="n">per</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">threads</span><span class="w"> </span><span class="n">per</span><span class="w"> </span><span class="n">block</span><span class="p">;</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">  </span><span class="n">VecAddKernel</span><span class="o">&lt;&lt;&lt;</span><span class="n">nblocks</span><span class="p">,</span><span class="w"> </span><span class="kr">thread</span><span class="w"> </span><span class="n">per</span><span class="w"> </span><span class="n">block</span><span class="o">&gt;&gt;&gt;</span><span class="p">(</span><span class="n">dA</span><span class="err">，</span><span class="n">dB</span><span class="err">，</span><span class="n">dc</span><span class="err">，</span><span class="n">n</span><span class="p">);</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">  </span><span class="n">cudaMemcpy</span><span class="p">(</span><span class="n">Ccpu</span><span class="err">，</span><span class="n">dC</span><span class="err">，</span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="err">，</span><span class="n">cudaMemcpyDeviceToHost</span><span class="p">)</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">  </span><span class="n">cudaFree</span><span class="p">(</span><span class="n">dA</span><span class="p">);</span><span class="w"> </span>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">  </span><span class="n">cudaFree</span><span class="p">(</span><span class="n">dB</span><span class="p">);</span><span class="w"> </span>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">  </span><span class="n">cudaFree</span><span class="p">(</span><span class="n">dc</span><span class="p">);</span>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="p">}</span>
+</span></code></pre></div>
+</details>
+<p><strong>GPU architecture:</strong></p>
+<div class="admonition info">
+<p class="admonition-title">NVIDIA Kepler architecture</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Overview</label><label for="__tabbed_1_2">SM</label><label for="__tabbed_1_3">Memory Model</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><figure markdown>
+  <img alt="Alt text" src="../assets/image-18.png" />
+</figure></p>
+</div>
+<div class="tabbed-block">
+<p><figure markdown>
+  <img alt="Alt text" src="../assets/kepler_2.png" />
+</figure></p>
+</div>
+<div class="tabbed-block">
+<p><figure markdown>
+  <img alt="Alt text" src="../assets/image-19.png" />
+</figure></p>
+</div>
+</div>
+</div>
+</div>
+<p><strong>Execution model:</strong></p>
+<figure>
+<p><img alt="Alt text" src="../assets/3_2.png" width="400" /></p>
+</figure>
+<div class="admonition info">
+<p class="admonition-title">CUDA execution model</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:4"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Ordinary CUDA execution model</label><label for="__tabbed_2_2">Dyamic Parallelism</label><label for="__tabbed_2_3">Warp Scheduling</label><label for="__tabbed_2_4">Stream and Hyper-Q</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><figure markdown>
+  <img alt="Alt text" src="../assets/2.png" width="400" />
+</figure></p>
+</div>
+<div class="tabbed-block">
+<p><figure markdown>
+  <img alt="Alt text" src="../assets/image-14.png" width="400" />
+</figure>        </p>
+</div>
+<div class="tabbed-block">
+<p><figure markdown>
+  <img alt="Alt text" src="../assets/3_10.png" width="400" />
+</figure></p>
+<p><figure markdown>
+  <img alt="Alt text" src="../assets/3_4.png" width="400" />
+</figure></p>
+</div>
+<div class="tabbed-block">
+<p><figure markdown>
+  <img alt="Alt text" src="../assets/3_9.png" width="400" />
+</figure>  </p>
+</div>
+</div>
+</div>
+</div>
+<h3 id="12-gpudirect">1.2 GPUDirect<a class="headerlink" href="#12-gpudirect" title="Permanent link">&para;</a></h3>
+<div class="admonition info">
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">GPUDirect P2P</label><label for="__tabbed_3_2">GPUDirect RDMA(GDR)</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><figure markdown>
+  <img alt="Alt text" src="../assets/image-20.png" width="400" />
+</figure>
+Enables GPU-to-GPU copies as well as loads and stores directly over the memory fabric (<strong>PCIe, NVLink</strong>). GPUDirect Peer to Peer is supported natively by the CUDA Driver.</p>
+</div>
+<div class="tabbed-block">
+<p><figure markdown>
+  <img alt="Alt text" src="../assets/image-21.png" width="400" />
+</figure></p>
+<p>Remote direct memory access (RDMA) <strong>enables peripheral PCIe devices direct access to GPU memory</strong>. Designed specifically for the needs of GPU acceleration, GPUDirect RDMA provides direct communication between NVIDIA GPUs in remote systems</p>
+</div>
+</div>
+</div>
+</div>
+<details class="tip">
+<summary>Related Reading</summary>
+<p><a href="https://zhuanlan.zhihu.com/p/430101220">【研究综述】浅谈GPU通信和PCIe P2P DMA</a></p>
+</details>
+<h3 id="13-cpu-control-communication-vs-gpu-control-communication">1.3 CPU-control Communication vs. GPU-control Communication<a class="headerlink" href="#13-cpu-control-communication-vs-gpu-control-communication" title="Permanent link">&para;</a></h3>
+<h4 id="131-intra-node-communication">1.3.1 intra-node communication<a class="headerlink" href="#131-intra-node-communication" title="Permanent link">&para;</a></h4>
+<div class="admonition info">
+<p class="admonition-title">Comunication Method</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">CPU-control Communication</label><label for="__tabbed_4_2">Ideal GPU-control Communication</label><label for="__tabbed_4_3">Real GPU-control Communication</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><figure markdown>
+  <img alt="Alt text" src="../assets/image-15.png" width="300" />
+</figure></p>
+<ol>
+<li>
+<p>CPU is notified when the data is ready</p>
+</li>
+<li>
+<p><strong>CPU initiates the DMA engine</strong>(e.g., call cudaMemcpy)</p>
+</li>
+<li>
+<p>DMA copies the data.</p>
+</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<p><figure markdown>
+  <img alt="Alt text" src="../assets/image-16.png" width="300" />
+</figure></p>
+<div class="admonition warning">
+<p class="admonition-title">But commodity GPU hardware disallows GPU threads to initiate its own DMA engine</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p><strong>GPU-controlled communication leverages MMIO, which will implicitly conduct DMA when GPU threads write data on the mapping</strong></p>
+<p><figure markdown>
+  <img alt="Alt text" src="../assets/image-25.png" width="400" />
+</figure></p>
+<ol>
+<li>
+<p>CPU creates a memory map (mmap) of the destination GPU’s address space <strong>prior to runtime execution</strong></p>
+</li>
+<li>
+<p>the data is ready at runtime,</p>
+</li>
+<li>
+<p>GPU threads copy the data into the mmap, which implicitly conducts DMA copy.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<h4 id="132-inter-node-communication">1.3.2 inter-node communication<a class="headerlink" href="#132-inter-node-communication" title="Permanent link">&para;</a></h4>
+<p>In the entire paper, there is no specific explanation of the details regarding inter-machine communication. It is speculated that only the sender/receiver was changed from GPU to RNIC.</p>
+<h2 id="2-motivation">2. Motivation<a class="headerlink" href="#2-motivation" title="Permanent link">&para;</a></h2>
+<h3 id="21-small-data-transfer">2.1 Small data transfer<a class="headerlink" href="#21-small-data-transfer" title="Permanent link">&para;</a></h3>
+<p>Small data transfer (down to ~10s KB), because of:</p>
+<ul>
+<li>
+<p>Model architecture</p>
+</li>
+<li>
+<p>Multi-stage collective communication (ring, tree, hierarchical, ...)</p>
+</li>
+<li>
+<p>Large-scale: more partion, smaller size per transfer</p>
+</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">CPU-control Communication: Event handling</p>
+<p>Event handling such as:</p>
+<ul>
+<li>
+<p>Signaling the completion of a send</p>
+</li>
+<li>
+<p>launching of follow up GPU task</p>
+</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Common scenario: one GPU receives computation results of another GPU to feed them as input to its own computation.
+<figure markdown>
+    <img alt="Alt text" src="../assets/image-3.png" />
+</figure></p>
+<details class="tip">
+<summary>Overhead Breakdown</summary>
+<p><img alt="Alt text" src="../assets/image-23.png" /></p>
+<ul>
+<li>
+<p>The event polling loop of TensorFlow uses only one CPU thread, which incurs a ∼58.3μs of polling gap on average</p>
+</li>
+<li>
+<p>it takes time to wake up the CPU thread that invokes the callback function of the triggered event. In TensorFlow, it takes ∼58.7μs for the callback thread to acquire the mutex lock from when it is released by the polling thread. This delay could be reduced to as low as 5μs if both threads are running on the same CPU core</p>
+</li>
+<li>
+<p>Delivering the event signal to GPU B would take only 2∼3μs if implemented efficiently,3 but we need to deliver the callback command binary as well. </p>
+</li>
+</ul>
+</details>
+</div>
+</div>
+<h3 id="22-overlapping-computation-and-communication">2.2 Overlapping computation and communication<a class="headerlink" href="#22-overlapping-computation-and-communication" title="Permanent link">&para;</a></h3>
+<p>Data-/pipeline-parallelism can overlap computation and communication, but:</p>
+<div class="admonition info">
+<p class="admonition-title">GPU-control Communication: I/O interference</p>
+<p>NCCL use GPU threads for data I/O, which incurs I/O interference on GPU cores, especially due to:</p>
+<ul>
+<li>
+<p>L2 cache pollution</p>
+</li>
+<li>
+<p>warp scheduler operations</p>
+</li>
+</ul>
+<p><figure markdown>
+  <img alt="Alt text" src="../assets/image-6.png" />
+</figure></p>
+<details class="tip">
+<summary>Details</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">GPU-control Communication</label><label for="__tabbed_5_2">L2 cache pollution</label><label for="__tabbed_5_3">warp scheduler operations</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><figure markdown>
+    <img alt="Alt text" src="../assets/image-24.png" width="400" />
+</figure></p>
+</div>
+<div class="tabbed-block">
+<p>Data-copy GPU thread needs to load the data onto its register file for data transfer, but this pollutes the L2 cache as one cannot bypass the L2 cache when reading from DRAM on commodity GPU</p>
+<p><figure markdown>
+    <img alt="Alt text" src="../assets/image-19.png" />
+</figure></p>
+</div>
+<div class="tabbed-block">
+<p>The copying threads frequently issue ’load/store’, instructions that drive warp schedulers busy, which makes other threads for parallel computation yield their clock cycles.
+<figure markdown>
+    <img alt="Alt text" src="../assets/3_4.png" width="400" />
+</figure></p>
+</div>
+</div>
+</div>
+</details>
+</div>
+<h3 id="23-takeaway">2.3 Takeaway<a class="headerlink" href="#23-takeaway" title="Permanent link">&para;</a></h3>
+<p><img alt="Alt text" src="../assets/image-4.png" /></p>
+<h2 id="3-design">3. Design<a class="headerlink" href="#3-design" title="Permanent link">&para;</a></h2>
+<h3 id="31-gpu-controlled-dma-engine">3.1 GPU-controlled DMA engine<a class="headerlink" href="#31-gpu-controlled-dma-engine" title="Permanent link">&para;</a></h3>
+<p><img alt="Alt text" src="../assets/image-8.png" /></p>
+<p>The GPU-controlled DMA engine enables a GPU thread to directly initiate DMA operations when the data is ready①, which will immediately push the data into the I/O bus(PCIe or NVLink) without wasting GPU threads to do "load/store" operations②.</p>
+<p>In this paper, we present both a software implementation and a hardware prototype of GPU-controlled DMA engine.</p>
+<h4 id="311-software-dma-engine">3.1.1 Software DMA Engine<a class="headerlink" href="#311-software-dma-engine" title="Permanent link">&para;</a></h4>
+<p>Our software engine works over any existing systems without additional hardware:</p>
+<ul>
+<li>
+<p>Leverages host CPU cores – busywaiting CPU threads read DMA requests from GPU and initiate DMA accordingly.</p>
+</li>
+<li>
+<p><strong>CPU threads only mechanically initiate data copies without any GPU event handling or GPU resource consumption.</strong></p>
+</li>
+<li>
+<p>Use MMIO for the CPU-GPU communication that delivers SR(Send Request), SC (Send Completion), and RC (Receive Completion) signals, which takes only 2∼3μs.</p>
+</li>
+</ul>
+<figure>
+<p><img alt="Alt text" src="../assets/image-9.png" width="400" /></p>
+</figure>
+<h4 id="312-hardware-dma-engine">3.1.2 Hardware DMA Engine<a class="headerlink" href="#312-hardware-dma-engine" title="Permanent link">&para;</a></h4>
+<div class="admonition info">
+<p>Intel Arria 10 FPGA Implementation</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Overview</label><label for="__tabbed_6_2">Detailed Design</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><figure markdown>
+  <img alt="Alt text" src="../assets/image-26.png" width="400" />
+</figure></p>
+</div>
+<div class="tabbed-block">
+<p><figure markdown>
+  <img alt="Alt text" src="../assets/image-27.png" width="400" />
+</figure></p>
+<p>Our DMA stack is designed to <strong>pipeline</strong> multiple DMA requests with different SIDs to be handled simultaneously. This is implemented by <strong>splitting a long-length request into multiple short-length sub-requests</strong>(Fetch Splitter).</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Limitation</p>
+<div class="language-text highlight"><pre><span></span><code>Note that our FPGA prototype is limited to **support the communication between only two GPUs** and it **does not support NVLink** as there is no programmable hardware (or an off-the-shelf device) that can connect to NVLink.
+</code></pre></div>
+</div>
+<h3 id="32-autonomous-gpu-execution-control">3.2 Autonomous GPU Execution Control<a class="headerlink" href="#32-autonomous-gpu-execution-control" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Existing systems would not fully exploit the benefit of GPU-controlled communication.</p>
+</li>
+<li>
+<p>Our key observation is that online dynamic scheduling is unnecessary as DL workloads are typically deterministic at runtime.</p>
+</li>
+</ul>
+<div class="admonition info">
+<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">ordinary execution</label><label for="__tabbed_7_2">Loop kernel</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><figure markdown>
+  <img alt="Alt text" src="../assets/2.png" width="400" />
+</figure></p>
+</div>
+<div class="tabbed-block">
+<p><figure markdown>
+  <img alt="Alt text" src="../assets/image-14.png" width="400" />
+</figure>        </p>
+<p>Instead of dynamically launching GPU kernels with CPU at runtime, our GPU-driven system <strong>automatically merges all kernels into a loop kernel (one for each GPU) at compile time and launches it only once at application start</strong>. Then, <strong>the loop kernel runs continuously during the entire lifetime of the application</strong>. </p>
+</div>
+</div>
+</div>
+</div>
+<p>A loop kernel is generated by our <strong>code generator</strong> that reads an operational graph of a DL application and automatically assembles corresponding code snippets of GPU operators to build loop kernel code.</p>
+<p><img alt="Alt text" src="../assets/image-30.png" /></p>
+<h4 id="321-ctacooperative-thread-array">3.2.1 CTA(Cooperative Thread Array)<a class="headerlink" href="#321-ctacooperative-thread-array" title="Permanent link">&para;</a></h4>
+<p>CTA is conceptually and functionally the same as a <strong>thread block</strong> in CUDA or a workgroup in OpenCL</p>
+<figure>
+<p><img alt="Alt text" src="../assets/image-33.png" width="400" /></p>
+</figure>
+<details class="example">
+<summary>kernel code example</summary>
+<div class="language-CUDA highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kr">__global__</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">vecAddKernel</span><span class="p">(</span><span class="kt">float</span><span class="o">*</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="o">*</span><span class="w"> </span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="o">*</span><span class="w"> </span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">blockDim</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">blockIdx</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">threadIdx</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">      </span><span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="p">}</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="kt">void</span><span class="w"> </span><span class="n">VecAddCUDA</span><span class="p">(</span><span class="kt">float</span><span class="o">*</span><span class="w"> </span><span class="n">Acpu</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="n">Bcpu</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="o">*</span><span class="w"> </span><span class="n">Ccpu</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">  </span><span class="p">...</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">threads_per_block</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">512</span><span class="p">;</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">nblocks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">threads_per_block</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">threads</span><span class="w"> </span><span class="n">per</span><span class="w"> </span><span class="n">block</span><span class="p">;</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">  </span><span class="n">VecAddKernel</span><span class="o">&lt;&lt;&lt;</span><span class="n">nblocks</span><span class="p">,</span><span class="w"> </span><span class="n">thread_per_block</span><span class="o">&gt;&gt;&gt;</span><span class="p">(</span><span class="n">dA</span><span class="err">，</span><span class="n">dB</span><span class="err">，</span><span class="n">dc</span><span class="err">，</span><span class="n">n</span><span class="p">);</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">  </span><span class="n">cudaMemcpy</span><span class="p">(</span><span class="n">Ccpu</span><span class="err">，</span><span class="n">dC</span><span class="err">，</span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="err">，</span><span class="n">cudaMemcpyDeviceToHost</span><span class="p">)</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">  </span><span class="p">...</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="p">}</span>
+</span></code></pre></div>
+</details>
+<h4 id="322-offline-scheduling-vctas-to-sms">3.2.2 Offline Scheduling vCTAs to SMs<a class="headerlink" href="#322-offline-scheduling-vctas-to-sms" title="Permanent link">&para;</a></h4>
+<div class="admonition info">
+<p class="admonition-title">what is vCTA?</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:3"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><input id="__tabbed_8_3" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">Map CTA to SM</label><label for="__tabbed_8_2">online HW schedule</label><label for="__tabbed_8_3">offline SW schedule</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><img alt="Alt text" src="../assets/image-31.png" /></p>
+</div>
+<div class="tabbed-block">
+<p><figure markdown>
+    <img alt="Alt text" src="../assets/image-34.png" width="300" />
+</figure> </p>
+</div>
+<div class="tabbed-block">
+<p><figure markdown>
+  <img alt="Alt text" src="../assets/image-35.png" width="300" />
+</figure> 
+Run one CTA per SM</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition info">
+<p class="admonition-title">how does offline scheduler work?</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="9:5"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><input id="__tabbed_9_3" name="__tabbed_9" type="radio" /><input id="__tabbed_9_4" name="__tabbed_9" type="radio" /><input id="__tabbed_9_5" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">step1</label><label for="__tabbed_9_2">step2</label><label for="__tabbed_9_3">step3</label><label for="__tabbed_9_4">step4</label><label for="__tabbed_9_5">put together</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><strong>Abstract all GPU operators into a set of virtual CTAs (vCTAs)</strong>
+<figure markdown>
+    <img alt="Alt text" src="../assets/image-39.png" width="300" />
+</figure></p>
+</div>
+<div class="tabbed-block">
+<p><strong>Analyze the operator graph to grep dependencies between vCTAs</strong></p>
+<p><figure markdown>
+    <img alt="Alt text" src="../assets/image-39.png" width="300" />
+</figure></p>
+</div>
+<div class="tabbed-block">
+<p><strong>Schedule vCTAs across SMs considering their orders &amp; dependencies (leveraging an existing graph partitioning algorithm)</strong>
+<figure markdown>
+  <img alt="Alt text" src="../assets/image-38.png" width="400" />
+</figure></p>
+</div>
+<div class="tabbed-block">
+<p><strong>Generate loop kernel code according to the scheduling</strong></p>
+<p><figure markdown>
+  <img alt="Alt text" src="../assets/image-37.png" width="400" />
+</figure></p>
+</div>
+<div class="tabbed-block">
+<p><figure markdown>
+  <img alt="Alt text" src="../assets/image-36.png" width="400" />
+</figure> </p>
+<ul>
+<li>
+<p>While a CPU-driven system relies on the non-programmable hardware scheduler that distributes the CTAs across SMs at kernel launch</p>
+</li>
+<li>
+<p>a GPU-driven system implements a custom logic that distributes vCTAs across CTAs</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<h2 id="4-evaluation">4. Evaluation<a class="headerlink" href="#4-evaluation" title="Permanent link">&para;</a></h2>
+<h3 id="41-eval-of-design-1">4.1 Eval of Design 1<a class="headerlink" href="#41-eval-of-design-1" title="Permanent link">&para;</a></h3>
+<div class="admonition example">
+<p class="admonition-title">DMA Engine Performance</p>
+<p>Used 2x NVIDIA V100 GPUs (PCIe v3.0, PIX linked) + Intel Xeon Gold 6240R CPU @ 2.40GHz + Intel Arria 10 FPGA</p>
+<p>Both GPUs and the FPGA are behind the same PCIe v3 switch.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="10:2"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><input id="__tabbed_10_2" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="__tabbed_10_1">Latency</label><label for="__tabbed_10_2">Throughput</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><strong>We implement a ping-pong application and report one-way latency.</strong>
+<figure markdown>
+  <img alt="Alt text" src="../assets/image-28.png" width="300" />
+</figure>
+- G-Drv-S and G-Drv-H achieve <strong>3.5x</strong> and <strong>9.1x</strong> better latency, respectively.</p>
+<ul>
+<li>This is because our DMA engines handle the communication events directly in GPU threads while C-Drv relies on the <strong>cudaEvent interface that suffers from large overhead to trigger the events and synchronize streams</strong>.</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p>We measure the throughput by <strong>sending many parallel messages at the same time and reporting the maximum throughput</strong> achieved with varying message sizes.</p>
+<p><figure markdown>
+  <img alt="Alt text" src="../assets/image-29.png" width="300" />
+</figure></p>
+<ul>
+<li>
+<p>software engine (G-Drv-S) shows the same throughput as that of C-Drv, since both use cudaMemcpy for the data-plane</p>
+</li>
+<li>
+<p>hardware engine (G-Drv-H) shows huge throughput improvement, saturating the bandwidth with only 8 KB messages while G-Drv-S needs 4 MB messages for saturation. This is because the hardware DMA engine pipelines processing multiple DMA requests while cudaMemcpy cannot.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<h3 id="42-eval-of-design-2">4.2 Eval of Design 2<a class="headerlink" href="#42-eval-of-design-2" title="Permanent link">&para;</a></h3>
+<p><strong>Compare inference latency of 1-GPU models</strong></p>
+<p><img alt="Alt text" src="../assets/image-41.png" /></p>
+<ul>
+<li>
+<p>GPU-driven system achieves comparable or better perf than baselines</p>
+</li>
+<li>
+<p><strong>1.1x ~ 3.5x</strong> faster than TensorRT</p>
+</li>
+</ul>
+<h3 id="43-eval-of-distributed-traininginference">4.3 Eval of Distributed Training/Inference<a class="headerlink" href="#43-eval-of-distributed-traininginference" title="Permanent link">&para;</a></h3>
+<h4 id="431-data-parallelism-training">4.3.1 Data Parallelism Training<a class="headerlink" href="#431-data-parallelism-training" title="Permanent link">&para;</a></h4>
+<div class="admonition info">
+<div class="tabbed-set tabbed-alternate" data-tabs="11:2"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><input id="__tabbed_11_2" name="__tabbed_11" type="radio" /><div class="tabbed-labels"><label for="__tabbed_11_1">Single Node</label><label for="__tabbed_11_2">Mutiple Nodes</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Used 8x NVIDIA V100 GPUs (PCIe Gen3, single NUMA domain), mixed-precision, sequence length 384, per-GPU batch size 10
+<figure markdown>
+  <img alt="Alt text" src="../assets/image-45.png" width="400" />
+</figure></p>
+<p>BERT-Large(300M): <strong>2.1x</strong> faster than PT-TRT (PyTorch+TensorRT+NCCL) </p>
+</div>
+<div class="tabbed-block">
+<p>Used 4x Azure NDv4 SKUs (8x NVIDIA A100-NVLink GPUs per node), mixed-precision, sequence length 384, per-GPU batch size 4</p>
+<p>All results use only InfiniBand for communication (no NVLink) and use the ring reduction algorithm</p>
+<p><figure markdown>
+  <img alt="Alt text" src="../assets/image-45.png" width="400" />
+</figure></p>
+<p>GPT-2 XL(1.5B): <strong>1.7x</strong> faster than SuperBench (PyTorch+NCCL) using 32x A100</p>
+</div>
+</div>
+</div>
+</div>
+<h4 id="432-tensor-parallel-inference">4.3.2 Tensor-parallel Inference<a class="headerlink" href="#432-tensor-parallel-inference" title="Permanent link">&para;</a></h4>
+<p>Since we do not have enough GPUs to run the entire model, we evaluate the tensor-parallel inference of the model using <strong>two GPUs</strong></p>
+<p>Used 2x NVIDIA V100 GPUs (PCIe Gen3, PIX linked) + Intel Xeon Gold 6240R CPU @ 2.40GHz + Intel Arria 10 FPGA, mixed-precision, batch size 1</p>
+<p><img alt="Alt text" src="../assets/image-44.png" /></p>
+<details class="tip">
+<summary>MoE-model parallelsim</summary>
+<p><figure markdown>
+  <img alt="Alt text" src="../assets/image-42.png" width="400" />
+</figure></p>
+<p><figure markdown>
+  <img alt="Alt text" src="../assets/image-43.png" width="400" />
+</figure></p>
+</details>
+<h4 id="433-pipeline-parallel-training">4.3.3 Pipeline-parallel Training<a class="headerlink" href="#433-pipeline-parallel-training" title="Permanent link">&para;</a></h4>
+<p>Used 8x NVIDIA V100 GPUs (PCIe Gen3, single NUMA domain) + Intel Xeon Gold 6240R CPU @ 2.40GHz</p>
+<p>We train the GPT-3 6.7B model, which is the largest variation of GPT-3 that can fit the memory of eight V100 GPUs via pipeline-parallel training</p>
+<p>Mixed-precision, sequence length 2048, 5 micro-batch, micro-batch size = 1</p>
+<p>Message Size: 16 MB</p>
+<figure>
+<p><img alt="Alt text" src="../assets/image-46.png" width="400" /></p>
+</figure>
+<figure>
+<p><img alt="Alt text" src="../assets/image-47.png" width="400" /></p>
+</figure>
+<div class="admonition tip">
+<p class="admonition-title">Megatron-LM</p>
+<p>Megatron-LM here refers to a PyTorch-based framework that supports large-scale training of NLP models</p>
+</div>
+<p>Most improvement comes from computational gain due to large message sizes.(Event handling overhead is much smaller than data copy latency)</p>
+<h2 id="5-conclusion">5. Conclusion<a class="headerlink" href="#5-conclusion" title="Permanent link">&para;</a></h2>
+<p><img alt="Alt text" src="../assets/image-4.png" /></p>
+<p><img alt="Alt text" src="../assets/image-40.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">Limitaion</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="12:2"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio" /><input id="__tabbed_12_2" name="__tabbed_12" type="radio" /><div class="tabbed-labels"><label for="__tabbed_12_1">Design1</label><label for="__tabbed_12_2">Design2</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li>Note that our FPGA prototype is limited to support the communication between only two GPUs and it does not support NVLink as there is no programmable hardware (or an off-the-shelf device) that can connect to NVLink. Instead, we consider it as a proof-of-concept that demonstrates the ideal benefit rather than a practical device that can be deployed on a large scale. A more practical implementation would be realized by future advances in CPU, GPU, or SmartNICs.</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>
+<p>ARK currently does not implement vCTAs specialized for large matrix multiplications (one side of the unit operator’s output is larger than 256 elements), so it is often slower than existing kernels when the model consists of large matrix multiplications.</p>
+</li>
+<li>
+<p>The vCTA-based scheduling takes a whitebox approach that assumes all operators to be open-sourced, thus ARK cannot schedule close-sourced binaries such as cuDNN</p>
+</li>
+<li>
+<p>the offline scheduler of ARK only supports static computational graphs, which is less flexible comparing to e.g. PyTorch’s dynamic graph</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Future work</p>
+<ul>
+<li>Our design considers leveraging DUA(<a href="https://www.usenix.org/conference/nsdi19/presentation/shu">Direct universal access: Making data center resources available to FPGA(NSDI'19)</a>) to support routing between multiple stacks (either intra- or inter-machine), but we leave it as future work.</li>
+</ul>
+</div>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      最后更新:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-10-15T10:08:25+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-10-15</span>
+      
+        <br>
+        创建日期:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-10-15T09:02:40+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-10-15</span>
+      
+    
+  </small>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tracking", "navigation.indexes", "navigation.top", "content.code.select", "content.code.copy", "content.code.select", "content.code.annotate", "toc.follow"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.aecac24b.min.js"></script>
+      
+        <script src="../../../js/timeago.min.js"></script>
+      
+        <script src="../../../js/timeago_mkdocs_material.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../../javascripts/katex.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>
