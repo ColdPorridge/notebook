@@ -8,10 +8,8 @@ nav:
     - 几种常见的IO方式: OS/Storagestack/IO.md
 
 - Networking:
-  - Networking/index.md
   - RDMA: Networking/RDMA.md
-  - TOPOOPT: Networking/TOPOOPT.md
-  
+
 - DB:
   - DB/index.md
 - Distributed Systems:
@@ -44,7 +42,6 @@ nav:
     - Hardware Acceleration: MLSys/CMU10414/GPU_acc.md
     - Hardware Acceleration Implementation: MLSys/CMU10414/Hardware_impl.md
     - Training Large Models: MLSys/CMU10414/train_large_model.md
-  - FSDP: MLSys/FSDP.md
   - Basic Summary: MLSys/Basic_summary.md
    
 - DL&ML:

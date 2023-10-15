@@ -414,14 +414,65 @@ CTA is conceptually and functionally the same as a **thread block** in CUDA or a
 - GPU-driven system achieves comparable or better perf than baselines
 
 - **1.1x ~ 3.5x** faster than TensorRT
-
-
 ### 4.3 Eval of Distributed Training/Inference
+#### 4.3.1 Data Parallelism Training
+!!! info ""
+    === "Single Node"
+        Used 8x NVIDIA V100 GPUs (PCIe Gen3, single NUMA domain), mixed-precision, sequence length 384, per-GPU batch size 10
+        <figure markdown>
+          ![Alt text](assets/image-45.png){ width="400" }
+        </figure>
 
+        BERT-Large(300M): **2.1x** faster than PT-TRT (PyTorch+TensorRT+NCCL) 
+        
+    === "Mutiple Nodes"
+        Used 4x Azure NDv4 SKUs (8x NVIDIA A100-NVLink GPUs per node), mixed-precision, sequence length 384, per-GPU batch size 4
+        
+        All results use only InfiniBand for communication (no NVLink) and use the ring reduction algorithm
 
+        <figure markdown>
+          ![Alt text](assets/image-45.png){ width="400" }
+        </figure>
 
+        GPT-2 XL(1.5B): **1.7x** faster than SuperBench (PyTorch+NCCL) using 32x A100
+#### 4.3.2 Tensor-parallel Inference
 
-#### 4.3.3 Tensor-parallel Inference
+Since we do not have enough GPUs to run the entire model, we evaluate the tensor-parallel inference of the model using **two GPUs**
+
+Used 2x NVIDIA V100 GPUs (PCIe Gen3, PIX linked) + Intel Xeon Gold 6240R CPU @ 2.40GHz + Intel Arria 10 FPGA, mixed-precision, batch size 1
+
+![Alt text](assets/image-44.png)
+
+??? tip "MoE-model parallelsim" 
+    <figure markdown>
+      ![Alt text](assets/image-42.png){ width="400" }
+    </figure>
+    
+    <figure markdown>
+      ![Alt text](assets/image-43.png){ width="400" }
+    </figure>
+
+#### 4.3.3 Pipeline-parallel Training
+Used 8x NVIDIA V100 GPUs (PCIe Gen3, single NUMA domain) + Intel Xeon Gold 6240R CPU @ 2.40GHz
+
+We train the GPT-3 6.7B model, which is the largest variation of GPT-3 that can fit the memory of eight V100 GPUs via pipeline-parallel training
+
+Mixed-precision, sequence length 2048, 5 micro-batch, micro-batch size = 1
+
+Message Size: 16 MB
+<figure markdown>
+  ![Alt text](assets/image-46.png){ width="400" }
+</figure>
+
+<figure markdown>
+  ![Alt text](assets/image-47.png){ width="400" }
+</figure>
+
+!!! tip "Megatron-LM"
+    Megatron-LM here refers to a PyTorch-based framework that supports large-scale training of NLP models
+
+Most improvement comes from computational gain due to large message sizes.(Event handling overhead is much smaller than data copy latency)
+
 
 
 ## 5. Conclusion
@@ -432,11 +483,14 @@ CTA is conceptually and functionally the same as a **thread block** in CUDA or a
 
 !!! info "Limitaion"
     === "Design1"
-
+        - Note that our FPGA prototype is limited to support the communication between only two GPUs and it does not support NVLink as there is no programmable hardware (or an off-the-shelf device) that can connect to NVLink. Instead, we consider it as a proof-of-concept that demonstrates the ideal benefit rather than a practical device that can be deployed on a large scale. A more practical implementation would be realized by future advances in CPU, GPU, or SmartNICs.
 
     === "Design2"
         - ARK currently does not implement vCTAs specialized for large matrix multiplications (one side of the unit operator’s output is larger than 256 elements), so it is often slower than existing kernels when the model consists of large matrix multiplications.
 
-    === ""
+        - The vCTA-based scheduling takes a whitebox approach that assumes all operators to be open-sourced, thus ARK cannot schedule close-sourced binaries such as cuDNN
+
+        - the offline scheduler of ARK only supports static computational graphs, which is less flexible comparing to e.g. PyTorch’s dynamic graph
 
 !!! info "Future work"
+    - Our design considers leveraging DUA([Direct universal access: Making data center resources available to FPGA(NSDI'19)](https://www.usenix.org/conference/nsdi19/presentation/shu)) to support routing between multiple stacks (either intra- or inter-machine), but we leave it as future work.
