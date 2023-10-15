@@ -2506,7 +2506,7 @@ Enables GPU-to-GPU copies as well as loads and stores directly over the memory f
 <p>CPU creates a memory map (mmap) of the destination GPU’s address space <strong>prior to runtime execution</strong></p>
 </li>
 <li>
-<p>the data is ready at runtime,</p>
+<p>the data is ready at runtime</p>
 </li>
 <li>
 <p>GPU threads copy the data into the mmap, which implicitly conducts DMA copy.</p>
@@ -2837,7 +2837,7 @@ Run one CTA per SM</p>
 <p>Used 4x Azure NDv4 SKUs (8x NVIDIA A100-NVLink GPUs per node), mixed-precision, sequence length 384, per-GPU batch size 4</p>
 <p>All results use only InfiniBand for communication (no NVLink) and use the ring reduction algorithm</p>
 <p><figure markdown>
-  <img alt="Alt text" src="../assets/image-45.png" width="400" />
+  <img alt="Alt text" src="../assets/image-48.png" width="400" />
 </figure></p>
 <p>GPT-2 XL(1.5B): <strong>1.7x</strong> faster than SuperBench (PyTorch+NCCL) using 32x A100</p>
 </div>
@@ -2913,7 +2913,7 @@ Run one CTA per SM</p>
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-10-15T10:08:25+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-10-15</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-10-15T13:18:03+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-10-15</span>
       
         <br>
         创建日期:
