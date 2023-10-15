@@ -10,6 +10,8 @@ nav:
 - Networking:
   - Networking/index.md
   - RDMA: Networking/RDMA.md
+  - TOPOOPT: Networking/TOPOOPT.md
+  
 - DB:
   - DB/index.md
 - Distributed Systems:
