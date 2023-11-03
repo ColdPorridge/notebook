@@ -33,6 +33,7 @@ nav:
     - Mixed Precision Training: MLSys/Papers/MixedPrecisionTraining.md
     - PipeDream: MLSys/Papers/PipeDream.md
     - Megatron-LM-v2: MLSys/Papers/Megatron-LM-v2.md
+    - Gemini: MLSys/Papers/Gemini.md
   - CMU 10-414/714: 
     - MLSys/CMU10414/index.md
     - Deep learning basics: MLSys/CMU10414/basics.md
