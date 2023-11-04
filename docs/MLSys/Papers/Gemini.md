@@ -2,12 +2,12 @@
 
 ## 1. Overview
 <figure markdown>
-![Alt text](assets/image-85.png){ width=500 }
+![Alt text](assets/image-106.png)
 </figure>
 
-- Existing solutions have significant failure recovery costs due to the severe restriction imposed by the **bandwidth of remote storage in which they store checkpoints**.
+- Existing solutions have significant failure recovery costs due to the severe restriction imposed by the **bandwidth of remote storage (（FSx in AWS、CFS in Tencent、VeFPS in ByteDance、NAS in Alibaba)in which they store checkpoints**.
 
-- This paper presents Gemini, a distributed training system that enables fast failure recovery for large model training by c**heckpointing to CPU memory of the host machines with much larger aggregated bandwidth.**
+- This paper presents Gemini, a distributed training system that enables fast failure recovery for large model training by **checkpointing to CPU memory of the host machines with much larger aggregated bandwidth.**
 
 **Challenges:**
 
@@ -61,8 +61,11 @@ It is infeasible to arbitrarily increase the checkpoint frequency because **chec
     !!! question "Why 42 minutes?"
 
 ??? info "related work"
-
+    - DeepFreeze(CCGRID'20) performs asynchronous checkpointing but stores checkpoints in remote persistent storage.
     
+    - Checkfreq(FAST'21): Fdynamically adjusts the checkpointing frequenc.
+
+    - Check-N-Run(NSDI'22): compresses checkpoints with lossy schemes to reduce required storage, but this may harm model accuracy and incur compression overheads.
 
 ### 2.4 Opportunity
 
@@ -83,7 +86,7 @@ It is infeasible to arbitrarily increase the checkpoint frequency because **chec
 
 ### 3.1 Checkpoint Placement
 
-*Given N machines and m checkpoint replicas, what is the optimal placement strategy to distribute the m replicas among the N machines to **maximize the probability of failure recovery** from CPU memory?*
+*Given **N** machines and **m** checkpoint replicas, what is the optimal placement strategy to distribute the m replicas among the N machines to **maximize the probability of failure recovery** from CPU memory?*
 
 !!! example "Mixed placement strategy" 
     === "N = 4, m = 2"
@@ -223,3 +226,40 @@ It is infeasible to arbitrarily increase the checkpoint frequency because **chec
         there is still available network idle time even after Gemini inserts all the checkpoint traffic
 
 ### 4.2 Wasted time
+
+!!! example ""
+    training of GPT-2 100B
+    === "average wasted time"
+        16 p4d.24xlarge instances with different numbers of replaced instances
+        <figure markdown>
+          ![Alt text](assets/image-103.png){ width=300 }
+        </figure>
+        
+        - software failures: 1.5× the iteration time
+
+        - hardware failures: more than 13× compared to HighFreq
+    
+    === "checkpoint time reduction"
+
+        <figure markdown>
+          ![Alt text](assets/image-104.png){ width=300 }
+        </figure>
+
+        - Gemini’s checkpoint time reduces with an increase in the number of instances in our testbed because it utilizes the aggregated network bandwidth among GPU machines to write checkpoints to the CPU memory.
+
+        !!! question "Why?"
+
+        - with 16 p4d.24xlarge instances, the reduction is **65×** with a 100Gbps network, and it increases to more than **250×** with a 400Gbps network.
+        
+    === "checkpoint frequency"
+
+        <figure markdown>
+          ![Alt text](assets/image-105.png){ width=300 }
+        </figure>
+
+        - Gemini improves the checkpoint frequency over HighFreq by **8×** and over Strawman by more than **170×**
+
+        - the checkpoint frequency of Gemini is **bounded by the iteration time** and it can achieve an even higher frequency with the computation advancement of accelerators.
+
+        
+        
