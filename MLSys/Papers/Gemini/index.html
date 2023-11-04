@@ -2131,14 +2131,14 @@
 <p><img alt="Alt text" src="../assets/image-84.png" /></p>
 <h2 id="1-overview">1. Overview<a class="headerlink" href="#1-overview" title="Permanent link">&para;</a></h2>
 <figure>
-<p><img alt="Alt text" src="../assets/image-85.png" width="500" /></p>
+<p><img alt="Alt text" src="../assets/image-106.png" /></p>
 </figure>
 <ul>
 <li>
-<p>Existing solutions have significant failure recovery costs due to the severe restriction imposed by the <strong>bandwidth of remote storage in which they store checkpoints</strong>.</p>
+<p>Existing solutions have significant failure recovery costs due to the severe restriction imposed by the <strong>bandwidth of remote storage (（FSx in AWS、CFS in Tencent、VeFPS in ByteDance、NAS in Alibaba)in which they store checkpoints</strong>.</p>
 </li>
 <li>
-<p>This paper presents Gemini, a distributed training system that enables fast failure recovery for large model training by c<strong>heckpointing to CPU memory of the host machines with much larger aggregated bandwidth.</strong></p>
+<p>This paper presents Gemini, a distributed training system that enables fast failure recovery for large model training by <strong>checkpointing to CPU memory of the host machines with much larger aggregated bandwidth.</strong></p>
 </li>
 </ul>
 <p><strong>Challenges:</strong></p>
@@ -2180,6 +2180,17 @@ T_{\text {wasted }}=t_{c k p t}+\frac{1}{2 f}+t_{r t v l}
 </details>
 <details class="info">
 <summary>related work</summary>
+<ul>
+<li>
+<p>DeepFreeze(CCGRID'20) performs asynchronous checkpointing but stores checkpoints in remote persistent storage.</p>
+</li>
+<li>
+<p>Checkfreq(FAST'21): Fdynamically adjusts the checkpointing frequenc.</p>
+</li>
+<li>
+<p>Check-N-Run(NSDI'22): compresses checkpoints with lossy schemes to reduce required storage, but this may harm model accuracy and incur compression overheads.</p>
+</li>
+</ul>
 </details>
 <h3 id="24-opportunity">2.4 Opportunity<a class="headerlink" href="#24-opportunity" title="Permanent link">&para;</a></h3>
 <ul>
@@ -2196,7 +2207,7 @@ T_{\text {wasted }}=t_{c k p t}+\frac{1}{2 f}+t_{r t v l}
 </figure>
 <h2 id="3-designs">3. Designs<a class="headerlink" href="#3-designs" title="Permanent link">&para;</a></h2>
 <h3 id="31-checkpoint-placement">3.1 Checkpoint Placement<a class="headerlink" href="#31-checkpoint-placement" title="Permanent link">&para;</a></h3>
-<p><em>Given N machines and m checkpoint replicas, what is the optimal placement strategy to distribute the m replicas among the N machines to <strong>maximize the probability of failure recovery</strong> from CPU memory?</em></p>
+<p><em>Given <strong>N</strong> machines and <strong>m</strong> checkpoint replicas, what is the optimal placement strategy to distribute the m replicas among the N machines to <strong>maximize the probability of failure recovery</strong> from CPU memory?</em></p>
 <div class="admonition example">
 <p class="admonition-title">Mixed placement strategy</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">N = 4, m = 2</label><label for="__tabbed_1_2">N = 5, m = 2</label></div>
@@ -2375,6 +2386,54 @@ k
 </div>
 </div>
 <h3 id="42-wasted-time">4.2 Wasted time<a class="headerlink" href="#42-wasted-time" title="Permanent link">&para;</a></h3>
+<div class="admonition example">
+<p>training of GPT-2 100B</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">average wasted time</label><label for="__tabbed_4_2">checkpoint time reduction</label><label for="__tabbed_4_3">checkpoint frequency</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>16 p4d.24xlarge instances with different numbers of replaced instances
+<figure markdown>
+  <img alt="Alt text" src="../assets/image-103.png" width="300" />
+</figure></p>
+<ul>
+<li>
+<p>software failures: 1.5× the iteration time</p>
+</li>
+<li>
+<p>hardware failures: more than 13× compared to HighFreq</p>
+</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p><figure markdown>
+  <img alt="Alt text" src="../assets/image-104.png" width="300" />
+</figure></p>
+<ul>
+<li>Gemini’s checkpoint time reduces with an increase in the number of instances in our testbed because it utilizes the aggregated network bandwidth among GPU machines to write checkpoints to the CPU memory.</li>
+</ul>
+<div class="admonition question">
+<p class="admonition-title">Why?</p>
+</div>
+<ul>
+<li>with 16 p4d.24xlarge instances, the reduction is <strong>65×</strong> with a 100Gbps network, and it increases to more than <strong>250×</strong> with a 400Gbps network.</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p><figure markdown>
+  <img alt="Alt text" src="../assets/image-105.png" width="300" />
+</figure></p>
+<ul>
+<li>
+<p>Gemini improves the checkpoint frequency over HighFreq by <strong>8×</strong> and over Strawman by more than <strong>170×</strong></p>
+</li>
+<li>
+<p>the checkpoint frequency of Gemini is <strong>bounded by the iteration time</strong> and it can achieve an even higher frequency with the computation advancement of accelerators.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 <div class="footnote">
 <hr />
 <ol>
@@ -2395,7 +2454,7 @@ k
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-11-03T16:52:33+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-11-03</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-11-04T03:55:34+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-11-04</span>
       
         <br>
         创建日期:
