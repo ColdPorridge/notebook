@@ -1,0 +1,3223 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Gemini/">
+      
+      
+        <link rel="next" href="../../CMU10414/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.14">
+    
+    
+      
+        <title>Bamboo - 凉粥的学习笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.fad675c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+  
+  
+  
+  
+  <style>:root{--md-annotation-icon:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 13h-4v4h-2v-4H7v-2h4V7h2v4h4m-5-9A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2Z"/></svg>');}</style>
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Serif SC";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/timeago.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-background" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="凉粥的学习笔记" class="md-header__button md-logo" aria-label="凉粥的学习笔记" data-md-component="logo">
+      
+  <img src="../../../logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            凉粥的学习笔记
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Bamboo
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ColdPorridge/notebook" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ColdPorridge/notebook
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../.." class="md-tabs__link">
+          
+  
+    
+  
+  主页
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../OS/" class="md-tabs__link">
+          
+  
+    
+  
+  OS
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../SE/Tools/index.md" class="md-tabs__link">
+          
+  
+    
+  
+  SE
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Networking/RDMA/" class="md-tabs__link">
+          
+  
+    
+  
+  Networking
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../DB/" class="md-tabs__link">
+          
+  
+    
+  
+  DB
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Distributed%20System/" class="md-tabs__link">
+          
+  
+    
+  
+  Distributed Systems
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+    
+  
+  MLSys
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../DL%26ML/" class="md-tabs__link">
+          
+  
+    
+  
+  DL&ML
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Web/" class="md-tabs__link">
+          
+  
+    
+  
+  杂
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="凉粥的学习笔记" class="md-nav__button md-logo" aria-label="凉粥的学习笔记" data-md-component="logo">
+      
+  <img src="../../../logo.png" alt="logo">
+
+    </a>
+    凉粥的学习笔记
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ColdPorridge/notebook" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ColdPorridge/notebook
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../.." class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    主页
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            主页
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../OS/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    OS
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            OS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Storage stack
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Storage stack
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OS/Storagestack/IO/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    几种常见的IO方式
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    SE
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            SE
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tools
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Tools
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SE/Tools/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    None
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/execution.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Execution of Python Program
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Networking
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Networking
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Networking/RDMA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RDMA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../DB/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    DB
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            DB
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Distributed%20System/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Distributed Systems
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Distributed Systems
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Distributed%20System/%E5%89%91%E6%A1%A5%E5%88%86%E5%B8%83%E5%BC%8F/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    剑桥分布式系统课程
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            剑桥分布式系统课程
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Distributed%20System/%E5%89%91%E6%A1%A5%E5%88%86%E5%B8%83%E5%BC%8F/L1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Distributed%20System/%E5%89%91%E6%A1%A5%E5%88%86%E5%B8%83%E5%BC%8F/L2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Models of distributed systems
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Distributed%20System/%E5%89%91%E6%A1%A5%E5%88%86%E5%B8%83%E5%BC%8F/L3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Time, clocks, and ordering of events
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Distributed%20System/%E5%89%91%E6%A1%A5%E5%88%86%E5%B8%83%E5%BC%8F/L4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Broadcast protocols and logical time
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    MLSys
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            MLSys
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Networking
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            Networking
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Networking/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    None
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Networking/ARK/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ARK
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Papers
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_3" id="__nav_7_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7_3">
+            <span class="md-nav__icon md-icon"></span>
+            Papers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LoRA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LoRA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../FlashAttention/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FlashAttention
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLaMA-Adapter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LLaMA-Adapter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MixedPrecisionTraining/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mixed Precision Training
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PipeDream.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PipeDream
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Megatron-LM-v2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Megatron-LM-v2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Gemini/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gemini
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Bamboo
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Bamboo
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-background" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Background
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2motivation" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.Motivation:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.Motivation:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-high-preemption-rates-and-unpredictability-of-spot-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 high preemption rates and unpredictability of spot instances
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-high-performance-overheads-of-strawman-approaches" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 high performance overheads of strawman approaches
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-system-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. System overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Design
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-redundant-computation" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Redundant Computation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-schedule-redundant-computation" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 Schedule Redundant Computation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.2 Schedule Redundant Computation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#421-eager-frc" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2.1 Eager FRC
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#422-lazy-brc" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2.2 Lazy BRC
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#423-reduce-memory-overhead" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2.3 reduce memory overhead
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-recovery-from-non-fatal-preemptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 Recovery from non-fatal preemptions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-consecutive-preemptions-and-reconfiguration" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.4 Consecutive preemptions and reconfiguration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-support-for-multi-gpu-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.5 Support for Multi-GPU Nodes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.Evaluation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.Evaluation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-overall-performance-with-respect-to-training-costs" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 Overall performance with respect to training costs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-full-simulations-at-different-preemption-rates" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 Full simulations at different preemption rates
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-comparison-against-existing-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 Comparison against existing systems
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-microbenchmarks-of-redundant-computation" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.4 Microbenchmarks of Redundant Computation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_4" id="__nav_7_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Framework
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_4">
+            <span class="md-nav__icon md-icon"></span>
+            Framework
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Framework/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    None
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Framework/Pytorch_internals.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pytorch internals
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../CMU10414/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    CMU 10-414/714
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_5" id="__nav_7_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_5">
+            <span class="md-nav__icon md-icon"></span>
+            CMU 10-414/714
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CMU10414/basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deep learning basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CMU10414/AD/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Automatic Differentiation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CMU10414/NN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Neural Network Abstraction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CMU10414/NN_impl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Neural Network Implementation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CMU10414/GPU_acc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hardware Acceleration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CMU10414/Hardware_impl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hardware Acceleration Implementation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CMU10414/train_large_model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Training Large Models
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basic_summary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic Summary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../DL%26ML/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    DL&ML
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            DL&ML
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL%26ML/Transformer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transformer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL%26ML/GPT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GPT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL%26ML/HELM/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HELM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL%26ML/FLAN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FLAN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL%26ML/Self-Instruct/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Self-Instruct
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Web/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    杂
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            杂
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_2" id="__nav_9_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    浏览器内核
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_2">
+            <span class="md-nav__icon md-icon"></span>
+            浏览器内核
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Web/Browser%20Kernel/webview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    WebView
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-background" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Background
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2motivation" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.Motivation:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.Motivation:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-high-preemption-rates-and-unpredictability-of-spot-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 high preemption rates and unpredictability of spot instances
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-high-performance-overheads-of-strawman-approaches" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 high performance overheads of strawman approaches
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-system-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. System overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Design
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-redundant-computation" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Redundant Computation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-schedule-redundant-computation" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 Schedule Redundant Computation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.2 Schedule Redundant Computation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#421-eager-frc" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2.1 Eager FRC
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#422-lazy-brc" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2.2 Lazy BRC
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#423-reduce-memory-overhead" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2.3 reduce memory overhead
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-recovery-from-non-fatal-preemptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 Recovery from non-fatal preemptions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-consecutive-preemptions-and-reconfiguration" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.4 Consecutive preemptions and reconfiguration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-support-for-multi-gpu-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.5 Support for Multi-GPU Nodes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.Evaluation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.Evaluation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-overall-performance-with-respect-to-training-costs" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 Overall performance with respect to training costs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-full-simulations-at-different-preemption-rates" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 Full simulations at different preemption rates
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-comparison-against-existing-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 Comparison against existing systems
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-microbenchmarks-of-redundant-computation" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.4 Microbenchmarks of Redundant Computation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+  <h1>Bamboo</h1>
+
+<p><img alt="Alt text" src="../assets/image-107.png" /></p>
+<p><a href="https://www.usenix.org/conference/nsdi23/presentation/thorpe">NSDI'23</a></p>
+<h2 id="1-background">1. Background<a class="headerlink" href="#1-background" title="Permanent link">&para;</a></h2>
+<ul>
+<li>major public clouds provide spot instances with a price much cheaper than on-demand instances</li>
+</ul>
+<p><img alt="Alt text" src="../assets/v2-77e1d0c489999d0191e3d7c0d940cfd3_r.jpg" /></p>
+<ul>
+<li>
+<p>large datacenters often maintain certain amounts of compute resources that can be allocated for any non-urgent tasks but will be preempted as urgent tasks arise</p>
+</li>
+<li>
+<p>Similarly, recent ML systems allow training jobs to use inference-dedicated machines to fully utilize GPU resources but preempts those machines when high-priority inference jobs arrive.</p>
+</li>
+</ul>
+<h2 id="2motivation">2.Motivation:<a class="headerlink" href="#2motivation" title="Permanent link">&para;</a></h2>
+<h3 id="21-high-preemption-rates-and-unpredictability-of-spot-instances">2.1 high preemption rates and unpredictability of spot instances<a class="headerlink" href="#21-high-preemption-rates-and-unpredictability-of-spot-instances" title="Permanent link">&para;</a></h3>
+<div class="admonition example">
+<p class="admonition-title">real preemption traces</p>
+<ul>
+<li>
+<p>traces for a 24-hour window</p>
+</li>
+<li>
+<p>used an <strong>autoscaling group</strong> to maintain a cluster of 64/80</p>
+</li>
+</ul>
+<details class="info">
+<summary>autoscaling group</summary>
+<p>automatically allocates new instances upon preemptions to maintain the user specified size</p>
+</details>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Amazon EC2</label><label for="__tabbed_1_2">Google Cloud Platform</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><figure markdown>
+  <img alt="Alt text" src="../assets/image-108.png" width="width" />
+</figure>
+P3: NVIDIA V100 GPUs with 32GB of memory</p>
+<p>G4dn: NVIDIA T4 GPUs with 16GB of memory</p>
+</div>
+<div class="tabbed-block">
+<p><figure markdown>
+  <img alt="Alt text" src="../assets/image-109.png" width="width" />
+</figure>
+n1-standard-8: NVIDIA V100 GPUs with 16GB GRAM</p>
+<p>a2-highgpu-1g: NVIDIA A100 GPUs with 40GB GRAM</p>
+</div>
+</div>
+</div>
+<ul>
+<li>frequent, bulky and unpredictable        </li>
+</ul>
+</div>
+<h3 id="22-high-performance-overheads-of-strawman-approaches">2.2 high performance overheads of strawman approaches<a class="headerlink" href="#22-high-performance-overheads-of-strawman-approaches" title="Permanent link">&para;</a></h3>
+<p><strong>Strawman 1: Checkpointing</strong></p>
+<p>Each <strong>worker</strong> moves a copy of any relevant model state to <strong>CPU memory</strong> whenever the state is generated; the <strong>CPU</strong> then asynchronously writes it to <strong>remote storage</strong></p>
+<div class="admonition example">
+<p>train GPT-2 over 64 p3.2xlarge GPU spot instances
+<figure markdown>
+  <img alt="Alt text" src="../assets/image-110.png" width="width" />
+</figure></p>
+</div>
+<p>As shown, although checkpointing itself can be done efficiently, the restarting overheads (i.e., for adapting existing checkpoints to new pipeline configurations) and the wasted computations take 77% of the training time.</p>
+<p><strong>Strawman 2: Sample Dropping</strong></p>
+<p>Take advantage of the statistical robustness of DNN training and allow some samples to be dropped so that training can continue.</p>
+<p>We ran a pre-training benchmark with GPT-2 using 16 on-demand instances from the same EC2 family, which form four data-parallel pipelines, each with four stages.</p>
+<figure>
+<p><img alt="Alt text" src="../assets/image-111.png" width="width" /></p>
+</figure>
+<h2 id="3-system-overview">3. System overview<a class="headerlink" href="#3-system-overview" title="Permanent link">&para;</a></h2>
+<p><strong>User Interface:</strong></p>
+<ul>
+<li>
+<p>To use Bamboo, a user specifies two system parameters <span class="arithmatex">\(D\)</span> and <span class="arithmatex">\(P\)</span> , as they normal would to use other pipeline-parallel systems</p>
+</li>
+<li>
+<p>Due to the need of storing redundant layers, Bamboo requires a larger pipeline depth <span class="arithmatex">\(P\)</span> than a normal pipeline-parallel system such as PipeDream</p>
+</li>
+<li>
+<p>We observed, empirically, that to avoid swapping data between CPU and GPU memory on the critical path, Bamboo’s pipeline should be ∼1.5× longer than an on-demand pipeline</p>
+</li>
+</ul>
+<figure>
+<p><img alt="Alt text" src="../assets/image-144.png" /></p>
+</figure>
+<figure>
+<p><img alt="Alt text" src="../assets/image-145.png" /></p>
+</figure>
+<details class="info">
+<summary>Details</summary>
+<ul>
+<li>
+<p>Our spot instances are managed by Kubernetes, which is configured to automatically scale by launching a Bamboo agent on each new allocation.</p>
+</li>
+<li>
+<p>Bamboo agent: Agent monitors a Bamboo worker process on the same node, runs on each node to kill/add a data-parallel pipeline, on top o f TorchElastic.</p>
+</li>
+<li>
+<p>Agents communicate and store cluster state on etcd, a distributed key-value store.</p>
+</li>
+<li>
+<p>Each Bamboo worker uses a runtime to interpret the schedule, which produces a sequence of instructions.</p>
+</li>
+</ul>
+</details>
+<h2 id="4-design">4. Design<a class="headerlink" href="#4-design" title="Permanent link">&para;</a></h2>
+<div class="admonition summary">
+<p class="admonition-title">High level idea</p>
+<ul>
+<li>
+<p><strong>Redundant Layers</strong></p>
+</li>
+<li>
+<p><strong>Redundant Computation</strong></p>
+</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:5"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">frame1</label><label for="__tabbed_2_2">frame2</label><label for="__tabbed_2_3">frame3</label><label for="__tabbed_2_4">frame4</label><label for="__tabbed_2_5">frame5</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><img alt="Alt text" src="../assets/image-112.png" width="width" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="Alt text" src="../assets/image-146.png" width="width" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="Alt text" src="../assets/image-114.png" width="width" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="Alt text" src="../assets/image-115.png" width="width" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="Alt text" src="../assets/image-117.png" width="width" /></p>
+</div>
+</div>
+</div>
+<details class="question">
+<summary>parameter update of redundant stage</summary>
+<p>before each iteration starts, Bamboo should update the parameters of the redundant stage to be the same as the normal stage.</p>
+</details>
+</div>
+<h3 id="41-redundant-computation">4.1 Redundant Computation<a class="headerlink" href="#41-redundant-computation" title="Permanent link">&para;</a></h3>
+<p>Our discussion focuses on one node running one stage in the pipeline, Support for multi-GPU nodes will be discussed shortly.</p>
+<p>Key idea is to let each node run normal (forward and backward) computation over its own layers and redundant (forward and backward) computation over the replica layers for its successor node.</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(FNC_n\)</span>/<span class="arithmatex">\(BNC_n\)</span> denote the forward/backward normal computation on node n</p>
+</li>
+<li>
+<p><span class="arithmatex">\(FRC_n^m\)</span>/<span class="arithmatex">\(BRC_n^m\)</span> denote the forward/backward redundant computation on node m for node n. In Bamboo, n = (m + 1) mod P where P is the pipeline depth.</p>
+</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Dependency graph</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">normal pipeline stages</label><label for="__tabbed_3_2">RC-enabled pipeline stages</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><figure markdown>
+    <img alt="Alt text" src="../assets/image-120.png" width="width" />
+</figure></p>
+</div>
+<div class="tabbed-block">
+<p><figure markdown>
+    <img alt="Alt text" src="../assets/image-121.png" width="width" />
+</figure></p>
+</div>
+</div>
+</div>
+</div>
+<p><strong>eager-FRC-lazy-BRC design:</strong></p>
+<p>Eager FRC incurs an overall ∼1.5× overhead in GPU memory (that is why Bamboo recommends creating pipelines with 1.5× more nodes)</p>
+<h3 id="42-schedule-redundant-computation">4.2 Schedule Redundant Computation<a class="headerlink" href="#42-schedule-redundant-computation" title="Permanent link">&para;</a></h3>
+<p>RC incurs an overhead in both <strong>time</strong> and <strong>memory</strong>.</p>
+<h4 id="421-eager-frc">4.2.1 Eager FRC<a class="headerlink" href="#421-eager-frc" title="Permanent link">&para;</a></h4>
+<p><strong>schedule FRC into the pipeline bubble to reduce forward computation overhead</strong></p>
+<div class="admonition info">
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">start up phase</label><label for="__tabbed_4_2">steady phase</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><figure markdown>
+  <img alt="Alt text" src="../assets/image-122.png" width="400" />
+</figure></p>
+</div>
+<div class="tabbed-block">
+<p><figure markdown>
+  <img alt="Alt text" src="assets/image-147.png" width="400" />
+</figure></p>
+<p>However, even for 1F1B, bubbles widely exist in a pipeline—as a microbatch passes different pipeline stages, the later a stage, the longer the (backward and forward) computation takes.</p>
+<p><figure markdown>
+  <img alt="Alt text" src="../assets/image-125.png" />
+</figure></p>
+<p>This is because for the 1F1B schedule, the number of active microbatches in a later stage is always smaller than that in an earlier stage. To balance memory usage, the layer partition on a later node is often larger that that on an earlier node in the pipeline, and hence a later stage runs slower.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>measured the sizes of the pipeline bubble and forward computation of BERT, </p>
+<p><figure markdown>
+  <img alt="Alt text" src="../assets/image-126.png" />
+</figure></p>
+</div>
+<div class="admonition example">
+<p>Bamboo schedules <span class="arithmatex">\(FNC_n\)</span> for the k-th microbatch and <span class="arithmatex">\(FRC_n^(n+1)\)</span> for its previous (k − 1)-th microbatch to run in parallel.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">frame 1</label><label for="__tabbed_5_2">frame 2</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><figure markdown>
+  <img alt="Alt text" src="assets/image-148.png" width="400" />
+</figure></p>
+</div>
+<div class="tabbed-block">
+<p><figure markdown>
+  <img alt="Alt text" src="assets/image-149.png" width="400" />
+</figure></p>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li>
+<p>Based on this observation, we schedule FRC on a node before the node starts communicating with its successor node. </p>
+</li>
+<li>
+<p>This is where a bubble exists. In cases where the FRC cannot fit entirely into the bubble, we overlap FRC and FNC as much as we can.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<h4 id="422-lazy-brc">4.2.2 Lazy BRC<a class="headerlink" href="#422-lazy-brc" title="Permanent link">&para;</a></h4>
+<p>perform BRC lazily to reduce backward computation/communication overhead:</p>
+<ul>
+<li>
+<p>corresponding bubble does not exist</p>
+</li>
+<li>
+<p>communication between nodes</p>
+</li>
+</ul>
+<h4 id="423-reduce-memory-overhead">4.2.3 reduce memory overhead<a class="headerlink" href="#423-reduce-memory-overhead" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>Note that the major source of the memory overhead is storing intermediate results (activations and optimizer state) from FRC, not the redundant layers.</p>
+</li>
+<li>
+<p>Bamboo swaps out the intermediate results of each node’s FRC into the node’s CPU memory, leading to substantial reduction in GPU memory usage.</p>
+</li>
+</ul>
+<h3 id="43-recovery-from-non-fatal-preemptions">4.3 Recovery from non-fatal preemptions<a class="headerlink" href="#43-recovery-from-non-fatal-preemptions" title="Permanent link">&para;</a></h3>
+<div class="admonition example">
+<p class="admonition-title">Lazy BRC execution</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:3"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">frame 1</label><label for="__tabbed_6_2">frame 2</label><label for="__tabbed_6_3">frame 3</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><figure markdown>
+  <img alt="Alt text" src="assets/image-150.png" width="400" />
+</figure></p>
+</div>
+<div class="tabbed-block">
+<p>detecting its successor node fails
+<figure markdown>
+  <img alt="Alt text" src="assets/image-151.png" width="400" />
+</figure></p>
+</div>
+<div class="tabbed-block">
+<p>for the current iteration, all the lost gradients must be re-computed
+<figure markdown>
+  <img alt="Alt text" src="assets/image-152.png" width="400" />
+</figure></p>
+</div>
+</div>
+</div>
+</div>
+<p><strong>Merge instruction groups:</strong></p>
+<figure>
+<p><img alt="Alt text" src="../assets/image-134.png" width="500" /></p>
+</figure>
+<figure>
+<p><img alt="Alt text" src="../assets/image-132.png" width="500" /></p>
+</figure>
+<p>When the two instruction groups are merged, the instructions are interleaved with the following rules: Omitted here, see the paper for details.</p>
+<h3 id="44-consecutive-preemptions-and-reconfiguration">4.4 Consecutive preemptions and reconfiguration<a class="headerlink" href="#44-consecutive-preemptions-and-reconfiguration" title="Permanent link">&para;</a></h3>
+<p><strong>Consecutive Failures Are Fatal:</strong></p>
+<figure>
+<p><img alt="Alt text" src="../assets/image-127.png" width="500" /></p>
+</figure>
+<p><strong>Avoid consecutive preemptions：</strong></p>
+<div class="admonition info">
+<p class="admonition-title">Observation</p>
+<p><figure markdown>
+  <img alt="Alt text" src="../assets/image-128.png" width="400" />
+</figure></p>
+<ul>
+<li>
+<p>analyzed two 24-hour preemption traces collected respectively from EC2 and GCP</p>
+</li>
+<li>
+<p>EC2: 7 out of 128 timestamps see cross-zone preemptions</p>
+</li>
+<li>
+<p>GCP: 12 out of 328 timestamps see cross-zone preemptions</p>
+</li>
+<li>
+<p>preemptions tend to be independent based on each individual spot market and each availability zone has a different and independent spot market.</p>
+</li>
+</ul>
+</div>
+<figure>
+<p><img alt="Alt text" src="../assets/image-131.png" width="400" /></p>
+</figure>
+<figure>
+<p><img alt="Alt text" src="../assets/image-130.png" width="400" /></p>
+</figure>
+<details class="info">
+<summary>cross-zone data transfer overhead</summary>
+<p>Although cross-zone data transfer can incur an overhead, this overhead is negligible (e.g., &lt;3%)
+<figure markdown>
+  <img alt="Alt text" src="../assets/image-135.png" width="400" />
+</figure></p>
+<ul>
+<li>
+<p>Spread: nodes distributed across all zones</p>
+</li>
+<li>
+<p>Cluster: in a single availability zone with AWS’s "Placement Group" option set to "Cluster"</p>
+</li>
+</ul>
+</details>
+<p><strong>Pipeline Reconfiguration:</strong></p>
+<ul>
+<li>
+<p>Bamboo periodically checkpoints the model state. These checkpoints will not be used unless Bamboo restarts the training from a rare fatal failure.</p>
+</li>
+<li>
+<p>Reconfiguration Policy: Bamboo attempts to maintain the pipeline depth <span class="arithmatex">\(P\)</span> specified by the user. </p>
+</li>
+<li>
+<p>Sometimes need to decrease <span class="arithmatex">\(P\)</span> to decrease the total number of data-parallel pipelines. The remaining nodes are placed in a standby queue to provide quick replacement upon future failures.</p>
+</li>
+<li>
+<p>The number of nodes joining, together with those in the standby queue, can form a new pipeline, and in this case we add a new pipeline to the system.</p>
+</li>
+</ul>
+<h3 id="45-support-for-multi-gpu-nodes">4.5 Support for Multi-GPU Nodes<a class="headerlink" href="#45-support-for-multi-gpu-nodes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Bamboo's RC works for multi-GPU settings—this requires replicating all layers that belong to the GPUs of one node in the GPUs of its predecessor node. In other words, we use “<strong>group replicas</strong>” as opposed to individual replicas.</p>
+</li>
+<li>
+<p>However, in the presence of frequent preemptions, <strong>using multi-GPU would yield poorer performance</strong>:</p>
+<ul>
+<li>
+<p>losing one node (with multiple GPUs) is equivalent to losing multiple nodes in the single-GPU setting. </p>
+</li>
+<li>
+<p>It is much harder to allocate new multi-GPU nodes during training than single-GPU nodes.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="5evaluation">5.Evaluation<a class="headerlink" href="#5evaluation" title="Permanent link">&para;</a></h2>
+<p><strong>Setup.</strong></p>
+<ul>
+<li>
+<p><strong>On top of TorchElastic and DeepSpeed</strong>, we implemented Bamboo ∼7K LoC as a standard Python library</p>
+</li>
+<li>
+<p>models:</p>
+</li>
+</ul>
+<figure>
+<p><img alt="Alt text" src="assets/image-156.png" width="400" /></p>
+</figure>
+<ul>
+<li>
+<p>We trained these models on a spot cluster from EC2’s p3 family where <strong>each instance has V100 GPU(s) with 16GB GPU memory and 61GB CPU memory.</strong></p>
+</li>
+<li>
+<p>Each On-demand instance costs $3.06/hr per GPU while the price of its spot counter-part (at the time of our experiments) is $0.918/hr.</p>
+</li>
+<li>
+<p>Baselines:</p>
+<ul>
+<li>
+<p>p3 instances each with four V100 GPUs (Demand-M)</p>
+</li>
+<li>
+<p>p3 instances each with one V100 GPU (Demand-S)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>we trained each model to a target validation accuracy, which is a particular number of samples for the model.</p>
+</li>
+<li>
+<p>metric: Value = Throughtput (samples/sec) per dollar</p>
+</li>
+</ul>
+<h3 id="51-overall-performance-with-respect-to-training-costs">5.1 Overall performance with respect to training costs<a class="headerlink" href="#51-overall-performance-with-respect-to-training-costs" title="Permanent link">&para;</a></h3>
+<details class="info">
+<summary>Details</summary>
+<p><img alt="Alt text" src="../assets/image-137.png" /></p>
+</details>
+<div class="admonition example">
+<p class="admonition-title">BERT-Large(300M)</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:3"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><input id="__tabbed_7_3" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Trace</label><label for="__tabbed_7_2">Throughtput</label><label for="__tabbed_7_3">Cost</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><figure markdown>
+    <img alt="Alt text" src="../assets/image-138.png" width="width" />
+</figure></p>
+</div>
+<div class="tabbed-block">
+<p><figure markdown>
+    <img alt="Alt text" src="../assets/image-139.png" width="width" />
+</figure></p>
+</div>
+<div class="tabbed-block">
+<p><figure markdown>
+    <img alt="Alt text" src="../assets/image-140.png" width="width" />
+</figure></p>
+</div>
+</div>
+</div>
+</div>
+<h3 id="52-full-simulations-at-different-preemption-rates">5.2 Full simulations at different preemption rates<a class="headerlink" href="#52-full-simulations-at-different-preemption-rates" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Simulated BERT-large training until completion at different levels of preemption</p>
+</li>
+<li>
+<p>Even at high preemptions Bamboo maintains high value</p>
+</li>
+</ul>
+<figure>
+<p><img alt="Alt text" src="../assets/image-141.png" width="400" /></p>
+</figure>
+<h3 id="53-comparison-against-existing-systems">5.3 Comparison against existing systems<a class="headerlink" href="#53-comparison-against-existing-systems" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Varuna(Eurosys'22) provides resilience with checkpointing.</p>
+</li>
+<li>
+<p>We set up Varuna on the same spot cluster on AWS EC2</p>
+</li>
+</ul>
+<figure>
+<p><img alt="Alt text" src="../assets/image-142.png" width="400" /></p>
+</figure>
+<h3 id="54-microbenchmarks-of-redundant-computation">5.4 Microbenchmarks of Redundant Computation<a class="headerlink" href="#54-microbenchmarks-of-redundant-computation" title="Permanent link">&para;</a></h3>
+<figure>
+<p><img alt="Alt text" src="../assets/image-143.png" width="300" /></p>
+</figure>
+<figure>
+<p><img alt="Alt text" src="assets/image-157.png" width="400" /></p>
+</figure>
+<p>As shown, lazy FRC reduces pause time by <strong>∼35%</strong> despite the slightly higher per-iteration overhead it introduces. In summary, eager-FRC-lazy-BRC strikes the right balance between <strong>overhead and pause time</strong>.</p>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      最后更新:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-12-01T17:38:34+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-12-01</span>
+      
+        <br>
+        创建日期:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-12-01T14:04:19+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-12-01</span>
+      
+    
+  </small>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tracking", "navigation.indexes", "navigation.top", "content.code.select", "content.code.copy", "content.code.select", "content.code.annotate", "toc.follow"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.cd18aaf1.min.js"></script>
+      
+        <script src="../../../js/timeago.min.js"></script>
+      
+        <script src="../../../js/timeago_mkdocs_material.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../../javascripts/katex.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>
