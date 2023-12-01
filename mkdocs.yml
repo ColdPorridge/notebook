@@ -7,6 +7,11 @@ nav:
   - Storage stack:
     - 几种常见的IO方式: OS/Storagestack/IO.md
 
+- SE:
+  - Tools:
+    - SE/Tools/index.md
+  - python:
+    - Execution of Python Program: python/execution.md
 - Networking:
   - RDMA: Networking/RDMA.md
 
@@ -34,6 +39,10 @@ nav:
     - PipeDream: MLSys/Papers/PipeDream.md
     - Megatron-LM-v2: MLSys/Papers/Megatron-LM-v2.md
     - Gemini: MLSys/Papers/Gemini.md
+    - Bamboo: MLSys/Papers/Bamboo.md
+  - Framework:
+    - MLSys/Framework/index.md
+    - Pytorch internals: MLSys/Framework/Pytorch_internals.md
   - CMU 10-414/714: 
     - MLSys/CMU10414/index.md
     - Deep learning basics: MLSys/CMU10414/basics.md

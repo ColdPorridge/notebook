@@ -99,9 +99,9 @@ We ran a pre-training benchmark with GPT-2 using 16 on-demand instances from the
 
 ## 4. Design
 !!! summary "High level idea"
-    - Redundant Layers
+    - **Redundant Layers**
 
-    - Redundant Computation
+    - **Redundant Computation**
     
     === "frame1"
         ![Alt text](assets/image-112.png){ width = 300 }
@@ -119,8 +119,9 @@ We ran a pre-training benchmark with GPT-2 using 16 on-demand instances from the
         ![Alt text](assets/image-117.png){ width = 300 }
 
     ??? question "parameter update of redundant stage"
-            before each iteration starts, Bamboo should update the parameters of the redundant stage to be the same as the normal stage.        
-### 4.1 Redundant Layers and Computation
+        before each iteration starts, Bamboo should update the parameters of the redundant stage to be the same as the normal stage.
+        
+### 4.1 Redundant Computation
 Our discussion focuses on one node running one stage in the pipeline, Support for multi-GPU nodes will be discussed shortly.
 
 Key idea is to let each node run normal (forward and backward) computation over its own layers and redundant (forward and backward) computation over the replica layers for its successor node.
@@ -147,61 +148,113 @@ Key idea is to let each node run normal (forward and backward) computation over 
 Eager FRC incurs an overall ∼1.5× overhead in GPU memory (that is why Bamboo recommends creating pipelines with 1.5× more nodes)
 
 ### 4.2 Schedule Redundant Computation
-RC incurs an overhead in both time and memory.
+RC incurs an overhead in both **time** and **memory**.
 
-- schedule FRC into the pipeline bubble to reduce forward computation overhead
 
-- perform BRC lazily to reduce backward computation/communication overhead
+#### 4.2.1 Eager FRC
 
-- offload unnecessary tensors to CPU memory to reduce memory overhead.
+**schedule FRC into the pipeline bubble to reduce forward computation overhead**
 
-<figure markdown>
-  ![Alt text](assets/image-122.png)
-</figure>
+!!! info ""
+    === "start up phase"
+        <figure markdown>
+          ![Alt text](assets/image-122.png){ width=400 }
+        </figure>
 
-<figure markdown>
-  ![Alt text](assets/image-124.png)
-</figure>
+    === "steady phase"
+        <figure markdown>
+          ![Alt text](assets/image-147.png){ width=400 }
+        </figure>
+        
+        However, even for 1F1B, bubbles widely exist in a pipeline—as a microbatch passes different pipeline stages, the later a stage, the longer the (backward and forward) computation takes.
+        
+        <figure markdown>
+          ![Alt text](assets/image-125.png)
+        </figure>
+        
+        This is because for the 1F1B schedule, the number of active microbatches in a later stage is always smaller than that in an earlier stage. To balance memory usage, the layer partition on a later node is often larger that that on an earlier node in the pipeline, and hence a later stage runs slower.
+        
+        !!! example
+            measured the sizes of the pipeline bubble and forward computation of BERT, 
+            
+            <figure markdown>
+              ![Alt text](assets/image-126.png)
+            </figure>
+        !!! example ""
+            Bamboo schedules $FNC_n$ for the k-th microbatch and $FRC_n^(n+1)$ for its previous (k − 1)-th microbatch to run in parallel.
+            === "frame 1"
+                <figure markdown>
+                  ![Alt text](assets/image-148.png){ width=400 }
+                </figure>
+            
+            === "frame 2"
+                <figure markdown>
+                  ![Alt text](assets/image-149.png){ width=400 }
+                </figure>
+        - Based on this observation, we schedule FRC on a node before the node starts communicating with its successor node. 
 
-- However, even for 1F1B, bubbles widely exist in a pipeline—as a microbatch passes different pipeline stages, the later a stage, the longer the (backward and forward) computation takes.
+        - This is where a bubble exists. In cases where the FRC cannot fit entirely into the bubble, we overlap FRC and FNC as much as we can.
 
-- This is because for the 1F1B schedule, the number of active microbatches in a later stage is always smaller than that in an earlier stage.
+#### 4.2.2 Lazy BRC
+perform BRC lazily to reduce backward computation/communication overhead:
 
-- To balance memory usage, the layer partition on a later node is often larger that that on an earlier node in the pipeline, and hence a later stage runs slower.
+- corresponding bubble does not exist
 
-![Alt text](assets/image-125.png)
+- communication between nodes
 
-measured the sizes of the pipeline bubble and forward computation of BERT, 
-![Alt text](assets/image-126.png)
+#### 4.2.3 reduce memory overhead
+- Note that the major source of the memory overhead is storing intermediate results (activations and optimizer state) from FRC, not the redundant layers.
 
-- Based on this observation, we schedule FRC on a node before the node starts communicating with its successor node. 
+- Bamboo swaps out the intermediate results of each node’s FRC into the node’s CPU memory, leading to substantial reduction in GPU memory usage.
 
-- This is where a bubble exists. In cases where the FRC cannot fit entirely into the bubble, we overlap FRC and FNC as much as we can.
 
 ### 4.3 Recovery from non-fatal preemptions
 
+
+!!! example "Lazy BRC execution"
+    === "frame 1"
+        <figure markdown>
+          ![Alt text](assets/image-150.png){ width=400 }
+        </figure>
+    === "frame 2"
+        detecting its successor node fails
+        <figure markdown>
+          ![Alt text](assets/image-151.png){ width=400 }
+        </figure>
+    === "frame 3"
+        for the current iteration, all the lost gradients must be re-computed
+        <figure markdown>
+          ![Alt text](assets/image-152.png){ width=400 }
+        </figure>
+
+
+**Merge instruction groups:**
+
 <figure markdown>
-  ![Alt text](assets/image-134.png){ width=400 }
+  ![Alt text](assets/image-134.png){ width=500 }
 </figure>
 
 
 <figure markdown>
-  ![Alt text](assets/image-132.png){ width=450 }
+  ![Alt text](assets/image-132.png){ width=500 }
 </figure>
 
-When the two instruction groups (from the victim and shadow nodes) are merged, the instructions are interleaved with the following rules: Omitted here, see the paper for details
+When the two instruction groups are merged, the instructions are interleaved with the following rules: Omitted here, see the paper for details.
 
 ### 4.4 Consecutive preemptions and reconfiguration
 
 **Consecutive Failures Are Fatal:**
 
 <figure markdown>
-  ![Alt text](assets/image-127.png)
+  ![Alt text](assets/image-127.png){ width=500 }
 </figure>
 
 **Avoid consecutive preemptions：**
+
 !!! info "Observation"
-    ![Alt text](assets/image-128.png)
+    <figure markdown>
+      ![Alt text](assets/image-128.png){ width=400 }
+    </figure>
 
     - analyzed two 24-hour preemption traces collected respectively from EC2 and GCP
 
@@ -227,7 +280,7 @@ When the two instruction groups (from the victim and shadow nodes) are merged, t
 
     - Spread: nodes distributed across all zones
 
-    - Cluster: in a single availability zone with AWS’ “Placement Group” option set to “Cluster”
+    - Cluster: in a single availability zone with AWS’s "Placement Group" option set to "Cluster"
 
 
 **Pipeline Reconfiguration:**
@@ -242,13 +295,14 @@ When the two instruction groups (from the victim and shadow nodes) are merged, t
 
 ### 4.5 Support for Multi-GPU Nodes
 
-- Bamboo’s RC works for multi-GPU settings—this requires replicating all layers that belong to the GPUs of one node in the GPUs of its predecessor node. In other words, we use “**group replicas**” as opposed to individual replicas.
+- Bamboo's RC works for multi-GPU settings—this requires replicating all layers that belong to the GPUs of one node in the GPUs of its predecessor node. In other words, we use “**group replicas**” as opposed to individual replicas.
 
-- However, in the presence of frequent preemptions, **using multi-GPU would yield poorer performance**—losing one node (with multiple GPUs) is equivalent to losing multiple nodes in the single-GPU setting.
+- However, in the presence of frequent preemptions, **using multi-GPU would yield poorer performance**:
 
-**pipeline reconfiguration:**
+    - losing one node (with multiple GPUs) is equivalent to losing multiple nodes in the single-GPU setting. 
 
-![Alt text](assets/image-116.png)
+    - It is much harder to allocate new multi-GPU nodes during training than single-GPU nodes.
+
 
 ## 5.Evaluation
 
@@ -258,12 +312,13 @@ When the two instruction groups (from the victim and shadow nodes) are merged, t
 
 - models:
 <figure markdown>
-    ![Alt text](assets/image-136.png){ width = 400 }
+  ![Alt text](assets/image-156.png){ width=400 }
 </figure>
+
 
 - We trained these models on a spot cluster from EC2’s p3 family where **each instance has V100 GPU(s) with 16GB GPU memory and 61GB CPU memory.**
 
-- Each on-demand instance costs **$3.06/hr** per GPU while the price of its spot counter-part (at the time of our experiments) is **$0.918/hr**.
+- Each On-demand instance costs $3.06/hr per GPU while the price of its spot counter-part (at the time of our experiments) is $0.918/hr.
 
 - Baselines:
 
@@ -322,3 +377,9 @@ When the two instruction groups (from the victim and shadow nodes) are merged, t
 <figure markdown>
   ![Alt text](assets/image-143.png){ width=300 }
 </figure>
+
+<figure markdown>
+  ![Alt text](assets/image-157.png){ width=400 }
+</figure>
+
+As shown, lazy FRC reduces pause time by **∼35%** despite the slightly higher per-iteration overhead it introduces. In summary, eager-FRC-lazy-BRC strikes the right balance between **overhead and pause time**.
