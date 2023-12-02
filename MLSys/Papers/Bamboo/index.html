@@ -2851,8 +2851,6 @@ n1-standard-8: NVIDIA V100 GPUs with 16GB GRAM</p>
 </div>
 </div>
 </div>
-<p><strong>eager-FRC-lazy-BRC design:</strong></p>
-<p>Eager FRC incurs an overall ∼1.5× overhead in GPU memory (that is why Bamboo recommends creating pipelines with 1.5× more nodes)</p>
 <h3 id="42-schedule-redundant-computation">4.2 Schedule Redundant Computation<a class="headerlink" href="#42-schedule-redundant-computation" title="Permanent link">&para;</a></h3>
 <p>RC incurs an overhead in both <strong>time</strong> and <strong>memory</strong>.</p>
 <h4 id="421-eager-frc">4.2.1 Eager FRC<a class="headerlink" href="#421-eager-frc" title="Permanent link">&para;</a></h4>
@@ -2904,6 +2902,9 @@ n1-standard-8: NVIDIA V100 GPUs with 16GB GRAM</p>
 </li>
 <li>
 <p>This is where a bubble exists. In cases where the FRC cannot fit entirely into the bubble, we overlap FRC and FNC as much as we can.</p>
+</li>
+<li>
+<p>Eager FRC incurs an overall ∼1.5× overhead in GPU memory (that is why Bamboo recommends creating pipelines with 1.5× more nodes)</p>
 </li>
 </ul>
 </div>
@@ -3059,8 +3060,14 @@ n1-standard-8: NVIDIA V100 GPUs with 16GB GRAM</p>
 <p>We trained these models on a spot cluster from EC2’s p3 family where <strong>each instance has V100 GPU(s) with 16GB GPU memory and 61GB CPU memory.</strong></p>
 </li>
 <li>
-<p>Each On-demand instance costs $3.06/hr per GPU while the price of its spot counter-part (at the time of our experiments) is $0.918/hr.</p>
+<p>Each On-demand instance costs 3.06 USD/hr per GPU while the price of its spot counter-part (at the time of our experiments) is 0.918 USD/hr.</p>
 </li>
+</ul>
+<details class="info">
+<summary>EC2 p3 family</summary>
+<p><img alt="Alt text" src="assets/image-159.png" /></p>
+</details>
+<ul>
 <li>
 <p>Baselines:</p>
 <ul>
@@ -3132,7 +3139,7 @@ n1-standard-8: NVIDIA V100 GPUs with 16GB GRAM</p>
 </figure>
 <h3 id="54-microbenchmarks-of-redundant-computation">5.4 Microbenchmarks of Redundant Computation<a class="headerlink" href="#54-microbenchmarks-of-redundant-computation" title="Permanent link">&para;</a></h3>
 <figure>
-<p><img alt="Alt text" src="../assets/image-143.png" width="300" /></p>
+<p><img alt="Alt text" src="../assets/image-143.png" width="400" /></p>
 </figure>
 <figure>
 <p><img alt="Alt text" src="assets/image-157.png" width="400" /></p>
@@ -3144,7 +3151,7 @@ n1-standard-8: NVIDIA V100 GPUs with 16GB GRAM</p>
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-12-01T17:38:34+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-12-01</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-12-02T04:16:12+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-12-02</span>
       
         <br>
         创建日期:
