@@ -142,11 +142,6 @@ Key idea is to let each node run normal (forward and backward) computation over 
             ![Alt text](assets/image-121.png){ width = 300 }
         </figure>
 
-
-**eager-FRC-lazy-BRC design:**
-
-Eager FRC incurs an overall ∼1.5× overhead in GPU memory (that is why Bamboo recommends creating pipelines with 1.5× more nodes)
-
 ### 4.2 Schedule Redundant Computation
 RC incurs an overhead in both **time** and **memory**.
 
@@ -195,6 +190,8 @@ RC incurs an overhead in both **time** and **memory**.
 
         - This is where a bubble exists. In cases where the FRC cannot fit entirely into the bubble, we overlap FRC and FNC as much as we can.
 
+        - Eager FRC incurs an overall ∼1.5× overhead in GPU memory (that is why Bamboo recommends creating pipelines with 1.5× more nodes)
+  
 #### 4.2.2 Lazy BRC
 perform BRC lazily to reduce backward computation/communication overhead:
 
@@ -318,7 +315,10 @@ When the two instruction groups are merged, the instructions are interleaved wit
 
 - We trained these models on a spot cluster from EC2’s p3 family where **each instance has V100 GPU(s) with 16GB GPU memory and 61GB CPU memory.**
 
-- Each On-demand instance costs $3.06/hr per GPU while the price of its spot counter-part (at the time of our experiments) is $0.918/hr.
+- Each On-demand instance costs 3.06 USD/hr per GPU while the price of its spot counter-part (at the time of our experiments) is 0.918 USD/hr.
+
+??? info "EC2 p3 family"
+    ![Alt text](assets/image-159.png)
 
 - Baselines:
 
@@ -375,7 +375,7 @@ When the two instruction groups are merged, the instructions are interleaved wit
 ### 5.4 Microbenchmarks of Redundant Computation
 
 <figure markdown>
-  ![Alt text](assets/image-143.png){ width=300 }
+  ![Alt text](assets/image-143.png){ width=400 }
 </figure>
 
 <figure markdown>
